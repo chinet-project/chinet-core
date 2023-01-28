@@ -1,0 +1,199 @@
+.form-details {
+  margin-top: 3.6rem;
+
+  .input-block {
+    &:first-child {
+      width: 50%;
+    }
+  }
+
+  .wallet-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      margin: 2.9rem 0;
+      width: 100%;
+      max-width: 15rem;
+    }
+  }
+}
+
+.form-seed {
+  background-color: $seedPhraseFormBackgroundColor;
+  border-radius: 1rem;
+
+  .form-content {
+    & > label {
+      color: $mainTextColor;
+      margin-left: -1rem;
+      line-height: 1.9rem;
+      margin-bottom: 2rem;
+    }
+    .icon.info {
+      margin-left: 0.7rem;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      background: center / contain no-repeat url(~src/assets/icons/info.svg);
+      width: 2rem;
+      height: 2rem;
+    }
+
+    padding: 2rem 3rem 3rem 3rem;
+    width: 100%;
+  }
+
+  .seed-phrase-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 38rem;
+    width: 100%;
+    .input-block,
+    button {
+      width: 100%;
+    }
+    .input-block {
+      label {
+        display: flex;
+      }
+    }
+    .secured-seed {
+      margin-left: 1.5rem;
+      color: $blueTextColor;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .icon {
+        margin-right: 0.7rem;
+      }
+    }
+    button {
+      width: 38rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      .icon {
+        margin-right: 0.8rem;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
+}
+
+.seed-phrase {
+  background-color: $seedPhraseFormBackgroundColor;
+  border-radius: 1rem;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  width: 100%;
+  &-title {
+    color: $mainTextColor;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .right-part {
+      display: inline-flex;
+      align-items: center;
+      .icon {
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        &.secured,
+        &.unsecured {
+          margin-left: 0.7rem;
+        }
+      }
+
+      span {
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        display: inline-flex;
+        align-items: center;
+        .icon {
+          margin-left: 0.7rem;
+        }
+      }
+    }
+  }
+  &-content {
+    padding: 1rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    .item {
+      color: $blueTextColor;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      width: calc(100% / 7);
+      min-height: 35px;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+    }
+  }
+  &-footer {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: fit-content;
+    &-text {
+      display: flex;
+      align-items: center;
+      .title {
+        margin-left: 0.7rem;
+        color: $blueTextColor;
+        .info {
+          display: inline-block;
+          background: center / contain no-repeat url(~src/assets/icons/info.svg);
+          width: 2rem;
+          height: 2rem;
+          color: $blueTextColor;
+        }
+      }
+    }
+    .wrap-buttons {
+      display: flex;
+      margin-bottom: 2rem;
+      .seed-phrase-button {
+        width: 32.8rem;
+        margin-right: 3rem;
+      }
+      .copy-button {
+        width: 20rem;
+      }
+    }
+  }
+}
+
+.icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  &.secured {
+    background: center / contain no-repeat url(~src/assets/icons/secured.svg);
+  }
+  &.info {
+    background: center / contain no-repeat url(~src/assets/icons/info.svg);
+  }
+  &.unsecured {
+    background: center / contain no-repeat url(~src/assets/icons/unsecured.svg);
+  }
+  &.safety {
+    background: center / contain no-repeat url(~src/assets/icons/safety.svg);
+  }
+}

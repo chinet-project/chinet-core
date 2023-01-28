@@ -1,0 +1,367 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 25rem;
+  padding: 0 3rem 1rem;
+  max-width: 25rem;
+}
+
+.animated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.2rem;
+}
+.animated::ng-deep svg {
+  width: 2rem;
+  height: 2rem;
+}
+.animated::ng-deep svg path, .animated::ng-deep svg circle, .animated::ng-deep svg polygon {
+  fill: #4db1ff;
+}
+
+.wallet-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 100%;
+  background-color: transparent;
+  transition: all ease 0.3s;
+  overflow: hidden;
+}
+.wallet-type:hover {
+  width: 28px;
+}
+.wallet-type .content {
+  height: 100%;
+  padding: 7px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all ease 0.3s;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.wallet-type .content.auditable {
+  background-color: #5cda9d;
+}
+.wallet-type .content.watch-only, .wallet-type .content.auditable-watch-only {
+  background-color: #8686ff;
+}
+
+.sidebar-accounts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.sidebar-accounts .sidebar-accounts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  height: 8rem;
+  font-weight: 400;
+}
+.sidebar-accounts .sidebar-accounts-header h3 {
+  font-size: 1.7rem;
+}
+.sidebar-accounts .sidebar-accounts-header button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.sidebar-accounts .sidebar-accounts-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin: 0 -3rem;
+  overflow-y: auto;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 2.5rem 3rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .close-wallet-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .close-wallet-wrapper button {
+  display: flex;
+  position: absolute;
+  top: -12px;
+  right: -18px;
+  padding: 0;
+  height: auto;
+  background: transparent;
+  border: none;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .close-wallet-wrapper button .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .close-wallet-wrapper button .icon.close-wallet {
+  background-color: transparent;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .close-wallet-wrapper button .icon.close-wallet::after {
+  display: block;
+  content: "";
+  background: url("../../assets/icons/close-wallet-blue.svg") no-repeat center;
+  width: 13px;
+  height: 13px;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-title-balance {
+  line-height: 2.7rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-title-balance .title {
+  font-size: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-title-balance .balance {
+  font-size: 1.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-alias {
+  font-size: 1.3rem;
+  line-height: 3.4rem;
+  margin-bottom: 0.7rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-alias .name {
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  line-height: 1.6rem;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-alias .name span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-alias .price {
+  flex-shrink: 0;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-alias .icon {
+  margin-left: 0.5rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  color: #1a1a1a;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 9px;
+  padding-right: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-staking {
+  line-height: 2.9rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-staking .text {
+  font-size: 1.3rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-messages {
+  line-height: 2.7rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-messages .text {
+  font-size: 1.3rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-messages .indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  font-size: 1rem;
+  min-width: 2.4rem;
+  height: 1.6rem;
+  padding: 0 0.5rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization {
+  flex-direction: column;
+  height: 5.6rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization .status {
+  align-self: flex-start;
+  font-size: 1.3rem;
+  line-height: 2.6rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization .progress-bar-container {
+  display: flex;
+  margin: 0.4rem 0;
+  height: 0.7rem;
+  width: 100%;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization .progress-bar-container .progress-bar {
+  flex: 1 0 auto;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization .progress-bar-container .progress-bar .fill {
+  height: 100%;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization .progress-bar-container .progress-percent {
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  line-height: 0.7rem;
+  padding-left: 0.7rem;
+}
+.sidebar-accounts .sidebar-accounts-list .sidebar-account:focus {
+  outline: none;
+}
+.sidebar-accounts:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -3rem;
+  width: calc(100% + 6rem);
+  height: 5rem;
+}
+
+.sidebar-settings {
+  flex: 0 0 auto;
+  padding-bottom: 1rem;
+}
+.sidebar-settings .wrap-button {
+  margin: 0 -3rem;
+}
+.sidebar-settings .wrap-button button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-weight: 400;
+  line-height: 3rem;
+  outline: none;
+  padding: 0 3rem;
+  width: 100%;
+}
+.sidebar-settings .wrap-button button.disabled {
+  cursor: url(../../assets/icons/not-allowed.svg), not-allowed;
+}
+.sidebar-settings .wrap-button button .icon {
+  margin-right: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+}
+.sidebar-settings .wrap-button button .icon.contacts {
+  mask: url(../../assets/icons/contacts.svg) no-repeat center;
+}
+.sidebar-settings .wrap-button button .icon.settings {
+  mask: url(../../assets/icons/settings.svg) no-repeat center;
+}
+.sidebar-settings .wrap-button button .icon.logout {
+  mask: url(../../assets/icons/logout.svg) no-repeat center;
+}
+
+.synchronization-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 7rem;
+  font-size: 1.2rem;
+}
+.synchronization-status .status-container {
+  position: relative;
+  flex-grow: 1;
+  text-align: left;
+}
+.synchronization-status .status-container .offline, .synchronization-status .status-container .online {
+  position: relative;
+  display: block;
+  line-height: 1.2rem;
+  padding-left: 2.2rem;
+}
+.synchronization-status .status-container .offline:before, .synchronization-status .status-container .online:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.synchronization-status .status-container .syncing, .synchronization-status .status-container .loading {
+  line-height: 2em;
+}
+.synchronization-status .status-container .progress-bar-container {
+  height: 0.7rem;
+  width: 100%;
+}
+.synchronization-status .status-container .progress-bar-container .syncing {
+  display: flex;
+}
+.synchronization-status .status-container .progress-bar-container .syncing .progress-bar {
+  flex: 1 0 auto;
+}
+.synchronization-status .status-container .progress-bar-container .syncing .progress-bar .fill {
+  height: 100%;
+}
+.synchronization-status .status-container .progress-bar-container .syncing .progress-percent {
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  line-height: 0.7rem;
+  padding-left: 0.7rem;
+}
+.synchronization-status .status-container .progress-bar-container .loading {
+  animation: move 5s linear infinite;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.125, rgba(0, 0, 0, 0.15)), color-stop(0.125, transparent), color-stop(0.25, transparent), color-stop(0.25, rgba(0, 0, 0, 0.1)), color-stop(0.375, rgba(0, 0, 0, 0.1)), color-stop(0.375, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(0, 0, 0, 0.15)), color-stop(0.625, rgba(0, 0, 0, 0.15)), color-stop(0.625, transparent), color-stop(0.75, transparent), color-stop(0.75, rgba(0, 0, 0, 0.1)), color-stop(0.875, rgba(0, 0, 0, 0.1)), color-stop(0.875, transparent), to(transparent)), -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.125, rgba(0, 0, 0, 0.3)), color-stop(0.125, transparent), color-stop(0.25, transparent), color-stop(0.25, rgba(0, 0, 0, 0.25)), color-stop(0.375, rgba(0, 0, 0, 0.25)), color-stop(0.375, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(0, 0, 0, 0.3)), color-stop(0.625, rgba(0, 0, 0, 0.3)), color-stop(0.625, transparent), color-stop(0.75, transparent), color-stop(0.75, rgba(0, 0, 0, 0.25)), color-stop(0.875, rgba(0, 0, 0, 0.25)), color-stop(0.875, transparent), to(transparent));
+  background-size: 7rem 7rem;
+  height: 100%;
+}
+.synchronization-status .update-container {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 1rem;
+  text-align: right;
+}
+.synchronization-status .update-container .update-text {
+  flex: 1 1 auto;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: left;
+  background-color: red;
+}
+.synchronization-status .update-container .update-text.time {
+  font-size: 1.1rem;
+}
+.synchronization-status .update-container .icon {
+  flex: 1 0 auto;
+  margin: 0.3rem 0 0 0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.synchronization-status .update-container .icon.update {
+  mask: url(../../assets/icons/update.svg) no-repeat center;
+}
+.synchronization-status .update-container .icon.time {
+  mask: url(../../assets/icons/time.svg) no-repeat center;
+}
+
+@keyframes move {
+  0% {
+    background-position: 100% -7rem;
+  }
+  100% {
+    background-position: 100% 7rem;
+  }
+}
+
+/*# sourceMappingURL=sidebar.component.css.map */

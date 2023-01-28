@@ -1,0 +1,48 @@
+.form-details {
+  margin-top: 3.5rem;
+
+  .submit-button-container {
+    display: flex;
+    align-items: center;
+    .saved-message {
+      transition: all 0.5s ease;
+      height: 0;
+      opacity: 0;
+      margin-left: 2rem;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      color: #16d1d6;
+      &.active {
+        transition: all 0.5s ease;
+        height: 2.4rem;
+        opacity: 1;
+      }
+    }
+    button {
+      min-width: 10rem;
+      height: 3.5rem;
+    }
+  }
+
+  .input-block {
+    .input-container {
+      display: flex;
+    }
+    &:first-child {
+      width: 50%;
+    }
+  }
+}
+
+.wrap-buttons {
+  display: flex;
+  margin-bottom: 2rem;
+
+  .copy-button {
+    width: 20rem;
+  }
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}

@@ -1,0 +1,37 @@
+:host {
+  flex: 1 0 auto;
+  background: none;
+}
+.add-wallet {
+  .add-wallet-title {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  .add-wallet-buttons {
+    margin: 8rem 0 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+      &:last-child {
+        margin-right: 0;
+      }
+      margin-right: 3rem;
+      flex: 1 0 auto;
+    }
+  }
+
+  .add-wallet-help {
+    display: flex;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 2.4rem;
+
+    .icon {
+      background: center / contain no-repeat url(../../assets/icons/howto.svg);
+      margin-right: 0.8rem;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+:host {
+  width: 100%;
+}
+.empty-contracts {
+  font-size: 1.5rem;
+}
+.wrap-table {
+  overflow-x: auto;
+  table {
+    tbody {
+      tr {
+        cursor: pointer;
+        outline: none !important;
+        .contract {
+          position: relative;
+          display: flex;
+          align-items: center;
+          .icon {
+            flex-shrink: 0;
+            &.new,
+            &.alert {
+              margin-right: 1rem;
+              position: relative;
+            }
+            &.new {
+              background: center / contain no-repeat url(../../assets/icons/new.svg);
+              width: 1.7rem;
+              height: 1.7rem;
+            }
+
+            &.alert {
+              background: center / contain no-repeat url(../../assets/icons/alert.svg);
+              width: 1.7rem;
+              height: 1.2rem;
+            }
+            &.purchase,
+            &.sell {
+              margin-right: 1rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+            &.purchase {
+              background: center / contain no-repeat url(../../assets/icons/purchase.svg);
+            }
+            &.sell {
+              background: center / contain no-repeat url(../../assets/icons/sell.svg);
+            }
+          }
+          span {
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+        .status,
+        .comment {
+          display: inline-flex;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.contracts-buttons {
+  display: flex;
+  margin: 3rem 0;
+  width: 50%;
+
+  button {
+    flex: 0 1 50%;
+    margin-right: 1.5rem;
+  }
+}

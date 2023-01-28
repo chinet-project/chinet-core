@@ -1,0 +1,106 @@
+app-sidebar {
+  background-color: $sidebarBackgroundColor;
+
+  .sidebar-accounts {
+    .sidebar-accounts-list {
+      .sidebar-account {
+        background-color: $accountBackgroundColor;
+        color: $accountMainTextColor;
+        &.auditable {
+          background-color: transparent;
+          border-color: $accountAuditableBorderColor !important;
+        }
+        &.watch-only {
+          background-color: transparent;
+          border-color: $accountWatchOnlyBorderColor !important;
+        }
+        &.auditable,
+        &.watch-only,
+        &.tracking {
+          border: 0.4rem solid;
+          &.active {
+            background: $accountActiveBackgroundColor;
+            box-shadow: $accountBoxShadow;
+          }
+          &:hover:not(.active) {
+            transition: all 0.25s ease;
+            background-color: $accountHoverBackgroundColor;
+          }
+        }
+
+        &.active {
+          .sidebar-account-row {
+            .progress-bar {
+              background-color: $progressBarAccountActiveColor;
+              .fill {
+                background-color: $accountMainTextColor;
+              }
+            }
+          }
+        }
+
+        .sidebar-account-row {
+          .text {
+            color: $accountMainTextColor;
+          }
+
+          .indicator {
+            background-color: $mainTextColor;
+            color: $blueTextColor;
+          }
+
+          .progress-bar {
+            background-color: $progressBarAccountColor;
+            .fill {
+              background-color: $greenTextColor;
+            }
+          }
+
+          &.account-price {
+            .price {
+              color: $tooltipTextColor;
+            }
+            .price-percent {
+              color: $greenTextColor;
+            }
+          }
+          &.account-synchronization {
+            color: $accountMainTextColor;
+          }
+        }
+
+        &.active {
+          background: $accountActiveBackgroundColor;
+          box-shadow: $accountBoxShadow;
+          .sidebar-account-row {
+            &.account-synchronization {
+              color: $accountMainTextColor;
+            }
+          }
+        }
+
+        &:hover:not(.active) {
+          transition: all 0.25s ease;
+          background-color: $accountHoverBackgroundColor;
+        }
+      }
+    }
+  }
+
+  .sidebar-settings {
+    .wrap-button {
+      button {
+        color: $blueTextColor;
+        :hover {
+          color: $blueButtonHoverColor !important;
+        }
+      }
+
+      &.active {
+        button {
+          color: $blueButtonFocusColor !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.chart-header {
+  display: flex;
+  flex: 0 0 auto;
+
+  .general {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 1.6rem;
+    margin: -0.5rem 0;
+
+    > div {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      height: 2rem;
+
+      .label {
+        display: inline-block;
+        width: 9rem;
+      }
+    }
+  }
+
+  .selected {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 2rem;
+
+    span {
+      line-height: 2.9rem;
+    }
+  }
+}
+
+.chart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-height: 40rem;
+
+  > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.chart-options {
+  display: flex;
+  align-items: center;
+  height: 2.4rem;
+  flex: 0 0 auto;
+
+  .title {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    button {
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 auto;
+      cursor: pointer;
+      font-size: 1.4rem;
+      margin: 0 0.5rem;
+      padding: 0;
+      height: 4rem;
+    }
+  }
+}

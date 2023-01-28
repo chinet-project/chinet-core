@@ -1,0 +1,131 @@
+<div class="content scrolled-content">
+
+  <div>
+    <div class="head">
+      <h3 class="settings-title">{{ 'SETTINGS.TITLE' | translate }}</h3>
+      <button type="button" class="back-btn" (click)="back()">
+        <i class="icon back"></i>
+        <span>{{ 'COMMON.BACK' | translate }}</span>
+      </button>
+    </div>
+
+    <div class="lock-selection">
+      <label class="lock-selection-title">{{ 'SETTINGS.LANGUAGE.TITLE' | translate }}</label>
+      <ng-select class="custom-select" [items]="languagesOptions" bindValue="name" bindLabel="language"
+        [(ngModel)]="variablesService.settings.language" [clearable]="false" [searchable]="false"
+        (change)="onLanguageChange()">
+        <ng-template ng-label-tmp let-item="item">
+          {{item.language | translate}}
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          {{item.language | translate}}
+        </ng-template>
+      </ng-select>
+    </div>
+
+    <div class="lock-selection">
+      <label class="lock-selection-title">{{ 'SETTINGS.APP_LOCK.TITLE' | translate }}</label>
+      <ng-select class="custom-select" [items]="appLockOptions" bindValue="id" bindLabel="name"
+        [(ngModel)]="variablesService.settings.appLockTime" [clearable]="false" [searchable]="false"
+        (change)="onLockChange()">
+        <ng-template ng-label-tmp let-item="item">
+          {{item.name | translate}}
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          {{item.name | translate}}
+        </ng-template>
+      </ng-select>
+    </div>
+
+    <div class="lock-selection">
+      <label class="lock-selection-title">{{ 'SETTINGS.SCALE.TITLE' | translate }}</label>
+      <ng-select class="custom-select" [items]="appScaleOptions" bindValue="id" bindLabel="name"
+        [(ngModel)]="variablesService.settings.scale" [clearable]="false" [searchable]="false" (change)="setScale()">
+        <ng-template ng-label-tmp let-item="item">
+          {{item.name | translate}}
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          {{item.name | translate}}
+        </ng-template>
+      </ng-select>
+    </div>
+
+    <div class="lock-selection">
+      <label class="lock-selection-title">{{ 'SETTINGS.APP_LOG_TITLE' | translate }}</label>
+      <ng-select class="custom-select" [items]="appLogOptions" bindValue="id" bindLabel="id"
+        [(ngModel)]="variablesService.settings.appLog" [clearable]="false" [searchable]="false"
+        (change)="onLogChange()">
+      </ng-select>
+    </div>
+
+    <div class="lock-selection">
+      <label class="lock-selection-title">{{ 'SETTINGS.NOTIFICATIONS' | translate }}</label>
+      <div class="notifications-switch">
+        <div class="switch" (click)="toggleNotifications()" [ngClass]="currentNotificationsState ? 'off' : 'on'">
+          <span class="circle"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lock-selection">
+      <label class="lock-selection-title">{{ 'SETTINGS.USE_TOR_TO_RELAY_TRANSACTIONS' | translate }}</label>
+      <div class="notifications-switch">
+        <div class="switch" (click)="toggleUseTor()" [ngClass]="appUseTor ? 'on' : 'off'">
+          <span class="circle"></span>
+        </div>
+      </div>
+    </div>
+
+    <form class="master-password" [formGroup]="changeForm" (ngSubmit)="onSubmitChangePass()">
+
+      <span class="master-password-title">{{ 'SETTINGS.MASTER_PASSWORD.TITLE' | translate }}</span>
+
+      <div class="input-block" *ngIf="variablesService.appPass">
+        <label for="old-password">{{ 'SETTINGS.MASTER_PASSWORD.OLD' | translate }}</label>
+        <input type="password" id="old-password" formControlName="password"
+          placeholder="{{ 'PLACEHOLDERS.PLACEHOLDER_OLD' | translate }}"
+          (contextmenu)="variablesService.onContextMenuPasteSelect($event)" />
+        <div class="error-block"
+          *ngIf="changeForm.invalid && changeForm.controls['password'].valid && (changeForm.controls['password'].dirty || changeForm.controls['password'].touched) && changeForm.errors && changeForm.errors.pass_mismatch && changeForm.get('password').value.length > 0">
+          {{ 'SETTINGS.FORM_ERRORS.PASS_NOT_MATCH' | translate }}
+        </div>
+      </div>
+
+      <div class="input-block">
+        <label for="new-password">{{ 'SETTINGS.MASTER_PASSWORD.NEW' | translate }}</label>
+        <input type="password" id="new-password" formControlName="new_password"
+          placeholder="{{ 'PLACEHOLDERS.PLACEHOLDER_NEW' | translate }}"
+          (contextmenu)="variablesService.onContextMenuPasteSelect($event)" />
+        <div class="error-block"
+          *ngIf="changeForm.controls['new_password'].dirty && changeForm.controls['new_password'].errors">
+          <div *ngIf="changeForm.controls['new_password'].errors.pattern">
+            {{ 'ERRORS.WRONG_PASSWORD' | translate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-block">
+        <label for="confirm-password">{{ 'SETTINGS.MASTER_PASSWORD.CONFIRM' | translate }}</label>
+        <input type="password" id="confirm-password" formControlName="new_confirmation"
+          placeholder="{{ 'PLACEHOLDERS.PLACEHOLDER_CONFIRM' | translate }}"
+          (contextmenu)="variablesService.onContextMenuPasteSelect($event)" />
+        <div class="error-block"
+          *ngIf="changeForm.invalid && (changeForm.controls['new_confirmation'].dirty || changeForm.controls['new_confirmation'].touched) && changeForm.errors && changeForm.errors.confirm_mismatch && changeForm.get('new_confirmation').value.length > 0">
+          {{ 'SETTINGS.FORM_ERRORS.CONFIRM_NOT_MATCH' | translate }}
+        </div>
+      </div>
+
+      <div class="submit-button-container">
+        <button type="submit" class="blue-button" [disabled]="!changeForm.valid">{{ 'SETTINGS.MASTER_PASSWORD.BUTTON'
+          |
+          translate }}</button>
+        <span class="saved-message" [class.active]="ifSaved">{{ 'SETTINGS.SETTINGS_SAVED' | translate }}</span>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <!-- <div class="last-build">{{ 'SETTINGS.LAST_BUILD' | translate : {value: currentBuild} }}</div> -->
+  </div>
+
+</div>

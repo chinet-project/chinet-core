@@ -1,0 +1,29 @@
+:host {
+  position: relative;
+}
+
+.form-create {
+  margin: 3.5rem 0 0 0;
+  width: 50%;
+
+  .wrap-buttons {
+    display: flex;
+    margin: 2.5rem -0.7rem;
+
+    button {
+      margin: 0 0.7rem;
+
+      &.blue-button_reset {
+        width: 30rem;
+      }
+
+      &.select-button {
+        width: 30rem;
+      }
+
+      &.create-button {
+        width: 30rem;
+      }
+    }
+  }
+}

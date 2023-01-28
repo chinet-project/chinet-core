@@ -1,0 +1,51 @@
+app-contacts,
+app-add-contacts,
+app-contact-send,
+app-export-import {
+  flex: 1 1 auto;
+  min-width: 85rem;
+  .content {
+    position: relative;
+    padding: 3rem;
+    min-height: 100%;
+    color: $mainTextColor;
+    .head {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+app-contacts {
+  .wrap-table {
+    margin: 1rem 0;
+    table {
+      tbody {
+        tr {
+          td {
+            background-color: $selectHoverColor !important;
+            .alias {
+              color: $blueTextColor;
+            }
+          }
+        }
+      }
+
+      button {
+        span {
+          color: $mainTextColor;
+        }
+      }
+    }
+  }
+  .empty-list {
+    margin: 2.5rem 3rem;
+  }
+}
+app-contact-send {
+  .wallets-selection {
+    button {
+      color: $blueTextColor;
+    }
+  }
+}

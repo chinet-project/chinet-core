@@ -1,0 +1,77 @@
+:host {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 54rem;
+  width: 100%;
+  background: var(--light-blue);
+}
+
+.title {
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.table-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: var(--defaul-border);
+  border-radius: var(--default-border-radius);
+  overflow: hidden;
+  color: var(--white-text-color);
+  font-size: 1.8rem;
+  line-height: 1.3;
+
+  .separator {
+    border: none;
+    height: 2px;
+    color: var(--defaul-border-color); /* old IE */
+    background-color: var(--defaul-border-color); /* Modern Browsers */
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    min-height: 6rem;
+
+    .label, .text {
+      overflow: hidden;
+      padding: 2rem;
+    }
+
+    .label {
+      max-width: 11.6rem;
+      width: 100%;
+      color: var(--blue-text-color);
+      background: var(--light-blue-gray);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .text {
+      width: 100%;
+      word-break: break-word;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,80 @@
+<div class="host-container"
+  *ngIf="deeplink && (variablesService.daemon_state === 2 && variablesService.sync_started === false)">
+  <div class="container">
+    <ng-container *ngIf="this.walletsTopay.length > 1 && !secondStep">
+      <div class="modal select-wallet">
+        <div class="content">
+          <div class="title">
+            <span>Select wallet for action:</span>
+          </div>
+          <div class="inputs-container">
+            <div class="lock-selection">
+              <ng-select class="custom-select" [items]="walletsTopay" bindValue="wallet_id" bindLabel="name"
+                [(ngModel)]="walletToPayId" [clearable]="false" [searchable]="false">
+                <ng-template ng-label-tmp let-item="item">
+                  {{item.name}}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                  {{item.name}}
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+
+        </div>
+        <div class="wrapper-buttons">
+          <button type="button" class="blue-button" (click)="canselAction()">{{ 'EXPORT_HISTORY.CANCEL' |
+            translate
+            }}</button>
+          <button type="submit" class="blue-button" (click)="nextStep()">Next...</button>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="secondStep && marketplaceModalShow && actionData.action === 'marketplace_offer_create'">
+      <div class="modal marketplace">
+        <div class="title">
+          <span>Creating a marketplace offer</span>
+        </div>
+        <div class="data-container">
+          <div class="row"><span>Offer title:</span> {{actionData.title}}</div>
+          <div class="row"><span>Description:</span> {{actionData.description}}</div>
+          <div class="row"><span>Category:</span> {{actionData.category}}</div>
+          <div class="row"><span>Price:</span> {{actionData.price}} {{this.variablesService.defaultCurrency}}</div>
+          <div class="row"><span>Preview url:</span> {{actionData.url || actionData.img_url}}</div>
+          <div class="row"><span>Contacts:</span> {{actionData.contact}}</div>
+          <div class="row"><span>Comments:</span>{{actionData.comment || actionData.comments}}</div>
+          <div class="row mixins"><span>Mixins:</span> {{actionData.mixins || defaultMixin}}</div>
+          <div class="row"><span>Transaction fee:</span> {{actionData.price * (actionData.fee ||
+            this.variablesService.default_fee)}}
+            {{this.variablesService.defaultCurrency}}
+          </div>
+        </div>
+        <div class="wrapper-buttons">
+          <button type="button" class="blue-button" (click)="canselAction()">{{ 'EXPORT_HISTORY.CANCEL' | translate
+            }}</button>
+          <button type="submit" class="blue-button" (click)="marketplaceSend()">Sign & Send...</button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="marketplaceConfirmHash">
+      <div class="modal marketplace--success">
+        <div class="title">
+          <span>Operation successful</span>
+        </div>
+        <div class="data-container">
+          <div class="row"><span>Operation hash:</span>
+            <p (contextmenu)="variablesService.onContextMenuOnlyCopy($event, marketplaceConfirmHash)">
+              {{marketplaceConfirmHash}}<i class="icon" [class.copy]="!copyAnimation" [class.copied]="copyAnimation"
+                (click)="copyHash()"></i></p>
+          </div>
+        </div>
+        <div class="wrapper-buttons">
+          <button type="button" class="blue-button" (click)="canselAction()">Close</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<app-sync-modal *ngIf="deeplink && (variablesService.daemon_state !== 2 || variablesService.sync_started === true)">
+</app-sync-modal>

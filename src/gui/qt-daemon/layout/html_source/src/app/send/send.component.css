@@ -1,0 +1,76 @@
+:host {
+  width: 100%;
+}
+
+.form-send .input-blocks-row {
+  display: flex;
+}
+.form-send .input-blocks-row > div {
+  flex-basis: 50%;
+}
+.form-send .input-blocks-row > div:first-child {
+  margin-right: 1.5rem;
+}
+.form-send .input-blocks-row > div:last-child {
+  margin-left: 1.5rem;
+}
+.form-send .send-select {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 15rem;
+  height: 1.3rem;
+}
+.form-send .send-select .arrow {
+  margin-left: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.form-send .send-select .arrow.down {
+  mask: url(~src/assets/icons/arrow-down.svg) no-repeat center;
+}
+.form-send .send-select .arrow.up {
+  mask: url(~src/assets/icons/arrow-up.svg) no-repeat center;
+}
+.form-send .additional-details {
+  display: flex;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0 2rem;
+}
+.form-send .additional-details > div {
+  flex-basis: 25%;
+}
+.form-send .additional-details > div:first-child {
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+}
+.form-send .additional-details > div:last-child {
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+}
+.form-send .additional-details .checkbox-block {
+  flex-basis: 50%;
+}
+.form-send .additional-details .checkbox-block > label {
+  top: 3.5rem;
+}
+.form-send .additional-details .checkbox-block.disabled-checkbox-block label {
+  cursor: not-allowed;
+}
+.form-send .additional-details .checkbox-block.disabled-checkbox-block label:before {
+  background-color: #556576;
+  border: 0.1rem solid #556576;
+}
+.form-send button {
+  margin: 2.4rem 0;
+  width: 100%;
+  max-width: 15rem;
+}
+
+/*# sourceMappingURL=send.component.css.map */

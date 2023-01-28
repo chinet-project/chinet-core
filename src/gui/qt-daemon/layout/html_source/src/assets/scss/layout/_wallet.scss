@@ -1,0 +1,238 @@
+app-wallet {
+  color: $mainTextColor;
+  .header {
+    .settings-block {
+      .settings-dropdown {
+        background-color: $aliasDropdownBackground;
+        button {
+          span {
+            color: $mainTextColor;
+          }
+        }
+      }
+    }
+    button {
+      color: $blueTextColor;
+      &:disabled {
+        .icon svg path {
+          fill: $accountOptionalTextColor;
+        }
+      }
+    }
+  }
+  .balance {
+    color: $mainTextColor;
+    .price-percent {
+      &.negative-percent {
+        color: $redTextColor;
+      }
+      margin-left: 0.7rem;
+      color: $greenTextColor;
+    }
+  }
+  .address {
+    color: $addressTextColor;
+  }
+  .tabs {
+    .tabs-header {
+      .tab {
+        color: $blueTextColor;
+        background-color: $tabInactiveBackgroundColor;
+        .indicator {
+          background-color: $accountIndicatorBackgroundColor;
+          color: $accountIndicatorTextColor;
+        }
+        &.active {
+          background-color: $contentBackgroundColor;
+        }
+        &:hover:not(.active):not(.disabled) {
+          background-color: $tabHoverBackgroundColor;
+        }
+      }
+    }
+    .tabs-content {
+      background-color: $contentBackgroundColor;
+    }
+    .pagination-wrapper {
+      border-radius: 0 0 1rem 1rem;
+      background-color: $contentBackgroundColor;
+      .pagination {
+        button {
+          color: $mainTextColor;
+          &:hover {
+            color: $blueButtonHoverColor;
+            svg path {
+              fill: $paginationButtonHoverColor;
+            }
+          }
+          &.disabled {
+            color: $paginationButtonHoverColor;
+            svg path {
+              fill: $paginationButtonHoverColor;
+            }
+          }
+          &.active {
+            color: $blueButtonBackgroundColor;
+          }
+        }
+      }
+    }
+  }
+}
+app-send {
+  .form-send {
+    .curent-alias-adress {
+      color: $placeholderTextColor;
+    }
+    .send-select {
+      color: $mainTextColor;
+    }
+    .additional-details {
+      border: 0.2rem solid $resetButtonBackgroundColor;
+    }
+  }
+}
+app-history {
+  table {
+    tbody {
+      tr {
+        .status.send {
+          .status-transaction-text {
+            color: $blueTextColor;
+          }
+        }
+        .status.received {
+          .status-transaction-text {
+            color: $greenTextColor;
+          }
+        }
+      }
+    }
+  }
+}
+app-purchase {
+  .form-purchase {
+    .purchase-select {
+      color: $mainTextColor;
+    }
+    .purchase-states {
+      color: $blueTextColor;
+    }
+    .additional-details {
+      border: 0.2rem solid $resetButtonBackgroundColor;
+    }
+  }
+  .progress-bar-container {
+    .progress-bar {
+      background-color: $progressBarBackgroundColor;
+      .progress-bar-full {
+        background-color: $progressBarFullBackgroundColor;
+      }
+    }
+  }
+}
+app-typing-message {
+  .head {
+    .interlocutor {
+      color: $blueTextColor;
+    }
+  }
+  .messages-content {
+    .messages-list {
+      div {
+        &.date {
+          color: $optionalTextColor;
+        }
+        &.my {
+          background-color: $messageMyBackgroundColor;
+          &:before {
+            @include pseudo;
+            top: 0;
+            left: -1.1rem;
+            border: 1.2rem solid transparent;
+            border-top-color: $messageMyBackgroundColor;
+          }
+        }
+        &.buddy {
+          background-color: $messageBuddyBackgroundColor;
+          &:after {
+            @include pseudo;
+            right: -1.1rem;
+            top: 0;
+            border: 1.2rem solid transparent;
+            border-top-color: $messageBuddyBackgroundColor;
+          }
+        }
+      }
+    }
+  }
+}
+app-staking {
+  .chart-header {
+    .general {
+      .label {
+        color: $mainTextColor;
+      }
+      .options {
+        color: $mainTextColor;
+      }
+    }
+    .selected {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-grow: 1;
+      font-size: 1.6rem;
+    }
+  }
+  .chart-options {
+    .title {
+      color: $mainTextColor;
+    }
+    .options {
+      button {
+        color: $mainTextColor;
+        &:not(:disabled) {
+          background: $blueButtonBackgroundColor;
+          box-shadow: $blueButtonBoxShadow;
+          &:hover {
+            background: $blueButtonHoverColor;
+            box-shadow: $blueButtonHoverBoxShadow;
+          }
+          &:focus,
+          &.active {
+            background: $blueButtonFocusColor;
+            box-shadow: $blueButtonFocusBoxShadow;
+          }
+        }
+        &:disabled {
+          background: $blueButtondisabledColor;
+        }
+      }
+    }
+  }
+}
+.input-block-alias {
+  position: relative;
+  .alias-dropdown {
+    padding: 1rem;
+    position: absolute;
+    top: 6.5rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: 0.6rem;
+    z-index: 1;
+    width: 30rem;
+    height: 30rem;
+    background-color: $aliasDropdownBackground;
+    color: $mainTextColor;
+    div {
+      font-size: 2rem;
+      line-height: 2.4rem;
+      margin-bottom: 1rem;
+      &:hover {
+        background-color: $selectHoverColor;
+      }
+    }
+  }
+}

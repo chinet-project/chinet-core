@@ -1,0 +1,261 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem 3rem;
+  min-width: 95rem;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  height: 8rem;
+}
+.header > div {
+  display: flex;
+  align-items: center;
+}
+.header > div :not(:last-child) {
+  margin-right: 3.2rem;
+}
+.header h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 50rem;
+  line-height: 2.7rem;
+}
+.header button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  outline: none;
+  padding: 0;
+}
+.header button .icon {
+  margin-right: 1.2rem;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.header button .icon.account {
+  height: 1.6rem;
+  mask: url(../../assets/icons/account.svg) no-repeat center;
+}
+.header button .icon.lock {
+  mask: url(../../assets/icons/lock.svg) no-repeat center;
+}
+.header button .icon.details {
+  mask: url(../../assets/icons/details-settings.svg) no-repeat center;
+  margin-right: 0;
+  height: 1.8rem;
+}
+.header button .icon.close-wallet {
+  mask: url(../../assets/icons/close-wallet.svg) no-repeat center;
+  margin-right: 0;
+}
+.header .alias {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.header .alias .icon {
+  cursor: pointer;
+  margin-right: 1.2rem;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.header .alias .icon.edit {
+  mask: url(../../assets/icons/details.svg) no-repeat center;
+}
+.header .alias .icon.transfer {
+  mask: url(../../assets/icons/send.svg) no-repeat center;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+}
+.address .icon {
+  cursor: pointer;
+  margin-left: 1.2rem;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.address .icon.copy {
+  width: 1.8rem;
+  mask: url(../../assets/icons/copy.svg) no-repeat center;
+}
+.address .icon.copy:hover {
+  opacity: 0.75;
+}
+.address .icon.copied {
+  mask: url(../../assets/icons/complete-testwallet.svg) no-repeat center;
+}
+
+.balance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  margin: 2.6rem 0;
+}
+.balance :first-child {
+  font-size: 3.3rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  margin-right: 3.5rem;
+}
+.balance :last-child {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.3rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.tabs .tabs-header {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 auto;
+}
+.tabs .tabs-header .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+  cursor: pointer;
+  padding: 0 1rem;
+  height: 5rem;
+}
+.tabs .tabs-header .tab.hide {
+  display: none;
+}
+.tabs .tabs-header .tab .animated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.3rem;
+}
+.tabs .tabs-header .tab .animated ::ng-deep svg {
+  width: 2rem;
+  height: 2rem;
+}
+.tabs .tabs-header .tab .animated ::ng-deep svg path, .tabs .tabs-header .tab .animated ::ng-deep svg circle, .tabs .tabs-header .tab .animated ::ng-deep svg polygon {
+  fill: #4db1ff;
+}
+.tabs .tabs-header .tab .icon {
+  margin-right: 1.3rem;
+  width: 2rem;
+  height: 2rem;
+}
+.tabs .tabs-header .tab .icon.send {
+  mask: url(../../assets/icons/send.svg) no-repeat center;
+}
+.tabs .tabs-header .tab .icon.receive {
+  mask: url(../../assets/icons/receive.svg) no-repeat center;
+}
+.tabs .tabs-header .tab .icon.history {
+  mask: url(../../assets/icons/history.svg) no-repeat center;
+}
+.tabs .tabs-header .tab .icon.contracts {
+  mask: url(../../assets/icons/contracts.svg) no-repeat center;
+}
+.tabs .tabs-header .tab .icon.messages {
+  mask: url(../../assets/icons/message.svg) no-repeat center;
+}
+.tabs .tabs-header .tab .icon.staking {
+  mask: url(../../assets/icons/staking.svg) no-repeat center;
+}
+.tabs .tabs-header .tab .indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1.3rem;
+  padding: 0 0.5rem;
+  min-width: 1.6rem;
+  height: 1.6rem;
+}
+.tabs .tabs-header .tab.disabled {
+  cursor: url(../../assets/icons/not-allowed.svg), not-allowed;
+}
+.tabs .tabs-header .tab:not(:last-child) {
+  margin-right: 0.3rem;
+}
+.tabs .tabs-content {
+  display: flex;
+  padding: 3rem;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+.tabs .pagination-wrapper .pagination {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tabs .pagination-wrapper .pagination button {
+  margin-right: 0.5rem;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.tabs .pagination-wrapper .pagination .disabled {
+  background-color: #18202a;
+  color: #e0e0e0;
+  opacity: 0.3;
+  cursor: default;
+  transition: all 0.3s;
+}
+
+.mining-transaction-switch {
+  display: flex;
+  align-items: center;
+}
+.mining-transaction-switch .switch-text {
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  color: #565c62;
+}
+.mining-transaction-switch .switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 5rem;
+  height: 2rem;
+}
+.mining-transaction-switch .switch .circle {
+  border-radius: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.mining-transaction-switch .switch .option {
+  margin: 0 0.2rem;
+  line-height: 1.2rem;
+}
+
+/*# sourceMappingURL=wallet.component.css.map */

@@ -1,0 +1,13 @@
+.form-add {
+  margin-top: 3rem;
+}
+.form-add .input-block-name {
+  width: 50%;
+}
+.form-add button {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 18rem;
+}
+
+/*# sourceMappingURL=add-contacts.component.css.map */

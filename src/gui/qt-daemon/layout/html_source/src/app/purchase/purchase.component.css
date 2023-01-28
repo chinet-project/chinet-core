@@ -1,0 +1,174 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.head {
+  flex: 0 0 auto;
+  box-sizing: content-box;
+  margin: -3rem -3rem 0;
+}
+
+.form-purchase {
+  flex: 1 1 auto;
+  margin: 1.5rem -3rem 0;
+  padding: 0 3rem;
+  overflow-y: overlay;
+}
+.form-purchase .input-blocks-row {
+  display: flex;
+}
+.form-purchase .input-blocks-row .input-block {
+  flex-basis: 50%;
+}
+.form-purchase .input-blocks-row .input-block:first-child {
+  margin-right: 1.5rem;
+}
+.form-purchase .input-blocks-row .input-block:last-child {
+  margin-left: 1.5rem;
+}
+.form-purchase .input-blocks-row .input-block .checkbox-block {
+  display: flex;
+}
+.form-purchase .purchase-select {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 15rem;
+  height: 1.3rem;
+}
+.form-purchase .purchase-select .arrow {
+  margin-left: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.form-purchase .purchase-select .arrow.down {
+  mask: url(~src/assets/icons/arrow-down.svg) no-repeat center;
+}
+.form-purchase .purchase-select .arrow.up {
+  mask: url(~src/assets/icons/arrow-up.svg) no-repeat center;
+}
+.form-purchase .additional-details {
+  display: flex;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0 2rem;
+}
+.form-purchase .additional-details > div {
+  flex-basis: 25%;
+}
+.form-purchase .additional-details > div:first-child {
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+}
+.form-purchase .additional-details > div:last-child {
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+}
+.form-purchase .purchase-states {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 2.9rem;
+}
+.form-purchase .send-button {
+  margin: 2.4rem 0;
+  width: 100%;
+  max-width: 15rem;
+}
+.form-purchase .purchase-buttons {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2.4rem -0.5rem;
+}
+.form-purchase .purchase-buttons button {
+  flex: 0 1 33%;
+  margin: 0 0.5rem;
+}
+.form-purchase .nullify-block-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-purchase .nullify-block-row .nullify-block-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  width: 100%;
+}
+.form-purchase .nullify-block-row .nullify-block-buttons button {
+  flex: 0 1 25%;
+  margin: 0 0.5rem;
+}
+.form-purchase .time-cancel-block-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-purchase .time-cancel-block-row .time-cancel-block-question {
+  margin-bottom: 1rem;
+}
+.form-purchase .time-cancel-block-row .input-block {
+  width: 25%;
+}
+.form-purchase .time-cancel-block-row label {
+  margin-bottom: 1rem;
+}
+.form-purchase .time-cancel-block-row .time-cancel-block-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  width: 100%;
+}
+.form-purchase .time-cancel-block-row .time-cancel-block-buttons button {
+  flex: 0 1 25%;
+  margin: 0 0.5rem;
+}
+
+.progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 3rem;
+  width: 100%;
+  height: 3rem;
+}
+.progress-bar-container .progress-bar {
+  position: absolute;
+  top: -0.7rem;
+  left: 0;
+  margin: 0 3rem;
+  width: calc(100% - 6rem);
+  height: 0.7rem;
+}
+.progress-bar-container .progress-bar .progress-bar-full {
+  height: 0.7rem;
+}
+.progress-bar-container .progress-labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  height: 100%;
+}
+.progress-bar-container .progress-time {
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+}
+
+/*# sourceMappingURL=purchase.component.css.map */

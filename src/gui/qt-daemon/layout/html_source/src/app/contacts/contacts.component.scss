@@ -1,0 +1,85 @@
+:host {
+  min-width: 95rem;
+  width: 100%;
+  height: 100%;
+}
+
+.head {
+  justify-content: space-between;
+}
+
+.wrap-table {
+  margin-top: 2rem;
+  table {
+    thead {
+      tr {
+        th:last-child {
+          max-width: 6rem;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &:first-child {
+            max-width: 10rem;
+          }
+          &:nth-child(2) {
+            max-width: 10rem;
+          }
+          &:last-child {
+            width: 25rem;
+            min-width: fit-content;
+          }
+          .alias {
+            cursor: pointer;
+          }
+          .button-wrapper {
+            display: flex;
+
+            button {
+              font-size: 1.5rem;
+              line-height: 1.8rem;
+              display: flex;
+              align-items: center;
+              background: transparent;
+              border: none;
+              outline: none;
+              padding: 0;
+              height: auto;
+              margin-right: 1.8rem;
+
+              .icon {
+                cursor: pointer;
+                margin-right: 0.8rem;
+                width: 2rem;
+                height: 2rem;
+                &.edit {
+                  background: center / contain no-repeat url(../../assets/icons/edit.svg);
+                }
+                &.transfer {
+                  background: center / contain no-repeat url(../../assets/icons/send.svg);
+                }
+                &.delete {
+                  background: center / contain no-repeat url(../../assets/icons/delete.svg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .empty-list {
+    margin: 2.5rem 3rem;
+  }
+}
+
+.blue-button {
+  width: 100%;
+  max-width: 18rem;
+  margin-top: 3rem;
+}

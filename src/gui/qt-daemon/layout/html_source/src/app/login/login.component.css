@@ -1,0 +1,47 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+:host .content {
+  display: flex;
+}
+:host .content .wrap-login {
+  margin: auto;
+  width: 100%;
+  max-width: 40rem;
+}
+:host .content .wrap-login .logo {
+  display: flex;
+  justify-content: center;
+}
+:host .content .wrap-login .logo::ng-deep svg {
+  width: 15rem;
+}
+:host .content .wrap-login .form-login {
+  display: flex;
+  flex-direction: column;
+}
+:host .content .wrap-login .form-login .wrap-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+:host .content .wrap-login .form-login .wrap-button button {
+  margin: 2.5rem 0;
+}
+:host .content .wrap-login .form-login button {
+  margin: 2.5rem auto;
+  width: 100%;
+  max-width: 15rem;
+}
+
+.synchronization-status {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+}
+
+/*# sourceMappingURL=login.component.css.map */

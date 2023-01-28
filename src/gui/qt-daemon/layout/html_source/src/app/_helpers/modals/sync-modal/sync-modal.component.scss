@@ -1,0 +1,67 @@
+.host-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+}
+.deep-overflow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+}
+.container {
+  position: relative;
+  z-index: 5;
+}
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem;
+
+  .title {
+    padding: 0 0 7.5rem;
+    font-size: 3.6rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 4.296rem;
+  }
+
+  .content {
+    display: flex;
+  }
+
+  .wrapper-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      &:first-child {
+        margin-right: 5rem;
+      }
+      width: 30rem;
+    }
+  }
+  &.sync-modal {
+    width: 72rem;
+    height: 48rem;
+    padding: 11.2rem 11.2rem 4.1rem;
+    .title {
+      padding: 0 0 13.2rem;
+    }
+    button {
+      margin: 0 auto;
+      width: 30rem;
+    }
+  }
+}

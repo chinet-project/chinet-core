@@ -1,0 +1,68 @@
+<div class="content">
+
+  <div class="head">
+    <div class="breadcrumbs">
+      <span [routerLink]="['/main']">{{ 'BREADCRUMBS.ADD_WALLET' | translate }}</span>
+      <span>{{ 'BREADCRUMBS.CREATE_WALLET' | translate }}</span>
+    </div>
+    <button type="button" class="back-btn" [routerLink]="['/main']">
+      <i class="icon back"></i>
+      <span>{{ 'COMMON.BACK' | translate }}</span>
+    </button>
+  </div>
+
+  <form class="form-create" [formGroup]="createForm">
+
+    <div class="input-block">
+      <label for="wallet-name">{{'CREATE_WALLET.NAME' | translate }}</label>
+      <input type="text" id="wallet-name" formControlName="name"
+        [class.required-error]="createForm.controls['name'].dirty || createForm.controls['name'].touched"
+        [placeholder]="createForm.controls['name'].dirty || createForm.controls['name'].touched ? ('CREATE_WALLET.FORM_ERRORS.NAME_REQUIRED' | translate) : ('PLACEHOLDERS.WALLET_NAME_PLACEHOLDER' | translate)"
+        [attr.readonly]="walletSaved ? '' : null" [maxlength]="variablesService.maxWalletNameLength"
+        (contextmenu)="variablesService.onContextMenu($event)">
+      <div class="error-block"
+        *ngIf="createForm.controls['name'].invalid && !createForm.controls['name'].errors['required'] && (createForm.controls['name'].dirty || createForm.controls['name'].touched)">
+        <div *ngIf="createForm.controls['name'].errors['duplicate']">
+          {{ 'CREATE_WALLET.FORM_ERRORS.NAME_DUPLICATE' | translate }}
+        </div>
+      </div>
+      <div class="error-block" *ngIf="createForm.get('name').value.length >= variablesService.maxWalletNameLength">
+        {{ 'CREATE_WALLET.FORM_ERRORS.MAX_LENGTH' | translate }}
+      </div>
+    </div>
+    <div class="input-block">
+      <label for="wallet-password">{{ 'CREATE_WALLET.PASS' | translate }}</label>
+      <input type="password" id="wallet-password" formControlName="password"
+        placeholder="{{ 'PLACEHOLDERS.PLACEHOLDER_NEW' | translate }}" [attr.readonly]="walletSaved ? '' : null"
+        (contextmenu)="variablesService.onContextMenuPasteSelect($event)">
+      <div class="error-block" *ngIf="createForm.controls['password'].dirty && createForm.controls['password'].errors">
+        <div *ngIf="createForm.controls['password'].errors.pattern">
+          {{ 'ERRORS.WRONG_PASSWORD' | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label for="confirm-wallet-password">{{ 'CREATE_WALLET.CONFIRM' | translate }}</label>
+      <input type="password" id="confirm-wallet-password" formControlName="confirm"
+        placeholder="{{ 'PLACEHOLDERS.PLACEHOLDER_CONFIRM' | translate }}" [attr.readonly]="walletSaved ? '' : null"
+        (contextmenu)="variablesService.onContextMenuPasteSelect($event)">
+      <div class="error-block"
+        *ngIf="createForm.controls['confirm'].dirty && createForm.controls['confirm'].dirty && createForm.errors">
+        <div *ngIf="createForm.errors['confirm_mismatch'] && createForm.get('confirm').value.length > 0">
+          {{ 'CREATE_WALLET.FORM_ERRORS.CONFIRM_NOT_MATCH' | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap-buttons">
+      <button type="button" class="blue-button_reset" *ngIf="walletSaved" disabled><i
+          class="icon"></i>{{walletSavedName}}</button>
+      <button type="button" class="blue-button select-button" (click)="saveWallet()" [disabled]="!createForm.valid"
+        *ngIf="!walletSaved">{{ 'CREATE_WALLET.BUTTON_SELECT' | translate }}</button>
+      <button type="button" class="blue-button_reset create-button" (click)="createWallet()"
+        [disabled]="!walletSaved">{{
+        'CREATE_WALLET.BUTTON_CREATE' | translate }}</button>
+    </div>
+  </form>
+</div>

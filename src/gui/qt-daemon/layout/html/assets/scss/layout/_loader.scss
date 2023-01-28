@@ -1,0 +1,17 @@
+.loader {
+  border: 2rem solid var(--blue-text-color);
+  border-top: 2rem solid transparent;
+  border-radius: 50%;
+  min-width: 13rem;
+  min-height: 13rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,21 @@
+.switch {
+  display: flex;
+  align-items: center;
+  border-radius: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  width: 3.6rem;
+  height: 2.2rem;
+
+  &.on {
+    justify-content: flex-end;
+  }
+  &.off {
+    justify-content: flex-start;
+  }
+  .circle {
+    border-radius: 50%;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}

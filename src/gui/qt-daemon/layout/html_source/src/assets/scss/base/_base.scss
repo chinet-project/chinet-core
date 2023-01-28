@@ -1,0 +1,777 @@
+.app-content {
+  .preloader {
+    .loading-bar {
+      background-color: $progressBarFullBackgroundColor;
+    }
+  }
+}
+
+button {
+  transition: all 0.25s ease;
+  border: none;
+  font-family: SF-Pro-Rounded, sans-serif;
+  outline: none;
+  background: none;
+  &.blue-button {
+    padding: 0 2rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 500;
+    min-width: 20rem;
+    border-radius: 2rem;
+    height: 7rem;
+    color: $mainTextColor;
+    &:not(:disabled) {
+      background: $blueButtonBackgroundColor;
+      box-shadow: $blueButtonBoxShadow;
+      &:hover {
+        background: $blueButtonHoverColor;
+        box-shadow: $blueButtonHoverBoxShadow;
+      }
+      &:focus {
+        background: $blueButtonFocusColor;
+        box-shadow: $blueButtonFocusBoxShadow;
+      }
+    }
+    &:disabled {
+      background: $blueButtondisabledColor;
+    }
+  }
+
+  &.blue-button_reset {
+    padding: 0 1rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 500;
+    min-width: 20rem;
+    border-radius: 2rem;
+    height: 7rem;
+    background-color: $resetButtonBackgroundColor;
+    border: 0.4rem solid;
+    &:not(:disabled) {
+      color: $resetButtonColor;
+      border-color: $resetButtonColor;
+      &:hover {
+        color: $resetButtonHoverColor;
+        border-color: $resetButtonHoverColor;
+      }
+      &:focus {
+        color: $resetButtonFocusColor;
+        border-color: $resetButtonFocusColor;
+      }
+    }
+    &:disabled {
+      color: $resetButtonDisabledColor;
+      border-color: $resetButtonDisabledColor;
+    }
+  }
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2.2rem;
+  input[type="text"].required-error,
+  input[type="password"].required-error {
+    &::placeholder {
+      color: $redTextColor;
+    }
+  }
+  .wrap-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 2.4rem;
+  }
+  label {
+    a {
+      margin-left: 0.6rem;
+      display: inline-flex;
+    }
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin-bottom: 1.2rem;
+    color: $blueTextColor;
+  }
+  input[type="text"],
+  input[type="password"],
+  select {
+    &::placeholder {
+      color: $placeholderTextColor;
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 2rem;
+    outline: none;
+    padding: 0.2rem 0;
+    width: 100%;
+    background-color: $inputBackgroundColor;
+    color: $mainTextColor;
+  }
+  &.textarea {
+    height: auto;
+
+    textarea {
+      &::placeholder {
+        color: $placeholderTextColor;
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+      font-size: 2rem;
+      line-height: 2.4rem;
+      font-family: SF-Pro-Rounded, sans-serif;
+      border: none;
+      outline: none;
+      padding: 1rem;
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
+      min-height: 7.5rem;
+      max-height: 7.5rem;
+      overflow: auto;
+      resize: none;
+      background-color: $inputBackgroundColor;
+      color: $mainTextColor;
+    }
+  }
+  .error-block {
+    color: $redTextColor;
+  }
+  .success-block {
+    color: $greenTextColor;
+  }
+}
+
+.error-text {
+  color: $redTextColor;
+}
+
+input[type="radio"].style-radio {
+  & + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    padding-left: 2.4rem;
+    color: $optionalTextColor;
+    @include unSelect;
+  }
+  &:not(checked) {
+    position: absolute;
+    opacity: 0;
+    & + label {
+      position: relative;
+    }
+    & + label:before {
+      content: "";
+      position: absolute;
+      top: 0.7rem;
+      left: 0;
+      background: transparent;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+      border: 0.1rem solid $blueTextColor;
+    }
+    & + label:after {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      left: 0.3rem;
+      border-radius: 50%;
+      opacity: 0;
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: $blueTextColor;
+    }
+  }
+  &:checked {
+    & + label:after {
+      opacity: 1;
+    }
+  }
+}
+
+input[type="checkbox"].style-checkbox {
+  & + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    padding-left: 3.6rem;
+    color: $mainTextColor;
+    @include unSelect;
+  }
+  &:not(checked) {
+    position: absolute;
+    top: 50%;
+    left: 1.6rem;
+    transform: translateY(-50%);
+    visibility: hidden;
+    & + label {
+      position: relative;
+    }
+    & + label:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 1.6rem;
+      transform: translateY(-50%);
+      background: transparent;
+      width: 1.4rem;
+      height: 1.4rem;
+      border: 0.1rem solid $blueTextColor;
+    }
+  }
+  &:checked {
+    & + label:before {
+      background: url(~src/assets/icons/complete-testwallet.svg);
+    }
+  }
+}
+
+.switch {
+  &.on {
+    background-color: $switchOnBackgroundColor;
+  }
+  &.off {
+    background-color: $switchOffBackgroundColor;
+  }
+  .circle {
+    background-color: $mainTextColor;
+    box-shadow: $switchCirceleBoxShadow;
+  }
+}
+
+.table-tooltip {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: $tooltipBackgroundColor;
+  color: $tooltipTextColor;
+  .tooltip-inner {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    white-space: pre-wrap;
+  }
+  &.ng-tooltip-top {
+    margin-top: -1rem;
+    &:after {
+      content: "";
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+      position: absolute;
+      bottom: -0.5rem;
+      left: calc(50% - 0.5rem);
+    }
+  }
+  .ng-tooltip-bottom-left {
+    margin-top: 1rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      left: 3rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background-color: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-top-left {
+    margin-top: -1rem;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 1.5rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-top-right {
+    margin-top: -1rem;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      right: 0.7rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-bottom {
+    margin-top: 1rem;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      left: calc(50% - 0.5rem);
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-bottom-left {
+    margin-top: 1rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      left: 3rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background-color: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-bottom-right {
+    position: relative;
+    margin-top: 1rem;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      right: 0.5rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-left {
+    margin-left: -1rem;
+    &:after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 0.5rem);
+      right: -0.5rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+  &.ng-tooltip-right {
+    margin-left: 1rem;
+    &:before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 0.5rem);
+      left: -0.5rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: $tooltipBackgroundColor;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.table-tooltip-dimensions {
+  .tooltip-inner {
+    overflow: auto;
+    max-width: 20rem;
+    max-height: 10rem;
+  }
+}
+
+.balance-tooltip {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: $tooltipBackgroundColor;
+  color: $tooltipTextColor;
+  .tooltip-inner {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    .available {
+      margin-bottom: 1.7rem;
+      b {
+        font-weight: 600;
+      }
+    }
+    .locked {
+      margin-bottom: 0.7rem;
+      b {
+        font-weight: 600;
+      }
+    }
+    .link {
+      cursor: pointer;
+      color: $blueTextColor;
+    }
+  }
+  &.ng-tooltip-top {
+    margin-top: -1rem;
+  }
+  &.ng-tooltip-bottom {
+    margin-top: 1rem;
+  }
+  &.ng-tooltip-left {
+    margin-left: -1rem;
+  }
+  &.ng-tooltip-right {
+    margin-left: 1rem;
+  }
+}
+
+.account-tooltip {
+  .tooltip-inner {
+    word-break: break-word;
+    max-width: 18rem;
+  }
+}
+
+.comment-tooltip {
+  .tooltip-inner {
+    overflow: auto;
+    word-break: break-word;
+    max-width: 50rem;
+    max-height: 25rem;
+  }
+}
+
+.update-tooltip {
+  padding: 1rem;
+  background: $tooltipBackgroundColor;
+  color: $tooltipTextColor;
+  &.important {
+    background: $tooltipImportantBackgroundColor;
+    color: $accountMainTextColor;
+    &.ng-tooltip-left-bottom {
+      &:after {
+        border-color: transparent transparent $tooltipImportantBackgroundColor $tooltipImportantBackgroundColor;
+      }
+    }
+    &.ng-tooltip-right-bottom {
+      &:before {
+        border-color: transparent $tooltipImportantBackgroundColor $tooltipImportantBackgroundColor transparent;
+      }
+    }
+  }
+  &.critical {
+    padding: 2.5rem;
+    background: $tooltipCriticalBackgroundColor;
+    color: $accountMainTextColor;
+    .tooltip-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &.ng-tooltip-left-bottom {
+      &:after {
+        border-color: transparent transparent $tooltipCriticalBackgroundColor $tooltipCriticalBackgroundColor;
+      }
+    }
+    &.ng-tooltip-right-bottom {
+      &:before {
+        border-color: transparent $tooltipCriticalBackgroundColor $tooltipCriticalBackgroundColor transparent;
+      }
+    }
+  }
+  .tooltip-inner {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    white-space: pre-wrap;
+    .standard-update {
+      font-size: 1.5rem;
+      line-height: 2.7rem;
+      color: $blueTextColor;
+    }
+    .important-update {
+      font-size: 1.5rem;
+      line-height: 2.7rem;
+      color: $tooltipImportantTextColor;
+    }
+    .critical-update {
+      font-size: 1.5rem;
+      line-height: 2.7rem;
+      text-align: center;
+    }
+    .wrong-time {
+      font-size: 1.5rem;
+      line-height: 2.7rem;
+      color: $tooltipImportantTextColor;
+    }
+    .icon {
+      margin: 1.5rem 0;
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+  &.ng-tooltip-left-bottom {
+    margin-left: -1.5rem;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0.6rem;
+      right: -1rem;
+      border-width: 0.5rem;
+      border-style: solid;
+      border-color: transparent transparent $tooltipBackgroundColor $tooltipBackgroundColor;
+    }
+  }
+  &.ng-tooltip-right-bottom {
+    margin-left: 1.5rem;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0.6rem;
+      left: -1rem;
+      border-width: 0.5rem;
+      border-style: solid;
+      border-color: transparent $tooltipBackgroundColor $tooltipBackgroundColor transparent;
+    }
+  }
+}
+
+.ngx-contextmenu {
+  .dropdown-menu {
+    border: none;
+    padding: 0;
+    background-color: $chartOptionsBackgroundColor;
+    box-shadow: $tooltipShadow;
+  }
+  li {
+    display: block;
+    font-family: SF-Pro-Rounded, sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  a {
+    display: block;
+    padding: 0.5em 1em;
+    color: $mainTextColor;
+    &:hover {
+      background-color: $chartOptionsHoverColor;
+      color: $mainTextColor;
+    }
+  }
+}
+
+.ng-select {
+  &.custom-select {
+    width: 25rem;
+    &.ng-select-opened > {
+      .ng-select-container {
+        .ng-arrow {
+          top: -0.1rem;
+          border-color: transparent transparent #fff;
+          border-width: 0 0.4rem 0.7rem;
+        }
+      }
+    }
+    .ng-arrow-wrapper {
+      padding-right: 0;
+      border: 0.1rem solid #fff;
+      border-radius: 0.5rem;
+      height: 2rem;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      width: 2rem;
+      text-align: center;
+      .ng-arrow {
+        top: 0.1rem;
+        border-color: #fff transparent transparent;
+        border-width: 0.6rem 0.4rem 0.15rem;
+      }
+    }
+    .ng-select-container {
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      font-size: 2rem;
+      line-height: 2.4;
+      outline: none;
+
+      background-color: $inputBackgroundColor;
+      color: $mainTextColor;
+
+      .ng-value-container {
+        padding: 0;
+
+        .ng-input {
+          top: auto;
+        }
+      }
+    }
+
+    .ng-dropdown-panel {
+      border: none;
+      border-radius: 1rem;
+      background-color: $selectDropdownBackgroundColor;
+
+      .ng-dropdown-panel-items {
+        .ng-option {
+          font-size: 1.8rem;
+          margin-bottom: 0.2rem;
+          border-radius: 2rem;
+          padding: 1rem;
+
+          background-color: $inputBackgroundColor;
+          color: $mainTextColor;
+
+          &.ng-option-marked {
+            background-color: $selectHoverColor;
+            color: $mainTextColor;
+          }
+
+          &.ng-option-selected {
+            background-color: $selectSelectedColor;
+            color: $mainTextColor;
+          }
+        }
+
+        &::-webkit-scrollbar {
+          background-color: transparent;
+          cursor: default;
+          width: 1rem;
+          height: 1rem;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #556576;
+          background-clip: padding-box;
+          border: 0.25rem solid transparent;
+          border-radius: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #556576;
+        }
+      }
+    }
+  }
+}
+
+app-modal-container,
+app-confirm-modal,
+app-deeplink,
+app-sync-modal {
+  .modal {
+    border-radius: 2rem;
+    background: $modalBackground;
+    color: $mainTextColor;
+    .action-button {
+      color: $alternativeTextColor;
+      &:hover {
+        color: $mainTextColor;
+      }
+    }
+  }
+  .modal.select-wallet {
+    .ng-select.custom-select .ng-dropdown-panel {
+      border: 1px solid #1f8feb;
+      font-weight: normal;
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+      background-color: rgba(29, 129, 216, 0.6);
+      .ng-dropdown-panel-items {
+        .ng-option:not(:last-child) {
+          border-bottom: 1px solid #0c0c3a;
+        }
+        .ng-option {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+app-transaction-details {
+  .table {
+    font-weight: 500;
+    .row {
+      .cell {
+        &.label {
+          color: $mainTextColor;
+        }
+        &.value {
+          color: $mainTextColor;
+        }
+        &.key-value {
+          color: $blueTextColor;
+        }
+      }
+    }
+  }
+}
+
+app-progress-container {
+  .progress-bar-container {
+    color: $mainTextColor;
+    .progress-bar {
+      background-color: $progressBarBackgroundColor;
+      .progress-bar-full {
+        background-color: $progressBarFullBackgroundColor;
+      }
+    }
+  }
+}
+
+app-open-wallet-modal {
+  .modal {
+    border-radius: 2rem;
+    background: $modalBackground;
+    color: $mainTextColor;
+  }
+}
+
+app-send-modal {
+  .modal {
+    border-radius: 2rem;
+    background: $modalBackground;
+    color: $mainTextColor;
+    .title {
+      border-bottom: 0.2rem solid $resetButtonBackgroundColor;
+    }
+    .action-button {
+      background-color: $blueTextColor;
+      color: $alternativeTextColor;
+    }
+  }
+}
+
+app-export-history-modal {
+  .modal {
+    border-radius: 2rem;
+    background: $modalBackground;
+    color: $mainTextColor;
+    .content {
+      .inputs-container {
+        .lock-selection {
+          .custom-select {
+            .ng-dropdown-panel {
+              background-color: #1b3c75;
+            }
+          }
+        }
+      }
+    }
+  }
+}

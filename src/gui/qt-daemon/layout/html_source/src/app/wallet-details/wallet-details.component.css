@@ -1,0 +1,22 @@
+.form-details {
+  margin-top: 1.8rem;
+}
+.form-details .input-block:first-child {
+  width: 50%;
+}
+.form-details .wallet-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-details .wallet-buttons button {
+  margin: 2.9rem 0;
+  width: 100%;
+  max-width: 15rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+/*# sourceMappingURL=wallet-details.component.css.map */

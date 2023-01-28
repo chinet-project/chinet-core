@@ -1,0 +1,129 @@
+:host {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 54rem;
+  overflow-y: auto;
+  width: 100%;
+  background: var(--light-blue);
+  border-radius: var(--default-border-radius);
+}
+
+.title {
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.rotate-180 {
+  transform: rotate(-180deg);
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .image {
+    max-width: 13rem;
+    max-height: 13rem;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .text {
+    color: var(--blue-text-color);
+    font-size: 1.8rem;
+  }
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--default-border-radius);
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-height: 4rem;
+    max-height: 4rem;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    width: 100%;
+    background-color: var(--light-blue-details);
+    cursor: pointer;
+
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+    }
+  }
+
+  &-wrapper {
+    max-height: 35rem;
+    background-color: var(--light-blue-details);
+    overflow-y: auto;
+    font-size: 1.8rem;
+    scroll-behavior: smooth;
+  }
+
+  &-list {
+    padding: 1rem 2rem;
+
+    .item {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-bottom: 1.2rem;
+      color: var(--blue-text-color);
+
+      .image {
+        max-width: 1.5rem;
+        max-height: 1.5rem;
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .text {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+      }
+    }
+  }
+}

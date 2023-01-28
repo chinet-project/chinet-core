@@ -1,0 +1,34 @@
+:host {
+  width: 100%;
+}
+
+.wrap-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrap-qr img {
+  margin: 4rem 0;
+}
+.wrap-qr .wrap-address {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  line-height: 2.7rem;
+}
+.wrap-qr .wrap-address .btn-copy-address {
+  margin-left: 1.2rem;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.wrap-qr .wrap-address .btn-copy-address.copy {
+  mask: url(../../assets/icons/copy.svg) no-repeat center;
+}
+.wrap-qr .wrap-address .btn-copy-address.copy:hover {
+  opacity: 0.75;
+}
+.wrap-qr .wrap-address .btn-copy-address.copied {
+  mask: url(../../assets/icons/complete-testwallet.svg) no-repeat center;
+}
+
+/*# sourceMappingURL=receive.component.css.map */

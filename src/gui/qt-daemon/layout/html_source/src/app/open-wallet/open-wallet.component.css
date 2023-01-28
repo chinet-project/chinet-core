@@ -1,0 +1,16 @@
+.form-open {
+  margin: 2.4rem 0;
+  width: 50%;
+}
+.form-open .wrap-buttons {
+  display: flex;
+  margin: 2.5rem -0.7rem;
+}
+.form-open .wrap-buttons button {
+  margin: 0 0.7rem;
+}
+.form-open .wrap-buttons button.create-button {
+  flex: 1 1 50%;
+}
+
+/*# sourceMappingURL=open-wallet.component.css.map */

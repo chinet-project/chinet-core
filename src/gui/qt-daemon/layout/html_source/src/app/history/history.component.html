@@ -1,0 +1,138 @@
+<div class="history-wrap">
+  <div class="wrap-table scrolled-content">
+    <table class="history-table">
+      <thead>
+        <tr #head (window:resize)="calculateWidth()">
+          <th>{{ 'HISTORY.STATUS' | translate }}</th>
+          <th>{{ 'HISTORY.DATE' | translate }}</th>
+          <th>{{ 'HISTORY.AMOUNT' | translate }}</th>
+          <th>{{ 'HISTORY.FEE' | translate }}</th>
+          <th>{{ 'HISTORY.ADDRESS' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of variablesService.currentWallet.history">
+          <tr (click)="openDetails(item.tx_hash)" [class.locked-transaction]="!item.is_mining && item.unlock_time > 0">
+            <td>
+              <div class="status" [ngClass]="item.is_income ? 'received' : 'send'">
+                <ng-container *ngIf="getHeight(item) < 10">
+                  <svg class="confirmation" style="transform: rotateZ(-90deg)"
+                    tooltip="{{ 'HISTORY.STATUS_TOOLTIP' | translate : {'current': getHeight(item), 'total': 10} }}"
+                    placement="bottom-left" tooltipClass="table-tooltip" [delay]="500">
+                    <circle stroke-dasharray="100" fill="transparent" stroke-dashoffset="0" cx="50%" cy="50%"
+                      stroke="rgba(31, 143, 235, 0.33)" r="0.7rem" stroke-width="0.3rem">
+                    </circle>
+                    <circle class="progress-circle" cx="50%" cy="50%"
+                      [style.stroke]="item.is_income ? '#16d1d6' : '#1f8feb'" r="0.7rem" fill="transparent"
+                      stroke-width="0.3rem" stroke-dasharray="4.5rem" stroke-dashoffset="4.5rem" stroke-linecap="round"
+                      [style.stroke-dashoffset]="strokeSize(item)"></circle>
+                  </svg>
+                </ng-container>
+                <ng-container *ngIf="getHeight(item) === 10">
+                  <img *ngIf="!item.is_income" class="status-transaction" src="./assets/icons/send.svg" alt="">
+                  <img *ngIf="item.is_income" class="status-transaction" src="./assets/icons/receive.svg" alt="">
+                </ng-container>
+                <span class="status-transaction-text">{{ (item.is_income ? 'HISTORY.RECEIVED' : 'HISTORY.SEND') |
+                  translate }}</span>
+                <ng-container *ngIf="item.unlock_time !== 0 && item.tx_type !== 6">
+                  <ng-container *ngIf="isLocked(item); else unlock">
+                    <ng-container *ngIf="item.unlock_time < 500000000">
+                      <i class="icon lock-transaction"
+                        tooltip="{{ 'HISTORY.LOCK_TOOLTIP' | translate : {'date': time(item) | date : 'MM.dd.yy'} }}"
+                        placement="bottom-left" tooltipClass="table-tooltip" [delay]="500"
+                        [class.position]="variablesService.height_app - item.height < 10 || item.height === 0 && item.timestamp > 0"></i>
+                    </ng-container>
+                    <ng-container *ngIf="item.unlock_time > 500000000">
+                      <i class="icon lock-transaction"
+                        tooltip="{{ 'HISTORY.LOCK_TOOLTIP' | translate : {'date': item.unlock_time * 1000 | date : 'MM.dd.yy'} }}"
+                        placement="bottom-left" tooltipClass="table-tooltip" [delay]="500"
+                        [class.position]="variablesService.height_app - item.height < 10 || item.height === 0 && item.timestamp > 0"></i>
+                    </ng-container>
+                  </ng-container>
+                  <ng-template #unlock>
+                    <i class="icon unlock-transaction" placement="bottom-left"
+                      [class.position]="variablesService.height_app - item.height < 10 || item.height === 0 && item.timestamp > 0"></i>
+                  </ng-template>
+                </ng-container>
+              </div>
+            </td>
+            <td>{{item.timestamp * 1000 | date : 'dd-MM-yyyy HH:mm'}}</td>
+            <td>
+              <span *ngIf="item.sortAmount && item.sortAmount.toString() !== '0'">{{item.sortAmount | intToMoney}}
+                {{variablesService.defaultCurrency}}</span>
+            </td>
+            <td>
+              <span *ngIf="item.sortFee && item.sortFee.toString() !== '0'">{{item.sortFee | intToMoney}}
+                {{variablesService.defaultCurrency}}</span>
+            </td>
+            <td class="remote-address">
+              <span *ngIf="!(item.tx_type === 0 && item.remote_addresses && item.remote_addresses[0])">{{item |
+                historyTypeMessages}}</span>
+              <span *ngIf="item.tx_type === 0 && item.remote_addresses && item.remote_addresses[0]"
+                (contextmenu)="variablesService.onContextMenuOnlyCopy($event, item.remote_addresses[0])">{{item.remote_addresses[0]}}</span>
+            </td>
+          </tr>
+          <div class="row-divider"></div>
+          <tr class="transaction-details" [class.open]="item.tx_hash === openedDetails">
+            <td colspan="5">
+              <ng-container *ngIf="item.tx_hash === openedDetails">
+                <app-transaction-details [transaction]="item" [sizes]="calculatedWidth"></app-transaction-details>
+              </ng-container>
+            </td>
+          </tr>
+          <div class="row-divider"></div>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+  <div class="pagination-wrapper">
+    <div class="pagination">
+      <div>
+        <button [ngClass]="{'disabled': variablesService.sync_started || wallet}"
+          [disabled]="variablesService.currentWallet.currentPage === 1 || variablesService.sync_started || wallet"
+          (click)="setPage(variablesService.currentWallet.currentPage - 1)">
+          <svg class="icon" viewBox="0 0 17 17" width="100%" height="100%" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.63281 16.3281C12.9922 16.3281 16.6016 12.7109 16.6016 8.35938C16.6016 4 12.9844 0.390625 8.625 0.390625C4.27344 0.390625 0.664062 4 0.664062 8.35938C0.664062 12.7109 4.28125 16.3281 8.63281 16.3281ZM4.49219 8.35156C4.49219 8.17188 4.55469 8.04688 4.71875 7.88281L7.4375 5.14844C7.54688 5.03906 7.6875 4.98438 7.85938 4.98438C8.19531 4.98438 8.44531 5.23438 8.44531 5.57031C8.44531 5.74219 8.36719 5.89062 8.26562 6.00781L7.26562 7L6.29688 7.8125L8 7.74219H12.1797C12.5312 7.74219 12.7891 7.99219 12.7891 8.35156C12.7891 8.70312 12.5391 8.95312 12.1797 8.95312H8L6.28906 8.89062L7.26562 9.70312L8.26562 10.6953C8.375 10.8047 8.44531 10.9531 8.44531 11.125C8.44531 11.4609 8.19531 11.7188 7.85938 11.7188C7.6875 11.7188 7.54688 11.6562 7.4375 11.5469L4.71875 8.82031C4.57031 8.67188 4.49219 8.53125 4.49219 8.35156Z"
+              fill="#FDFEFF" fill-opacity="0.3" />
+          </svg>
+        </button>
+
+        <ng-container *ngIf="!mining">
+          <button *ngFor="let page of variablesService.currentWallet.pages"
+            [class.active]="variablesService.currentWallet.currentPage === page"
+            (click)="setPage(page)">{{page}}</button>
+        </ng-container>
+
+        <ng-container *ngIf="mining">
+          <button
+            [ngClass]="{ 'active': variablesService.currentWallet.currentPage, 'disabled': variablesService.sync_started || wallet}"
+            [disabled]="stop_paginate || variablesService.sync_started || wallet"
+            (click)="setPage(variablesService.currentWallet.currentPage)">
+            {{variablesService.currentWallet.currentPage}}
+          </button>
+        </ng-container>
+
+        <button [disabled]="stop_paginate || variablesService.sync_started || wallet"
+          [ngClass]="{'disabled': variablesService.sync_started || wallet}"
+          (click)="setPage(variablesService.currentWallet.currentPage + 1)">
+          <svg class="icon" viewBox="0 0 17 17" width="100%" height="100%" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.63281 16.3281C12.9922 16.3281 16.6016 12.7109 16.6016 8.35938C16.6016 4 12.9844 0.390625 8.625 0.390625C4.27344 0.390625 0.664062 4 0.664062 8.35938C0.664062 12.7109 4.28125 16.3281 8.63281 16.3281ZM12.7656 8.35156C12.7656 8.53125 12.6953 8.67188 12.5391 8.82031L9.82031 11.5469C9.71094 11.6562 9.57031 11.7188 9.39844 11.7188C9.0625 11.7188 8.8125 11.4609 8.8125 11.125C8.8125 10.9531 8.88281 10.8047 8.99219 10.6953L9.99219 9.70312L10.9688 8.89062L9.26562 8.95312H5.07812C4.72656 8.95312 4.46875 8.70312 4.46875 8.35156C4.46875 7.99219 4.72656 7.74219 5.07812 7.74219H9.26562L10.9688 7.8125L9.99219 7L8.99219 6.00781C8.89062 5.89062 8.8125 5.74219 8.8125 5.57031C8.8125 5.23438 9.0625 4.98438 9.39844 4.98438C9.57031 4.98438 9.71094 5.03906 9.82031 5.14844L12.5391 7.88281C12.7031 8.04688 12.7656 8.17188 12.7656 8.35156Z"
+              fill="#FDFEFF" fill-opacity="0.3" />
+          </svg>
+        </button>
+      </div>
+      <div class="mining-transaction-switch">
+        <span class="switch-text">Hide mining transactions</span>
+        <div class="switch" [ngClass]="{'disabled': variablesService.sync_started || wallet}"
+          (click)="toggleMiningTransactions(); $event.stopPropagation()" [class.on]="mining" [class.off]="!mining">
+          <span class="circle"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

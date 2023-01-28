@@ -1,0 +1,30 @@
+:host {
+  position: relative;
+}
+
+.form-restore {
+  margin: 2.4rem 0;
+  width: 100%;
+}
+.form-restore .input-block.half-block {
+  width: 50%;
+}
+.form-restore .wrap-buttons {
+  display: flex;
+  margin: 2.5rem -0.7rem;
+  width: 50%;
+}
+.form-restore .wrap-buttons button {
+  margin: 0 0.7rem;
+}
+.form-restore .wrap-buttons button.transparent-button {
+  flex-basis: 50%;
+}
+.form-restore .wrap-buttons button.select-button {
+  flex-basis: 60%;
+}
+.form-restore .wrap-buttons button.create-button {
+  flex: 1 1 50%;
+}
+
+/*# sourceMappingURL=restore-wallet.component.css.map */

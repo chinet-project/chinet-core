@@ -1,0 +1,96 @@
+:host {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+}
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-size: 200%;
+  padding: 3.2rem;
+  width: 72rem;
+  height: 47rem;
+
+  .title {
+    padding-bottom: 3.6rem;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    .inputs-container {
+      margin-bottom: 13rem;
+      .lock-selection {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        &.filter-switch {
+          margin-top: 4rem;
+          display: flex;
+          flex-direction: row;
+          label {
+            font-size: 2rem;
+            line-height: 2.4rem;
+            color: #fdfeff;
+            margin-right: 3.5rem;
+          }
+        }
+
+        .lock-selection-title {
+          display: flex;
+          font-size: 1.6rem;
+          line-height: 1.9rem;
+          margin-bottom: 1.2rem;
+          color: #1f8feb;
+        }
+        .switch {
+          border-radius: 1.1rem;
+          cursor: pointer;
+          padding: 0.2rem;
+          width: 3.6rem;
+          height: 2.2rem;
+          transition: all 0.3s ease;
+          position: relative;
+          &.on {
+            .circle {
+              margin-left: 1.4rem;
+            }
+          }
+          &.off {
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+          .circle {
+            display: block;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 50%;
+            width: 1.8rem;
+            height: 1.8rem;
+          }
+        }
+      }
+    }
+    .wrapper-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        &:first-child {
+          margin-right: 3rem;
+        }
+        width: 100%;
+      }
+    }
+  }
+}

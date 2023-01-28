@@ -1,0 +1,88 @@
+<div class="modal">
+    <h3 class="title mb-2">{{ 'SEND_DETAILS_MODAL.TITLE1' | translate }}</h3>
+
+    <div class="status mb-2">
+
+        <div *ngIf="isSentSuccess"
+             class="image">
+            <img src="assets/icons/transaction_success.svg"
+                 alt="success">
+        </div>
+
+        <div *ngIf="isSentFailed"
+             class="image">
+            <img class="image"
+                 src="assets/icons/transaction_failed.svg"
+                 alt="failed">
+        </div>
+
+        <div *ngIf="!isSentSuccess && !isSentFailed"
+             class="loader"></div>
+
+        <p class="text mt-2">
+            {{ ((currentActionState$ | async) ? 'TOR_LIB_STATE' + '.' + (currentActionState$ | async)?.status : 'TOR_LIB_STATE.STATE_INITIALIZING') | translate }}
+            {{!isSentSuccess && !isSentFailed ? '...' : ''}}
+        </p>
+
+    </div>
+
+    <div class="details mb-2">
+        <div class="header"
+             (click)="isDetailsNotEmpty && toggleDetails()">
+            <p class="title mr-2">{{ 'SEND_DETAILS_MODAL.TITLE2' | translate }}</p>
+            <button *ngIf="isDetailsNotEmpty"
+                    class="btn-arrow"
+                    [class.rotate-180]="stateDetails$ | async">
+                <img src="assets/icons/arrows/stroke/arrow_down.svg"
+                     alt="arrow">
+            </button>
+        </div>
+        <div #elDetailsWrapper
+             class="details-wrapper scrolled-content">
+            <ul class="details-list"
+                *ngIf="stateDetails$ | async">
+                <li class="item"
+                    *ngFor="let action of (currentActionStates$ | async); let last = last; trackBy: trackBy">
+                    <span class="text mr-1">{{ 'TOR_LIB_STATE' + '.' + action?.status | translate }}{{ last && !isSentSuccess && !isSentFailed ? '...' : '' }}</span>
+                    <ng-container *ngIf="!last">
+                        <img *ngIf="isSuccess(action)"
+                             class="image"
+                             src="assets/icons/check_with_blue_bg.svg"
+                             alt="success">
+
+                        <img *ngIf="isFailed(action)"
+                             class="image"
+                             src="assets/icons/transaction_failed.svg"
+                             alt="failed">
+                    </ng-container>
+
+                    <ng-container *ngIf="last">
+                        <img *ngIf="last && isSentSuccess"
+                             class="image"
+                             src="assets/icons/check_with_blue_bg.svg"
+                             alt="success">
+
+                        <img *ngIf="last && isSentFailed"
+                             class="image"
+                             src="assets/icons/transaction_failed.svg"
+                             alt="failed">
+                    </ng-container>
+                </li>
+
+                <ng-container *ngIf="(responseData$ | async)">
+                    <li class="item">
+                        <span class="text">tx id: {{ (responseData$ | async).response_data.tx_hash }}</span>
+                    </li>
+                    <li class="item">
+                        <span class="text">tx size: {{ (responseData$ | async).response_data.tx_blob_size }}
+                                           bytes</span>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+
+    <button class="blue-button"
+            [disabled]="!isSentSuccess && !isSentFailed"
+            (click)="close.emit()">{{ 'Ok' | translate }}</button>
+</div>

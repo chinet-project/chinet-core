@@ -1,0 +1,74 @@
+:host {
+  width: 100%;
+}
+
+.empty-contracts {
+  font-size: 1.5rem;
+}
+
+.wrap-table {
+  margin: -3rem -3rem 0 -3rem;
+  overflow-x: auto;
+}
+.wrap-table table tbody tr {
+  cursor: pointer;
+  outline: none !important;
+}
+.wrap-table table tbody tr .contract {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.wrap-table table tbody tr .contract .icon {
+  flex-shrink: 0;
+}
+.wrap-table table tbody tr .contract .icon.new, .wrap-table table tbody tr .contract .icon.alert {
+  position: absolute;
+  top: 0;
+}
+.wrap-table table tbody tr .contract .icon.new {
+  left: -2.3rem;
+  mask: url(../../assets/icons/new.svg) no-repeat center;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.wrap-table table tbody tr .contract .icon.alert {
+  top: 0.2rem;
+  left: -2.1rem;
+  mask: url(../../assets/icons/alert.svg) no-repeat center;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.wrap-table table tbody tr .contract .icon.purchase, .wrap-table table tbody tr .contract .icon.sell {
+  margin-right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.wrap-table table tbody tr .contract .icon.purchase {
+  mask: url(../../assets/icons/purchase.svg) no-repeat center;
+}
+.wrap-table table tbody tr .contract .icon.sell {
+  mask: url(../../assets/icons/sell.svg) no-repeat center;
+}
+.wrap-table table tbody tr .contract span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.wrap-table table tbody tr .status, .wrap-table table tbody tr .comment {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.contracts-buttons {
+  display: flex;
+  margin: 3rem 0;
+  width: 50%;
+}
+.contracts-buttons button {
+  flex: 0 1 50%;
+  margin-right: 1.5rem;
+}
+
+/*# sourceMappingURL=contracts.component.css.map */

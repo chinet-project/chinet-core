@@ -1,0 +1,84 @@
+.head {
+  justify-content: flex-end;
+}
+
+.settings-title {
+  font-size: 1.7rem;
+}
+
+.theme-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2.4rem 0;
+  width: 50%;
+}
+.theme-selection .radio-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.3rem;
+  line-height: 2.7rem;
+}
+
+.lock-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2.4rem 0;
+  width: 50%;
+}
+.lock-selection .lock-selection-title {
+  display: flex;
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+  margin-bottom: 1rem;
+}
+
+.scale-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 4rem;
+  width: 50%;
+  height: 0.5rem;
+}
+.scale-selection .button-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+  margin: 0 0.2rem;
+  padding: 0;
+  height: 0.5rem;
+}
+.scale-selection .button-block .label {
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.master-password {
+  width: 50%;
+}
+.master-password .master-password-title {
+  display: flex;
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+  margin-bottom: 1rem;
+}
+.master-password button {
+  margin: 2.5rem auto;
+  width: 100%;
+  max-width: 15rem;
+}
+
+.last-build {
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=settings.component.css.map */

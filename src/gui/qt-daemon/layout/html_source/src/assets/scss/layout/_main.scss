@@ -1,0 +1,46 @@
+app-main,
+app-create-wallet,
+app-open-wallet,
+app-restore-wallet,
+app-seed-phrase,
+app-wallet-details,
+app-assign-alias,
+app-edit-alias,
+app-transfer-alias,
+app-settings,
+app-login {
+  flex: 1 1 auto;
+  min-width: 85rem;
+  .content {
+    position: relative;
+    padding: 3rem;
+    min-height: 100%;
+    color: $mainTextColor;
+    .head {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+app-main {
+  .content {
+    .add-wallet {
+      .add-wallet-help {
+        color: $blueTextColor;
+      }
+    }
+  }
+}
+app-settings {
+  .content {
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+app-login {
+  min-width: inherit;
+}

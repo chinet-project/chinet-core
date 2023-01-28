@@ -1,0 +1,26 @@
+:host {
+  position: relative;
+}
+
+.form-create {
+  margin: 2.4rem 0;
+  width: 50%;
+}
+.form-create .wrap-buttons {
+  display: flex;
+  margin: 2.5rem -0.7rem;
+}
+.form-create .wrap-buttons button {
+  margin: 0 0.7rem;
+}
+.form-create .wrap-buttons button.transparent-button {
+  flex-basis: 50%;
+}
+.form-create .wrap-buttons button.select-button {
+  flex-basis: 60%;
+}
+.form-create .wrap-buttons button.create-button {
+  flex: 1 1 50%;
+}
+
+/*# sourceMappingURL=create-wallet.component.css.map */

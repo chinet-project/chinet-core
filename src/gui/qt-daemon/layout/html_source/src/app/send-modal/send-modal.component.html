@@ -1,0 +1,58 @@
+<div class="modal">
+
+  <h3 class="title mb-2">{{ 'CONFIRM.TITLE' | translate }}</h3>
+
+  <form [formGroup]="confirmForm" (ngSubmit)="submit()">
+    <div class="table-info mb-2">
+      <div class="row">
+        <div class="label">{{ 'CONFIRM.MESSAGE.SEND' | translate }}</div>
+        <div class="text">{{ +form.get('amount').value }} {{variablesService.defaultCurrency}}</div>
+      </div>
+
+      <hr class="separator"/>
+
+      <div class="row">
+        <div class="label">{{ 'CONFIRM.MESSAGE.FROM' | translate }}</div>
+        <div class="text">{{ variablesService.currentWallet.address }}</div>
+      </div>
+
+      <hr class="separator"/>
+
+      <div class="row">
+        <div class="label">{{ 'CONFIRM.MESSAGE.TO' | translate }}</div>
+        <div class="text">{{ form.get('address').value }}</div>
+      </div>
+
+      <ng-container *ngIf="!!form.get('comment').value">
+        <hr class="separator"/>
+
+        <div class="row">
+          <div class="label">{{ 'CONFIRM.MESSAGE.COMMENT' | translate }}</div>
+          <div class="text">{{ form.get('comment').value }}</div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="input-block mb-2" *ngIf="variablesService.appPass">
+      <label for="password">{{ 'LOGIN.MASTER_PASS' | translate }}</label>
+      <input type="password"
+             id="password"
+             name="password"
+             formControlName="password"
+             [class.required-error]="confirmForm.controls['password'].dirty || confirmForm.controls['password'].touched"
+             [placeholder]="confirmForm.controls['password'].dirty || confirmForm.controls['password'].touched ? ('LOGIN.FORM_ERRORS.PASS_REQUIRED' | translate ) : ('PLACEHOLDERS.MASTER_PASS_PLACEHOLDER' | translate) "
+             autofocus (contextmenu)="variablesService.onContextMenuPasteSelect($event)"/>
+      <div class="error-block">
+        <div *ngIf="confirmForm.controls['password'].errors && confirmForm.controls['password'].errors.passwordNotMatch">
+          {{ 'LOGIN.FORM_ERRORS.MISMATCH' | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button type="submit" class="blue-button">{{ 'CONFIRM.BUTTON_CONFIRM' | translate }}</button>
+      <button type="button" class="blue-button" (click)="onClose()">{{ 'CONFIRM.BUTTON_CANCEL' | translate }}</button>
+    </div>
+  </form>
+
+</div>

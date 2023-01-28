@@ -1,0 +1,44 @@
+.form-assign {
+  margin: 2.4rem 0;
+}
+.form-assign .alias-name {
+  width: 50%;
+}
+.form-assign .alias-cost {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+.form-assign .wrap-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5rem -0.7rem;
+}
+.form-assign .wrap-buttons button {
+  margin: 0 0.7rem;
+  width: 15rem;
+}
+
+.assign-alias-tooltip {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  padding: 1rem 1.5rem;
+  max-width: 46rem;
+}
+
+.has-no-edit-symbol {
+  position: relative;
+  width: 100%;
+}
+.has-no-edit-symbol input {
+  padding-left: 2.35rem;
+}
+.has-no-edit-symbol:after {
+  content: "@";
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+}
+
+/*# sourceMappingURL=assign-alias.component.css.map */

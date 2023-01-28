@@ -1,0 +1,25 @@
+<div class="content">
+
+  <div class="add-wallet">
+    <div class="head">
+      <h3 class="add-wallet-title">{{ 'MAIN.TITLE' | translate }}</h3>
+      <button type="button" class="back-btn" (click)="back()">
+        <i class="icon back"></i>
+        <span>{{ 'COMMON.BACK' | translate }}</span>
+      </button>
+    </div>
+    <div class="add-wallet-buttons">
+      <button type="button" class="blue-button" [routerLink]="['/create']">{{ 'MAIN.BUTTON_NEW_WALLET' | translate
+        }}</button>
+      <button type="button" class="blue-button" (click)="openWallet()">{{ 'MAIN.BUTTON_OPEN_WALLET' | translate
+        }}</button>
+      <button type="button" class="blue-button_reset" [routerLink]="['/restore']">{{ 'MAIN.BUTTON_RESTORE_BACKUP' |
+        translate
+        }}</button>
+    </div>
+    <div class="add-wallet-help" (click)="openInBrowser()">
+      <i class="icon"></i><span>{{ 'MAIN.HELP' | translate }}</span>
+    </div>
+  </div>
+
+</div>

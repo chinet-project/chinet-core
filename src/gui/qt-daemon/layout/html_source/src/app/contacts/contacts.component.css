@@ -1,0 +1,96 @@
+:host {
+  min-width: 95rem;
+  width: 100%;
+  height: 100%;
+}
+
+.head {
+  justify-content: flex-end;
+}
+
+.contacts-title {
+  font-size: 1.7rem;
+}
+
+.wrap-table {
+  margin: 1rem -3rem;
+}
+.wrap-table table tbody tr td {
+  padding: 0 3rem 0 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wrap-table table tbody tr td:first-child {
+  max-width: 10rem;
+  padding: 0 3rem 0 3rem;
+}
+.wrap-table table tbody tr td:nth-child(2) {
+  max-width: 10rem;
+}
+.wrap-table table tbody tr td .alias {
+  cursor: pointer;
+}
+.wrap-table table tbody tr td .button-wrapper {
+  display: flex;
+}
+.wrap-table table tbody tr td .button-wrapper button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 3rem;
+  outline: none;
+  padding: 0;
+  height: auto;
+  margin-right: 1.8rem;
+}
+.wrap-table table tbody tr td .button-wrapper button .icon {
+  cursor: pointer;
+  margin-right: 0.8rem;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.wrap-table table tbody tr td .button-wrapper button .icon.edit {
+  mask: url(../../assets/icons/edit.svg) no-repeat center;
+}
+.wrap-table table tbody tr td .button-wrapper button .icon.transfer {
+  mask: url(../../assets/icons/send.svg) no-repeat center;
+}
+.wrap-table table tbody tr td .button-wrapper button .icon.delete {
+  mask: url(../../assets/icons/delete.svg) no-repeat center;
+}
+.wrap-table .empty-list {
+  margin: 2.5rem 3rem;
+}
+
+.blue-button {
+  width: 100%;
+  max-width: 18rem;
+  margin-top: 3rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 3rem;
+  font-size: 1.3rem;
+}
+.footer .import-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding: 0;
+  height: auto;
+}
+.footer .import-btn .icon {
+  margin-right: 0.7rem;
+  mask: url(../../assets/icons/import-export.svg) no-repeat center;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/*# sourceMappingURL=contacts.component.css.map */

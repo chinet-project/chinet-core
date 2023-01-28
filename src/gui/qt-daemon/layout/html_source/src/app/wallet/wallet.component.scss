@@ -1,0 +1,256 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.8rem 3rem;
+  min-width: 95rem;
+  width: 100%;
+  height: 100%;
+}
+.red-text {
+  color: #ff0000 !important;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  margin-bottom: 2.8rem;
+  > div {
+    display: flex;
+    align-items: center;
+
+    :not(:last-child) {
+      margin-right: 3.2rem;
+    }
+  }
+  .settings-block {
+    position: relative;
+    button {
+      &:disabled {
+        cursor: url(../../assets/icons/not-allowed.svg), not-allowed;
+      }
+      margin: 0;
+    }
+    .settings-dropdown {
+      position: absolute;
+      border-radius: 0.6rem;
+      top: 3rem;
+      right: 0;
+      width: 19rem;
+      button {
+        height: 4rem;
+        display: flex;
+        padding-left: 1.1rem;
+        align-items: center;
+        width: 100%;
+        &:disabled {
+          cursor: url(../../assets/icons/not-allowed.svg), not-allowed;
+
+          .icon svg path,
+          .icon svg .st0 {
+            fill: rgba(255, 255, 255, 0.4);
+          }
+          span {
+            color: rgba(255, 255, 255, 0.4);
+          }
+        }
+        &.dark-line {
+          border-bottom: 1px solid #0c0c3a;
+        }
+        span {
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+        }
+        .icon {
+          height: 1.8rem;
+          width: 1.8rem;
+          margin-right: 1rem;
+          svg {
+            height: 100%;
+            width: 100%;
+          }
+          &.resync-wallet {
+            height: 1.7rem;
+            width: 1.7rem;
+          }
+          &.close-wallet {
+            background: center / contain no-repeat url(../../assets/icons/close-wallet-dropdown.svg);
+          }
+        }
+      }
+    }
+  }
+  h3 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 30rem;
+  }
+  button {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+    outline: none;
+    padding: 0;
+    .icon {
+      margin-right: 0.8rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      &.account {
+        height: 1.6rem;
+        background: center / contain no-repeat url(../../assets/icons/account.svg);
+      }
+      &.lock {
+        background: center / contain no-repeat url(../../assets/icons/lock.svg);
+      }
+      &.details {
+        margin-right: 0;
+      }
+      &.close-wallet {
+        background: center / contain no-repeat url(../../assets/icons/close-wallet.svg);
+        margin-right: 0;
+      }
+    }
+  }
+  .alias {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    .icon {
+      cursor: pointer;
+      margin-right: 1.2rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      &.edit {
+        background: center / contain no-repeat url(../../assets/icons/details.svg);
+      }
+      &.transfer {
+        background: center / contain no-repeat url(../../assets/icons/send.svg);
+      }
+    }
+  }
+}
+.address {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  .icon {
+    cursor: pointer;
+    margin-left: 1rem;
+    &.copy {
+      transition: all 0.25s ease;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: center / contain no-repeat url(../../assets/icons/copy.svg);
+    }
+    &.copied {
+      background: center / contain no-repeat url(../../assets/icons/complete-testwallet.svg);
+    }
+  }
+}
+.balance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  margin: 1.6rem 0 2.5rem 0;
+  :first-child {
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 3.8rem;
+    margin-right: 1rem;
+  }
+  :last-child {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+  }
+}
+.tabs {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  .tabs-header {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    .tab {
+      border-radius: 1rem 1rem 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      flex: 1 0 auto;
+      cursor: pointer;
+      padding: 0 1rem;
+      height: 5rem;
+      &.hide {
+        display: none;
+      }
+      &:hover {
+        .icon {
+          transition: all 0.25s ease;
+          margin-top: -1rem;
+        }
+      }
+      .icon {
+        transition: all 0.25s ease;
+        margin-right: 0.5rem;
+        width: 2rem;
+        height: 2.4rem;
+        &.send {
+          background: center / contain no-repeat url(../../assets/icons/send.svg);
+        }
+        &.receive {
+          background: center / contain no-repeat url(../../assets/icons/receive-blue.svg);
+        }
+        &.history {
+          background: center / contain no-repeat url(../../assets/icons/history.svg);
+        }
+        &.contracts {
+          background: center / contain no-repeat url(../../assets/icons/contracts.svg);
+        }
+        &.messages {
+          background: center / contain no-repeat url(../../assets/icons/message.svg);
+        }
+        &.staking {
+          background: center / contain no-repeat url(../../assets/icons/staking.svg);
+        }
+      }
+      .indicator {
+        margin-left: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2rem;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        min-width: 2.4rem;
+        height: 1.6rem;
+      }
+      &:disabled {
+        cursor: url(../../assets/icons/not-allowed.svg), not-allowed;
+      }
+      &:not(:last-child) {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+  .tabs-content {
+    display: flex;
+    padding: 1.5rem;
+    flex: 1 1 auto;
+  }
+}

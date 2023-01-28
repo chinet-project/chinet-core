@@ -1,0 +1,134 @@
+:host {
+  width: 100%;
+}
+.history-wrap {
+  height: 95%;
+}
+.wrap-table {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  table.history-table {
+    tbody {
+      font-weight: 500;
+      tr {
+        td {
+          min-width: 10rem;
+        }
+        .status {
+          position: relative;
+          display: flex;
+          align-items: center;
+          .confirmation {
+            margin-right: 0.7rem;
+            width: 1.7rem;
+            height: 1.7rem;
+          }
+          .lock-transaction {
+            background: center / contain no-repeat url(../../assets/icons/lock-transaction.svg);
+            margin-left: 0.7rem;
+            width: 1.4rem;
+            height: 1.4rem;
+          }
+          .unlock-transaction {
+            background: center / contain no-repeat url(../../assets/icons/unlock-transaction.svg);
+            margin-left: 0.7rem;
+            width: 1.4rem;
+            height: 1.4rem;
+          }
+          img.status-transaction {
+            margin-right: 0.7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+        .remote-address {
+          span {
+            display: inline-flex;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        &:not(.transaction-details) {
+          cursor: pointer;
+        }
+        &.transaction-details {
+          -webkit-transition: 0.5s height linear, 0s font-size;
+          transition: 0.5s height linear, 0s font-size;
+          transition-delay: 0s, 0.5s;
+          height: 0;
+          &.open {
+            height: 18rem;
+          }
+          td {
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            line-height: inherit;
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.pagination-wrapper {
+  margin-right: 1rem;
+  .pagination {
+    > div {
+      display: flex;
+      align-items: center;
+    }
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      &.disabled {
+        cursor: url(../../assets/icons/not-allowed.svg), not-allowed;
+      }
+      svg {
+        margin-top: 0.3rem;
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+      margin-right: 0.5rem;
+      padding: 0;
+      font-size: 1.6rem;
+      transition: all 0.3s;
+    }
+  }
+}
+.mining-transaction-switch {
+  display: flex;
+  align-items: center;
+  .switch-text {
+    margin-right: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: #fdfeff;
+  }
+  .switch {
+    display: flex;
+    align-items: center;
+    border-radius: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    width: 3.6rem;
+    height: 2.2rem;
+    &.on {
+      justify-content: flex-end;
+    }
+    &.off {
+      justify-content: flex-start;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .circle {
+      border-radius: 50%;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="modal">
+  <div class="title">
+    <span>{{ 'EXPORT_HISTORY.TITLE' | translate }}</span>
+  </div>
+  <div class="content">
+    <div class="inputs-container">
+      <div class="lock-selection">
+        <label class="lock-selection-title">Format:</label>
+        <ng-select class="custom-select" [items]="exportFormats" bindValue="format" bindLabel="formatName"
+          [(ngModel)]="curentFormat" [clearable]="false" [searchable]="false">
+          <ng-template ng-label-tmp let-item="item">
+            {{item.formatName}}
+          </ng-template>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            {{item.formatName}}
+          </ng-template>
+        </ng-select>
+      </div>
+      <div class="lock-selection filter-switch">
+        <label class="lock-selection-title">{{ 'EXPORT_HISTORY.FILTER' | translate }}</label>
+        <div class="switch" (click)="posFilterIsOn = !posFilterIsOn" [ngClass]="posFilterIsOn ? 'off' : 'on'">
+          <span class="circle"></span>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper-buttons">
+      <button type="button" class="blue-button" (click)="closeModal()">{{ 'EXPORT_HISTORY.CANCEL' | translate
+        }}</button>
+      <button type="submit" class="blue-button" (click)="confirmExport()">{{ 'EXPORT_HISTORY.EXPORT' | translate
+        }}</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,3163 @@
+/*
+* Implementation of themes
+*/
+@import "~@ng-select/ng-select/themes/default.theme.css";
+html {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  -webkit-touch-collout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-style: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+input {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  outline: none;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
+a:active, a:hover, a:focus {
+  outline: 0;
+}
+
+i {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.theme-dark .app-content .preloader .loading-bar {
+  background-color: #5cda9d;
+}
+.theme-gray .app-content .preloader .loading-bar {
+  background-color: #47cf8d;
+}
+.theme-white .app-content .preloader .loading-bar {
+  background-color: #46c172;
+}
+
+button {
+  border: none;
+  font-family: OpenSans, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  outline: none;
+  padding: 0 1rem;
+  height: 4.2rem;
+}
+.theme-dark button:disabled:not(.transparent-button), .theme-dark button.blue-button_reset {
+  background-color: #9cadb7;
+  color: #111921;
+}
+.theme-gray button:disabled:not(.transparent-button), .theme-gray button.blue-button_reset {
+  background-color: #79848f;
+  color: #1a1a1a;
+}
+.theme-white button:disabled:not(.transparent-button), .theme-white button.blue-button_reset {
+  background-color: #90a4ae;
+  color: #fefefe;
+}
+.theme-dark button:disabled:not(.transparent-button):hover, .theme-dark button.blue-button_reset:hover {
+  background-color: #b7d1e0;
+}
+.theme-gray button:disabled:not(.transparent-button):hover, .theme-gray button.blue-button_reset:hover {
+  background-color: #a1aebb;
+}
+.theme-white button:disabled:not(.transparent-button):hover, .theme-white button.blue-button_reset:hover {
+  background-color: #aebec6;
+}
+.theme-dark button:disabled:not(.transparent-button):focus, .theme-dark button.blue-button_reset:focus {
+  background-color: #a7b9c2;
+}
+.theme-gray button:disabled:not(.transparent-button):focus, .theme-gray button.blue-button_reset:focus {
+  background-color: #8a959f;
+}
+.theme-white button:disabled:not(.transparent-button):focus, .theme-white button.blue-button_reset:focus {
+  background-color: #a7b9c2;
+}
+.theme-dark button.blue-button:not(:disabled) {
+  background-color: #4db1ff;
+  color: #111921;
+}
+.theme-gray button.blue-button:not(:disabled) {
+  background-color: #42a5f5;
+  color: #1a1a1a;
+}
+.theme-white button.blue-button:not(:disabled) {
+  background-color: #2c95f1;
+  color: #fefefe;
+}
+.theme-dark button.blue-button:not(:disabled):hover {
+  background-color: #82d7ff;
+}
+.theme-gray button.blue-button:not(:disabled):hover {
+  background-color: #86d6ff;
+}
+.theme-white button.blue-button:not(:disabled):hover {
+  background-color: #5cb3ff;
+}
+.theme-dark button.blue-button:not(:disabled):focus {
+  background-color: #59b5fd;
+}
+.theme-gray button.blue-button:not(:disabled):focus {
+  background-color: #5fb6fc;
+}
+.theme-white button.blue-button:not(:disabled):focus {
+  background-color: #379ffa;
+}
+.theme-dark button.green-button:not(:disabled) {
+  background-color: #5cda9d;
+  color: #111921;
+}
+.theme-gray button.green-button:not(:disabled) {
+  background-color: #47cf8d;
+  color: #1a1a1a;
+}
+.theme-white button.green-button:not(:disabled) {
+  background-color: #46c172;
+  color: #fefefe;
+}
+.theme-dark button.green-button:not(:disabled):hover {
+  background-color: #8dfcc6;
+}
+.theme-gray button.green-button:not(:disabled):hover {
+  background-color: #7bf6c6;
+}
+.theme-white button.green-button:not(:disabled):hover {
+  background-color: #5ad586;
+}
+.theme-dark button.green-button:not(:disabled):focus {
+  background-color: #62e0b2;
+}
+.theme-gray button.green-button:not(:disabled):focus {
+  background-color: #5cdc9e;
+}
+.theme-white button.green-button:not(:disabled):focus {
+  background-color: #53c77c;
+}
+.theme-dark button.turquoise-button:not(:disabled) {
+  background-color: #4dd0e1;
+  color: #111921;
+}
+.theme-gray button.turquoise-button:not(:disabled) {
+  background-color: #3ec5d7;
+  color: #1a1a1a;
+}
+.theme-white button.turquoise-button:not(:disabled) {
+  background-color: #26b6c7;
+  color: #fefefe;
+}
+.theme-dark button.turquoise-button:not(:disabled):hover {
+  background-color: #87f4f5;
+}
+.theme-gray button.turquoise-button:not(:disabled):hover {
+  background-color: #72edfe;
+}
+.theme-white button.turquoise-button:not(:disabled):hover {
+  background-color: #52cbd9;
+}
+.theme-dark button.turquoise-button:not(:disabled):focus {
+  background-color: #42d5e8;
+}
+.theme-gray button.turquoise-button:not(:disabled):focus {
+  background-color: #50d0e1;
+}
+.theme-white button.turquoise-button:not(:disabled):focus {
+  background-color: #31becf;
+}
+button.transparent-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-dark button.transparent-button {
+  background-color: transparent;
+  border: 0.2rem solid #2b3644;
+  color: #e0e0e0;
+}
+.theme-gray button.transparent-button {
+  background-color: transparent;
+  border: 0.2rem solid #2f3438;
+  color: #e0e0e0;
+}
+.theme-white button.transparent-button {
+  background-color: transparent;
+  border: 0.2rem solid #ebebeb;
+  color: #43454b;
+}
+button.transparent-button .icon {
+  margin-right: 1rem;
+  mask: url(~src/assets/icons/complete-testwallet.svg) no-repeat center;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.theme-dark button.transparent-button .icon {
+  background-color: #e0e0e0;
+}
+.theme-gray button.transparent-button .icon {
+  background-color: #e0e0e0;
+}
+.theme-white button.transparent-button .icon {
+  background-color: #43454b;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+}
+.input-block .wrap-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 2.4rem;
+}
+.input-block label {
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+}
+.theme-dark .input-block label {
+  color: #556576;
+}
+.theme-gray .input-block label {
+  color: #565c62;
+}
+.theme-white .input-block label {
+  color: #a0a5ab;
+}
+.input-block input[type=text], .input-block input[type=password], .input-block select {
+  border: none;
+  font-size: 1.4rem;
+  outline: none;
+  padding: 0 1rem;
+  width: 100%;
+  height: 4.2rem;
+}
+.theme-dark .input-block input[type=text], .theme-dark .input-block input[type=password], .theme-dark .input-block select {
+  background-color: #171e27;
+  color: #e0e0e0;
+}
+.theme-gray .input-block input[type=text], .theme-gray .input-block input[type=password], .theme-gray .input-block select {
+  background-color: #292d31;
+  color: #e0e0e0;
+}
+.theme-white .input-block input[type=text], .theme-white .input-block input[type=password], .theme-white .input-block select {
+  background-color: #e6e6e6;
+  color: #43454b;
+}
+.input-block.textarea {
+  height: auto;
+}
+.input-block.textarea textarea {
+  font-family: OpenSans, sans-serif;
+  border: none;
+  font-size: 1.4rem;
+  outline: none;
+  padding: 1rem;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 7.5rem;
+  max-height: 7.5rem;
+  overflow: auto;
+  resize: none;
+}
+.theme-dark .input-block.textarea textarea {
+  background-color: #171e27;
+  color: #e0e0e0;
+}
+.theme-gray .input-block.textarea textarea {
+  background-color: #292d31;
+  color: #e0e0e0;
+}
+.theme-white .input-block.textarea textarea {
+  background-color: #e6e6e6;
+  color: #43454b;
+}
+.input-block .error-block {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  align-self: flex-end;
+  text-align: right;
+}
+.theme-dark .input-block .error-block {
+  color: #ff5252;
+}
+.theme-gray .input-block .error-block {
+  color: #ff5252;
+}
+.theme-white .input-block .error-block {
+  color: #ff5252;
+}
+.input-block .success-block {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  align-self: flex-end;
+  text-align: right;
+}
+.theme-dark .input-block .success-block {
+  color: #5cda9d;
+}
+.theme-gray .input-block .success-block {
+  color: #47cf8d;
+}
+.theme-white .input-block .success-block {
+  color: #46c172;
+}
+
+.theme-dark .error-text {
+  color: #ff5252;
+}
+.theme-gray .error-text {
+  color: #ff5252;
+}
+.theme-white .error-text {
+  color: #ff5252;
+}
+
+input[type=radio].style-radio + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+  padding-left: 2.4rem;
+  -webkit-touch-collout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.theme-dark input[type=radio].style-radio + label {
+  color: #556576;
+}
+.theme-gray input[type=radio].style-radio + label {
+  color: #565c62;
+}
+.theme-white input[type=radio].style-radio + label {
+  color: #a0a5ab;
+}
+input[type=radio].style-radio:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+input[type=radio].style-radio:not(checked) + label {
+  position: relative;
+}
+input[type=radio].style-radio:not(checked) + label:before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  background: transparent;
+  border-radius: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.theme-dark input[type=radio].style-radio:not(checked) + label:before {
+  border: 0.1rem solid #4db1ff;
+}
+.theme-gray input[type=radio].style-radio:not(checked) + label:before {
+  border: 0.1rem solid #42a5f5;
+}
+.theme-white input[type=radio].style-radio:not(checked) + label:before {
+  border: 0.1rem solid #2c95f1;
+}
+input[type=radio].style-radio:not(checked) + label:after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 0.3rem;
+  border-radius: 50%;
+  opacity: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.theme-dark input[type=radio].style-radio:not(checked) + label:after {
+  background-color: #4db1ff;
+}
+.theme-gray input[type=radio].style-radio:not(checked) + label:after {
+  background-color: #42a5f5;
+}
+.theme-white input[type=radio].style-radio:not(checked) + label:after {
+  background-color: #2c95f1;
+}
+input[type=radio].style-radio:checked + label:after {
+  opacity: 1;
+}
+
+input[type=checkbox].style-checkbox + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+  padding-left: 3.6rem;
+  -webkit-touch-collout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.theme-dark input[type=checkbox].style-checkbox + label {
+  color: #556576;
+}
+.theme-gray input[type=checkbox].style-checkbox + label {
+  color: #565c62;
+}
+.theme-white input[type=checkbox].style-checkbox + label {
+  color: #a0a5ab;
+}
+input[type=checkbox].style-checkbox:not(checked) {
+  position: absolute;
+  top: 50%;
+  left: 1.6rem;
+  transform: translateY(-50%);
+  visibility: hidden;
+}
+input[type=checkbox].style-checkbox:not(checked) + label {
+  position: relative;
+}
+input[type=checkbox].style-checkbox:not(checked) + label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1.6rem;
+  transform: translateY(-50%);
+  background: transparent;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.theme-dark input[type=checkbox].style-checkbox:not(checked) + label:before {
+  border: 0.1rem solid #4db1ff;
+}
+.theme-gray input[type=checkbox].style-checkbox:not(checked) + label:before {
+  border: 0.1rem solid #42a5f5;
+}
+.theme-white input[type=checkbox].style-checkbox:not(checked) + label:before {
+  border: 0.1rem solid #2c95f1;
+}
+input[type=checkbox].style-checkbox:checked + label:before {
+  background: url(~src/assets/icons/complete-testwallet.svg);
+}
+.theme-dark input[type=checkbox].style-checkbox:checked + label:before {
+  background-color: #4db1ff;
+}
+.theme-gray input[type=checkbox].style-checkbox:checked + label:before {
+  background-color: #42a5f5;
+}
+.theme-white input[type=checkbox].style-checkbox:checked + label:before {
+  background-color: #2c95f1;
+}
+
+.theme-dark .switch {
+  background-color: #000000;
+}
+.theme-gray .switch {
+  background-color: #000000;
+}
+.theme-white .switch {
+  background-color: #e0e0e0;
+}
+.theme-dark .switch .circle.on {
+  background-color: #4db1ff;
+}
+.theme-gray .switch .circle.on {
+  background-color: #42a5f5;
+}
+.theme-white .switch .circle.on {
+  background-color: #2c95f1;
+}
+.theme-dark .switch .circle.off {
+  background-color: #556576;
+}
+.theme-gray .switch .circle.off {
+  background-color: #565c62;
+}
+.theme-white .switch .circle.off {
+  background-color: #a0a5ab;
+}
+
+.table-tooltip {
+  padding: 1rem 2rem;
+}
+.theme-dark .table-tooltip {
+  background: #42505f;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray .table-tooltip {
+  background: #3e464c;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+.theme-white .table-tooltip {
+  background: #ffffff;
+  box-shadow: 0 0 1rem rgba(120, 120, 120, 0.5);
+  color: #43454b;
+}
+.table-tooltip .tooltip-inner {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  white-space: pre-wrap;
+}
+.table-tooltip.ng-tooltip-top {
+  margin-top: -1rem;
+}
+.table-tooltip.ng-tooltip-top:after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: calc(50% - 0.5rem);
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-top:after {
+  border-color: #42505f transparent transparent transparent;
+}
+.theme-gray .table-tooltip.ng-tooltip-top:after {
+  border-color: #3e464c transparent transparent transparent;
+}
+.theme-white .table-tooltip.ng-tooltip-top:after {
+  border-color: #ffffff transparent transparent transparent;
+}
+.table-tooltip.ng-tooltip-top-left {
+  margin-top: -1rem;
+}
+.table-tooltip.ng-tooltip-top-left:after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 0.7rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-top-left:after {
+  border-color: #42505f transparent transparent #42505f;
+}
+.theme-gray .table-tooltip.ng-tooltip-top-left:after {
+  border-color: #3e464c transparent transparent #3e464c;
+}
+.theme-white .table-tooltip.ng-tooltip-top-left:after {
+  border-color: #ffffff transparent transparent #ffffff;
+}
+.table-tooltip.ng-tooltip-top-right {
+  margin-top: -1rem;
+}
+.table-tooltip.ng-tooltip-top-right:after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  right: 0.7rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-top-right:after {
+  border-color: #42505f #42505f transparent transparent;
+}
+.theme-gray .table-tooltip.ng-tooltip-top-right:after {
+  border-color: #3e464c #3e464c transparent transparent;
+}
+.theme-white .table-tooltip.ng-tooltip-top-right:after {
+  border-color: #ffffff #ffffff transparent transparent;
+}
+.table-tooltip.ng-tooltip-bottom {
+  margin-top: 1rem;
+}
+.table-tooltip.ng-tooltip-bottom:before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: calc(50% - 0.5rem);
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-bottom:before {
+  border-color: transparent transparent #42505f transparent;
+}
+.theme-gray .table-tooltip.ng-tooltip-bottom:before {
+  border-color: transparent transparent #3e464c transparent;
+}
+.theme-white .table-tooltip.ng-tooltip-bottom:before {
+  border-color: transparent transparent #ffffff transparent;
+}
+.table-tooltip.ng-tooltip-bottom-left {
+  margin-top: 1rem;
+}
+.table-tooltip.ng-tooltip-bottom-left:before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: 0.7rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-bottom-left:before {
+  border-color: transparent transparent #42505f #42505f;
+}
+.theme-gray .table-tooltip.ng-tooltip-bottom-left:before {
+  border-color: transparent transparent #3e464c #3e464c;
+}
+.theme-white .table-tooltip.ng-tooltip-bottom-left:before {
+  border-color: transparent transparent #ffffff #ffffff;
+}
+.table-tooltip.ng-tooltip-bottom-right {
+  margin-top: 1rem;
+}
+.table-tooltip.ng-tooltip-bottom-right:before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: 0.7rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-bottom-right:before {
+  border-color: transparent #42505f #42505f transparent;
+}
+.theme-gray .table-tooltip.ng-tooltip-bottom-right:before {
+  border-color: transparent #3e464c #3e464c transparent;
+}
+.theme-white .table-tooltip.ng-tooltip-bottom-right:before {
+  border-color: transparent #ffffff #ffffff transparent;
+}
+.table-tooltip.ng-tooltip-left {
+  margin-left: -1rem;
+}
+.table-tooltip.ng-tooltip-left:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  right: -1rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-left:after {
+  border-color: transparent transparent transparent #42505f;
+}
+.theme-gray .table-tooltip.ng-tooltip-left:after {
+  border-color: transparent transparent transparent #3e464c;
+}
+.theme-white .table-tooltip.ng-tooltip-left:after {
+  border-color: transparent transparent transparent #ffffff;
+}
+.table-tooltip.ng-tooltip-right {
+  margin-left: 1rem;
+}
+.table-tooltip.ng-tooltip-right:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  left: -1rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .table-tooltip.ng-tooltip-right:before {
+  border-color: transparent #42505f transparent transparent;
+}
+.theme-gray .table-tooltip.ng-tooltip-right:before {
+  border-color: transparent #3e464c transparent transparent;
+}
+.theme-white .table-tooltip.ng-tooltip-right:before {
+  border-color: transparent #ffffff transparent transparent;
+}
+
+.table-tooltip-dimensions .tooltip-inner {
+  overflow: auto;
+  max-width: 20rem;
+  max-height: 10rem;
+}
+
+.balance-tooltip {
+  padding: 1.3rem;
+}
+.theme-dark .balance-tooltip {
+  background: #42505f;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray .balance-tooltip {
+  background: #3e464c;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+.theme-white .balance-tooltip {
+  background: #ffffff;
+  box-shadow: 0 0 1rem rgba(120, 120, 120, 0.5);
+  color: #43454b;
+}
+.balance-tooltip .tooltip-inner {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+.balance-tooltip .tooltip-inner .available {
+  margin-bottom: 1.7rem;
+}
+.balance-tooltip .tooltip-inner .available b {
+  font-weight: 600;
+}
+.balance-tooltip .tooltip-inner .locked {
+  margin-bottom: 0.7rem;
+}
+.balance-tooltip .tooltip-inner .locked b {
+  font-weight: 600;
+}
+.balance-tooltip .tooltip-inner .link {
+  cursor: pointer;
+}
+.theme-dark .balance-tooltip .tooltip-inner .link {
+  color: #4db1ff;
+}
+.theme-gray .balance-tooltip .tooltip-inner .link {
+  color: #42a5f5;
+}
+.theme-white .balance-tooltip .tooltip-inner .link {
+  color: #2c95f1;
+}
+.balance-tooltip.ng-tooltip-top {
+  margin-top: -1rem;
+}
+.balance-tooltip.ng-tooltip-bottom {
+  margin-top: 1rem;
+}
+.balance-tooltip.ng-tooltip-left {
+  margin-left: -1rem;
+}
+.balance-tooltip.ng-tooltip-right {
+  margin-left: 1rem;
+}
+
+.account-tooltip .tooltip-inner {
+  word-break: break-word;
+  max-width: 18rem;
+}
+
+.comment-tooltip .tooltip-inner {
+  overflow: auto;
+  word-break: break-word;
+  max-width: 50rem;
+  max-height: 25rem;
+}
+
+.update-tooltip {
+  padding: 1.5rem;
+}
+.theme-dark .update-tooltip {
+  background: #42505f;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray .update-tooltip {
+  background: #3e464c;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+.theme-white .update-tooltip {
+  background: #ffffff;
+  box-shadow: 0 0 1rem rgba(120, 120, 120, 0.5);
+  color: #43454b;
+}
+.theme-dark .update-tooltip.important {
+  background: #5f2b11;
+  color: #e0e0e0;
+}
+.theme-gray .update-tooltip.important {
+  background: #55240d;
+  color: #e0e0e0;
+}
+.theme-white .update-tooltip.important {
+  background: #ef6c00;
+  color: #ffffff;
+}
+.theme-dark .update-tooltip.important.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #5f2b11 #5f2b11;
+}
+.theme-gray .update-tooltip.important.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #55240d #55240d;
+}
+.theme-white .update-tooltip.important.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #ef6c00 #ef6c00;
+}
+.theme-dark .update-tooltip.important.ng-tooltip-right-bottom:before {
+  border-color: transparent #5f2b11 #5f2b11 transparent;
+}
+.theme-gray .update-tooltip.important.ng-tooltip-right-bottom:before {
+  border-color: transparent #55240d #55240d transparent;
+}
+.theme-white .update-tooltip.important.ng-tooltip-right-bottom:before {
+  border-color: transparent #ef6c00 #ef6c00 transparent;
+}
+.update-tooltip.critical {
+  padding: 2.5rem;
+}
+.theme-dark .update-tooltip.critical {
+  background: #5f1d1d;
+  color: #e0e0e0;
+}
+.theme-gray .update-tooltip.critical {
+  background: #4c1919;
+  color: #e0e0e0;
+}
+.theme-white .update-tooltip.critical {
+  background: #e53935;
+  color: #ffffff;
+}
+.update-tooltip.critical .tooltip-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.theme-dark .update-tooltip.critical.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #5f1d1d #5f1d1d;
+}
+.theme-gray .update-tooltip.critical.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #4c1919 #4c1919;
+}
+.theme-white .update-tooltip.critical.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #e53935 #e53935;
+}
+.theme-dark .update-tooltip.critical.ng-tooltip-right-bottom:before {
+  border-color: transparent #5f1d1d #5f1d1d transparent;
+}
+.theme-gray .update-tooltip.critical.ng-tooltip-right-bottom:before {
+  border-color: transparent #4c1919 #4c1919 transparent;
+}
+.theme-white .update-tooltip.critical.ng-tooltip-right-bottom:before {
+  border-color: transparent #e53935 #e53935 transparent;
+}
+.update-tooltip .tooltip-inner {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  white-space: pre-wrap;
+}
+.update-tooltip .tooltip-inner .standard-update {
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+}
+.theme-dark .update-tooltip .tooltip-inner .standard-update {
+  color: #4db1ff;
+}
+.theme-gray .update-tooltip .tooltip-inner .standard-update {
+  color: #42a5f5;
+}
+.theme-white .update-tooltip .tooltip-inner .standard-update {
+  color: #2c95f1;
+}
+.update-tooltip .tooltip-inner .important-update {
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+}
+.theme-dark .update-tooltip .tooltip-inner .important-update {
+  color: #ff6f00;
+}
+.theme-gray .update-tooltip .tooltip-inner .important-update {
+  color: #ff6f00;
+}
+.theme-white .update-tooltip .tooltip-inner .important-update {
+  color: #ffffff;
+}
+.update-tooltip .tooltip-inner .critical-update {
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+  text-align: center;
+}
+.update-tooltip .tooltip-inner .wrong-time {
+  font-size: 1.5rem;
+  line-height: 2.7rem;
+}
+.theme-dark .update-tooltip .tooltip-inner .wrong-time {
+  color: #ff6f00;
+}
+.theme-gray .update-tooltip .tooltip-inner .wrong-time {
+  color: #ff6f00;
+}
+.theme-white .update-tooltip .tooltip-inner .wrong-time {
+  color: #ffffff;
+}
+.update-tooltip .tooltip-inner .icon {
+  margin: 1.5rem 0;
+  width: 5rem;
+  height: 5rem;
+}
+.theme-dark .update-tooltip .tooltip-inner .icon {
+  background-color: #ff5252;
+}
+.theme-gray .update-tooltip .tooltip-inner .icon {
+  background-color: #ff5252;
+}
+.theme-white .update-tooltip .tooltip-inner .icon {
+  background-color: #ffffff;
+}
+.update-tooltip.ng-tooltip-left-bottom {
+  margin-left: -1.5rem;
+}
+.update-tooltip.ng-tooltip-left-bottom:after {
+  content: "";
+  position: absolute;
+  bottom: 0.6rem;
+  right: -1rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .update-tooltip.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #42505f #42505f;
+}
+.theme-gray .update-tooltip.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #3e464c #3e464c;
+}
+.theme-white .update-tooltip.ng-tooltip-left-bottom:after {
+  border-color: transparent transparent #ffffff #ffffff;
+}
+.update-tooltip.ng-tooltip-right-bottom {
+  margin-left: 1.5rem;
+}
+.update-tooltip.ng-tooltip-right-bottom:before {
+  content: "";
+  position: absolute;
+  bottom: 0.6rem;
+  left: -1rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+.theme-dark .update-tooltip.ng-tooltip-right-bottom:before {
+  border-color: transparent #42505f #42505f transparent;
+}
+.theme-gray .update-tooltip.ng-tooltip-right-bottom:before {
+  border-color: transparent #3e464c #3e464c transparent;
+}
+.theme-white .update-tooltip.ng-tooltip-right-bottom:before {
+  border-color: transparent #ffffff #ffffff transparent;
+}
+
+.ngx-contextmenu .dropdown-menu {
+  border: none;
+  padding: 0;
+}
+.theme-dark .ngx-contextmenu .dropdown-menu {
+  background-color: #2b3644;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+.theme-gray .ngx-contextmenu .dropdown-menu {
+  background-color: #292d31;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+.theme-white .ngx-contextmenu .dropdown-menu {
+  background-color: #e0e0e0;
+  box-shadow: 0 0 1rem rgba(120, 120, 120, 0.5);
+}
+.ngx-contextmenu li {
+  display: block;
+  font-family: OpenSans, sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.ngx-contextmenu a {
+  display: block;
+  padding: 0.5em 1em;
+}
+.theme-dark .ngx-contextmenu a {
+  color: #e0e0e0;
+}
+.theme-gray .ngx-contextmenu a {
+  color: #e0e0e0;
+}
+.theme-white .ngx-contextmenu a {
+  color: #43454b;
+}
+.theme-dark .ngx-contextmenu a:hover {
+  background-color: #556576;
+  color: #e0e0e0;
+}
+.theme-gray .ngx-contextmenu a:hover {
+  background-color: #515960;
+  color: #e0e0e0;
+}
+.theme-white .ngx-contextmenu a:hover {
+  background-color: #ffffff;
+  color: #43454b;
+}
+
+.ng-select.custom-select {
+  width: 100%;
+}
+.ng-select.custom-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+  line-height: 1.8rem;
+}
+.ng-select.custom-select .ng-select-container {
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1.4rem;
+  outline: none;
+  padding: 0 1rem;
+  height: 4.2rem;
+}
+.theme-dark .ng-select.custom-select .ng-select-container {
+  background-color: #171e27;
+  color: #e0e0e0;
+}
+.theme-gray .ng-select.custom-select .ng-select-container {
+  background-color: #292d31;
+  color: #e0e0e0;
+}
+.theme-white .ng-select.custom-select .ng-select-container {
+  background-color: #e6e6e6;
+  color: #43454b;
+}
+.ng-select.custom-select .ng-select-container .ng-value-container {
+  padding: 0;
+}
+.ng-select.custom-select .ng-select-container .ng-value-container .ng-input {
+  top: auto;
+}
+.ng-select.custom-select .ng-dropdown-panel {
+  border: none;
+}
+.theme-dark .ng-select.custom-select .ng-dropdown-panel {
+  background-color: #171e27;
+}
+.theme-gray .ng-select.custom-select .ng-dropdown-panel {
+  background-color: #292d31;
+}
+.theme-white .ng-select.custom-select .ng-dropdown-panel {
+  background-color: #e6e6e6;
+}
+.ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+.theme-dark .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  background-color: #171e27;
+  color: #e0e0e0;
+}
+.theme-gray .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  background-color: #292d31;
+  color: #e0e0e0;
+}
+.theme-white .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  background-color: #e6e6e6;
+  color: #43454b;
+}
+.theme-dark .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background-color: rgba(58, 69, 85, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background-color: rgba(58, 62, 66, 0.5);
+  color: #e0e0e0;
+}
+.theme-white .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background-color: rgba(240, 240, 240, 0.5);
+  color: #43454b;
+}
+.theme-dark .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+  background-color: rgba(43, 54, 68, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+  background-color: rgba(37, 40, 43, 0.5);
+  color: #e0e0e0;
+}
+.theme-white .ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+  background-color: rgba(224, 224, 224, 0.5);
+  color: #43454b;
+}
+.ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items::-webkit-scrollbar {
+  background-color: transparent;
+  cursor: default;
+  width: 1rem;
+  height: 1rem;
+}
+.ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items::-webkit-scrollbar-thumb {
+  background-color: #556576;
+  background-clip: padding-box;
+  border: 0.25rem solid transparent;
+  border-radius: 0.5rem;
+}
+.ng-select.custom-select .ng-dropdown-panel .ng-dropdown-panel-items::-webkit-scrollbar-thumb:hover {
+  background-color: #556576;
+}
+
+.theme-dark app-modal-container .modal, .theme-dark app-confirm-modal .modal {
+  background: url(~src/assets/images/background-dark.png);
+  color: #e0e0e0;
+}
+.theme-gray app-modal-container .modal, .theme-gray app-confirm-modal .modal {
+  background: url(~src/assets/images/background-gray.png);
+  color: #e0e0e0;
+}
+.theme-white app-modal-container .modal, .theme-white app-confirm-modal .modal {
+  background: url(~src/assets/images/background-white.png);
+  color: #43454b;
+}
+.theme-dark app-modal-container .modal .content .icon.error, .theme-dark app-confirm-modal .modal .content .icon.error {
+  background-color: #ff5252;
+}
+.theme-gray app-modal-container .modal .content .icon.error, .theme-gray app-confirm-modal .modal .content .icon.error {
+  background-color: #ff5252;
+}
+.theme-white app-modal-container .modal .content .icon.error, .theme-white app-confirm-modal .modal .content .icon.error {
+  background-color: #ff5252;
+}
+.theme-dark app-modal-container .modal .content .icon.success, .theme-dark app-confirm-modal .modal .content .icon.success {
+  background-color: #5cda9d;
+}
+.theme-gray app-modal-container .modal .content .icon.success, .theme-gray app-confirm-modal .modal .content .icon.success {
+  background-color: #47cf8d;
+}
+.theme-white app-modal-container .modal .content .icon.success, .theme-white app-confirm-modal .modal .content .icon.success {
+  background-color: #46c172;
+}
+.theme-dark app-modal-container .modal .content .icon.info, .theme-dark app-confirm-modal .modal .content .icon.info {
+  background-color: #4db1ff;
+}
+.theme-gray app-modal-container .modal .content .icon.info, .theme-gray app-confirm-modal .modal .content .icon.info {
+  background-color: #42a5f5;
+}
+.theme-white app-modal-container .modal .content .icon.info, .theme-white app-confirm-modal .modal .content .icon.info {
+  background-color: #2c95f1;
+}
+.theme-dark app-modal-container .modal .action-button, .theme-dark app-confirm-modal .modal .action-button {
+  background-color: #4db1ff;
+  color: #111921;
+}
+.theme-gray app-modal-container .modal .action-button, .theme-gray app-confirm-modal .modal .action-button {
+  background-color: #42a5f5;
+  color: #1a1a1a;
+}
+.theme-white app-modal-container .modal .action-button, .theme-white app-confirm-modal .modal .action-button {
+  background-color: #2c95f1;
+  color: #fefefe;
+}
+.theme-dark app-modal-container .modal .close-button .icon, .theme-dark app-confirm-modal .modal .close-button .icon {
+  background-color: #556576;
+}
+.theme-gray app-modal-container .modal .close-button .icon, .theme-gray app-confirm-modal .modal .close-button .icon {
+  background-color: #515960;
+}
+.theme-white app-modal-container .modal .close-button .icon, .theme-white app-confirm-modal .modal .close-button .icon {
+  background-color: #43454b;
+}
+
+.theme-dark app-transaction-details .table {
+  border-top: 0.2rem solid #2b3644;
+}
+.theme-gray app-transaction-details .table {
+  border-top: 0.2rem solid #2f3438;
+}
+.theme-white app-transaction-details .table {
+  border-top: 0.2rem solid #ebebeb;
+}
+.theme-dark app-transaction-details .table .row .cell.label {
+  color: #556576;
+}
+.theme-gray app-transaction-details .table .row .cell.label {
+  color: #565c62;
+}
+.theme-white app-transaction-details .table .row .cell.label {
+  color: #a0a5ab;
+}
+.theme-dark app-transaction-details .table .row .cell.value {
+  color: #e0e0e0;
+}
+.theme-gray app-transaction-details .table .row .cell.value {
+  color: #e0e0e0;
+}
+.theme-white app-transaction-details .table .row .cell.value {
+  color: #43454b;
+}
+.theme-dark app-transaction-details .table .row .cell.key-value {
+  color: #4db1ff;
+}
+.theme-gray app-transaction-details .table .row .cell.key-value {
+  color: #42a5f5;
+}
+.theme-white app-transaction-details .table .row .cell.key-value {
+  color: #2c95f1;
+}
+
+.theme-dark app-progress-container .progress-bar-container {
+  color: #e0e0e0;
+}
+.theme-gray app-progress-container .progress-bar-container {
+  color: #e0e0e0;
+}
+.theme-white app-progress-container .progress-bar-container {
+  color: #43454b;
+}
+.theme-dark app-progress-container .progress-bar-container .progress-bar {
+  background-color: #343f4a;
+}
+.theme-gray app-progress-container .progress-bar-container .progress-bar {
+  background-color: #363a3e;
+}
+.theme-white app-progress-container .progress-bar-container .progress-bar {
+  background-color: #dcdcdc;
+}
+.theme-dark app-progress-container .progress-bar-container .progress-bar .progress-bar-full {
+  background-color: #5cda9d;
+}
+.theme-gray app-progress-container .progress-bar-container .progress-bar .progress-bar-full {
+  background-color: #47cf8d;
+}
+.theme-white app-progress-container .progress-bar-container .progress-bar .progress-bar-full {
+  background-color: #46c172;
+}
+
+.theme-dark app-open-wallet-modal .modal {
+  background: url(~src/assets/images/background-dark.png);
+  color: #e0e0e0;
+}
+.theme-gray app-open-wallet-modal .modal {
+  background: url(~src/assets/images/background-gray.png);
+  color: #e0e0e0;
+}
+.theme-white app-open-wallet-modal .modal {
+  background: url(~src/assets/images/background-white.png);
+  color: #43454b;
+}
+
+.theme-dark app-send-modal .modal {
+  background: url(~src/assets/images/background-dark.png);
+  color: #e0e0e0;
+}
+.theme-gray app-send-modal .modal {
+  background: url(~src/assets/images/background-gray.png);
+  color: #e0e0e0;
+}
+.theme-white app-send-modal .modal {
+  background: url(~src/assets/images/background-white.png);
+  color: #43454b;
+}
+.theme-dark app-send-modal .modal .title {
+  border-bottom: 0.2rem solid #2b3644;
+}
+.theme-gray app-send-modal .modal .title {
+  border-bottom: 0.2rem solid #2f3438;
+}
+.theme-white app-send-modal .modal .title {
+  border-bottom: 0.2rem solid #ebebeb;
+}
+.theme-dark app-send-modal .modal .action-button {
+  background-color: #4db1ff;
+  color: #111921;
+}
+.theme-gray app-send-modal .modal .action-button {
+  background-color: #42a5f5;
+  color: #1a1a1a;
+}
+.theme-white app-send-modal .modal .action-button {
+  background-color: #2c95f1;
+  color: #fefefe;
+}
+
+app-main, app-create-wallet, app-open-wallet, app-restore-wallet, app-seed-phrase, app-wallet-details, app-assign-alias, app-edit-alias, app-transfer-alias, app-settings, app-login {
+  flex: 1 1 auto;
+  padding: 3rem;
+  min-width: 85rem;
+}
+app-main .content, app-create-wallet .content, app-open-wallet .content, app-restore-wallet .content, app-seed-phrase .content, app-wallet-details .content, app-assign-alias .content, app-edit-alias .content, app-transfer-alias .content, app-settings .content, app-login .content {
+  position: relative;
+  padding: 3rem;
+  min-height: 100%;
+}
+.theme-dark app-main .content, .theme-dark app-create-wallet .content, .theme-dark app-open-wallet .content, .theme-dark app-restore-wallet .content, .theme-dark app-seed-phrase .content, .theme-dark app-wallet-details .content, .theme-dark app-assign-alias .content, .theme-dark app-edit-alias .content, .theme-dark app-transfer-alias .content, .theme-dark app-settings .content, .theme-dark app-login .content {
+  background-color: rgba(43, 54, 68, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray app-main .content, .theme-gray app-create-wallet .content, .theme-gray app-open-wallet .content, .theme-gray app-restore-wallet .content, .theme-gray app-seed-phrase .content, .theme-gray app-wallet-details .content, .theme-gray app-assign-alias .content, .theme-gray app-edit-alias .content, .theme-gray app-transfer-alias .content, .theme-gray app-settings .content, .theme-gray app-login .content {
+  background-color: rgba(37, 40, 43, 0.5);
+  color: #e0e0e0;
+}
+.theme-white app-main .content, .theme-white app-create-wallet .content, .theme-white app-open-wallet .content, .theme-white app-restore-wallet .content, .theme-white app-seed-phrase .content, .theme-white app-wallet-details .content, .theme-white app-assign-alias .content, .theme-white app-edit-alias .content, .theme-white app-transfer-alias .content, .theme-white app-settings .content, .theme-white app-login .content {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #43454b;
+}
+app-main .content .head, app-create-wallet .content .head, app-open-wallet .content .head, app-restore-wallet .content .head, app-seed-phrase .content .head, app-wallet-details .content .head, app-assign-alias .content .head, app-edit-alias .content .head, app-transfer-alias .content .head, app-settings .content .head, app-login .content .head {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.theme-dark app-main .content .add-wallet .add-wallet-help {
+  color: #4db1ff;
+}
+.theme-gray app-main .content .add-wallet .add-wallet-help {
+  color: #42a5f5;
+}
+.theme-white app-main .content .add-wallet .add-wallet-help {
+  color: #2c95f1;
+}
+.theme-dark app-main .content .add-wallet .add-wallet-help .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-main .content .add-wallet .add-wallet-help .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-main .content .add-wallet .add-wallet-help .icon {
+  background-color: #2c95f1;
+}
+
+.theme-dark app-seed-phrase .seed-phrase-content {
+  background-color: #171e27;
+  color: #e0e0e0;
+}
+.theme-gray app-seed-phrase .seed-phrase-content {
+  background-color: #292d31;
+  color: #e0e0e0;
+}
+.theme-white app-seed-phrase .seed-phrase-content {
+  background-color: #e6e6e6;
+  color: #43454b;
+}
+
+.theme-dark app-wallet-details .seed-phrase {
+  background-color: #171e27;
+}
+.theme-gray app-wallet-details .seed-phrase {
+  background-color: #292d31;
+}
+.theme-white app-wallet-details .seed-phrase {
+  background-color: #e6e6e6;
+}
+
+app-settings .content {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.theme-dark app-settings .content .theme-selection {
+  color: #556576;
+}
+.theme-gray app-settings .content .theme-selection {
+  color: #565c62;
+}
+.theme-white app-settings .content .theme-selection {
+  color: #a0a5ab;
+}
+.theme-dark app-settings .content .scale-selection .button-block {
+  background-color: rgba(23, 31, 39, 0.5);
+}
+.theme-gray app-settings .content .scale-selection .button-block {
+  background-color: rgba(28, 30, 33, 0.5);
+}
+.theme-white app-settings .content .scale-selection .button-block {
+  background-color: rgba(224, 224, 224, 0.5);
+}
+.theme-dark app-settings .content .scale-selection .button-block .label {
+  color: #556576;
+}
+.theme-gray app-settings .content .scale-selection .button-block .label {
+  color: #565c62;
+}
+.theme-white app-settings .content .scale-selection .button-block .label {
+  color: #a0a5ab;
+}
+.theme-dark app-settings .content .scale-selection .button-block.active {
+  background-color: #4db1ff;
+}
+.theme-gray app-settings .content .scale-selection .button-block.active {
+  background-color: #42a5f5;
+}
+.theme-white app-settings .content .scale-selection .button-block.active {
+  background-color: #2c95f1;
+}
+.theme-dark app-settings .content .scale-selection .button-block.active .label {
+  color: #4db1ff;
+}
+.theme-gray app-settings .content .scale-selection .button-block.active .label {
+  color: #42a5f5;
+}
+.theme-white app-settings .content .scale-selection .button-block.active .label {
+  color: #2c95f1;
+}
+
+app-login {
+  min-width: inherit;
+}
+
+.theme-dark app-sidebar {
+  background-color: #171f27;
+}
+.theme-gray app-sidebar {
+  background-color: #1c1e21;
+}
+.theme-white app-sidebar {
+  background-color: white;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-header h3 {
+  color: #e0e0e0;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-header h3 {
+  color: #e0e0e0;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-header h3 {
+  color: #43454b;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-header button {
+  color: #4db1ff;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-header button {
+  color: #42a5f5;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-header button {
+  color: #2c95f1;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account {
+  background-color: transparent;
+  color: #e0e0e0;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account {
+  background-color: transparent;
+  color: #e0e0e0;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account {
+  background-color: transparent;
+  color: #43454b;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .text {
+  color: #556576;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .text {
+  color: #565c62;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .text {
+  color: #a0a5ab;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .indicator {
+  background-color: #4db1ff;
+  color: #111921;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .indicator {
+  background-color: #42a5f5;
+  color: #1a1a1a;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .indicator {
+  background-color: #2c95f1;
+  color: #fefefe;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .progress-bar-container .progress-bar {
+  background-color: #343f4a;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .progress-bar-container .progress-bar {
+  background-color: #363a3e;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .progress-bar-container .progress-bar {
+  background-color: #dcdcdc;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .progress-bar-container .progress-bar .fill {
+  background-color: #4db1ff;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .progress-bar-container .progress-bar .fill {
+  background-color: #42a5f5;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row .progress-bar-container .progress-bar .fill {
+  background-color: #2c95f1;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization {
+  color: #556576;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization {
+  color: #565c62;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account .sidebar-account-row.account-synchronization {
+  color: #a0a5ab;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active {
+  background-color: rgba(43, 54, 68, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active {
+  background-color: rgba(37, 40, 43, 0.5);
+  color: #e0e0e0;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active {
+  background-color: #1e88e5;
+  color: #ffffff;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .text {
+  color: #556576;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .text {
+  color: #565c62;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .text {
+  color: #91baf1;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .indicator {
+  background-color: #4db1ff;
+  color: #111921;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .indicator {
+  background-color: #42a5f5;
+  color: #1a1a1a;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .indicator {
+  background-color: #ffffff;
+  color: #43454b;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .switch {
+  background-color: #000000;
+  color: #e0e0e0;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .switch {
+  background-color: #000000;
+  color: #e0e0e0;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row .switch {
+  background-color: #ffffff;
+  color: #43454b;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row.account-synchronization {
+  color: #556576;
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row.account-synchronization {
+  color: #565c62;
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account.active .sidebar-account-row.account-synchronization {
+  color: #91baf1;
+}
+.theme-dark app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account:hover:not(.active) {
+  background-color: rgba(58, 69, 85, 0.5);
+}
+.theme-gray app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account:hover:not(.active) {
+  background-color: rgba(58, 62, 66, 0.5);
+}
+.theme-white app-sidebar .sidebar-accounts .sidebar-accounts-list .sidebar-account:hover:not(.active) {
+  background-color: rgba(240, 240, 240, 0.5);
+}
+.theme-dark app-sidebar .sidebar-accounts:after {
+  background: linear-gradient(to bottom, transparent 0%, #171f27 100%);
+}
+.theme-gray app-sidebar .sidebar-accounts:after {
+  background: linear-gradient(to bottom, transparent 0%, #1c1e21 100%);
+}
+.theme-white app-sidebar .sidebar-accounts:after {
+  background: linear-gradient(to bottom, transparent 0%, white 100%);
+}
+.theme-dark app-sidebar .sidebar-settings {
+  border-bottom: 0.2rem solid #1f2833;
+}
+.theme-gray app-sidebar .sidebar-settings {
+  border-bottom: 0.2rem solid #2e3337;
+}
+.theme-white app-sidebar .sidebar-settings {
+  border-bottom: 0.2rem solid #ebebeb;
+}
+.theme-dark app-sidebar .sidebar-settings .wrap-button button {
+  color: #e0e0e0;
+}
+.theme-gray app-sidebar .sidebar-settings .wrap-button button {
+  color: #e0e0e0;
+}
+.theme-white app-sidebar .sidebar-settings .wrap-button button {
+  color: #43454b;
+}
+.theme-dark app-sidebar .sidebar-settings .wrap-button button .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-sidebar .sidebar-settings .wrap-button button .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-sidebar .sidebar-settings .wrap-button button .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-sidebar .sidebar-settings .wrap-button.active button {
+  background-color: rgba(43, 54, 68, 0.5) !important;
+  color: #e0e0e0 !important;
+}
+.theme-gray app-sidebar .sidebar-settings .wrap-button.active button {
+  background-color: rgba(37, 40, 43, 0.5) !important;
+  color: #e0e0e0 !important;
+}
+.theme-white app-sidebar .sidebar-settings .wrap-button.active button {
+  background-color: #1e88e5 !important;
+  color: #ffffff !important;
+}
+.theme-dark app-sidebar .sidebar-settings .wrap-button.active button .icon {
+  background-color: #4db1ff !important;
+}
+.theme-gray app-sidebar .sidebar-settings .wrap-button.active button .icon {
+  background-color: #42a5f5 !important;
+}
+.theme-white app-sidebar .sidebar-settings .wrap-button.active button .icon {
+  background-color: #ffffff !important;
+}
+
+.synchronization-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 7rem;
+  font-size: 1.2rem;
+}
+.theme-dark .synchronization-status {
+  color: #556576;
+}
+.theme-gray .synchronization-status {
+  color: #565c62;
+}
+.theme-white .synchronization-status {
+  color: #a0a5ab;
+}
+.synchronization-status .status-container {
+  position: relative;
+  flex-grow: 1;
+  text-align: left;
+}
+.synchronization-status .status-container .offline, .synchronization-status .status-container .online {
+  position: relative;
+  display: block;
+  line-height: 1.2rem;
+  padding-left: 2.2rem;
+}
+.synchronization-status .status-container .offline:before, .synchronization-status .status-container .online:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.theme-dark .synchronization-status .status-container .offline:before {
+  background-color: #ff5252;
+}
+.theme-gray .synchronization-status .status-container .offline:before {
+  background-color: #ff5252;
+}
+.theme-white .synchronization-status .status-container .offline:before {
+  background-color: #ff5252;
+}
+.theme-dark .synchronization-status .status-container .online:before {
+  background-color: #5cda9d;
+}
+.theme-gray .synchronization-status .status-container .online:before {
+  background-color: #47cf8d;
+}
+.theme-white .synchronization-status .status-container .online:before {
+  background-color: #46c172;
+}
+.synchronization-status .status-container .syncing, .synchronization-status .status-container .loading {
+  line-height: 5rem;
+}
+.synchronization-status .status-container .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.7rem;
+  width: 100%;
+}
+.synchronization-status .status-container .progress-bar-container .syncing {
+  display: flex;
+}
+.synchronization-status .status-container .progress-bar-container .syncing .progress-bar {
+  flex: 1 0 auto;
+}
+.theme-dark .synchronization-status .status-container .progress-bar-container .syncing .progress-bar {
+  background-color: #343f4a;
+}
+.theme-gray .synchronization-status .status-container .progress-bar-container .syncing .progress-bar {
+  background-color: #363a3e;
+}
+.theme-white .synchronization-status .status-container .progress-bar-container .syncing .progress-bar {
+  background-color: #dcdcdc;
+}
+.synchronization-status .status-container .progress-bar-container .syncing .progress-bar .fill {
+  height: 100%;
+}
+.theme-dark .synchronization-status .status-container .progress-bar-container .syncing .progress-bar .fill {
+  background-color: #5cda9d;
+}
+.theme-gray .synchronization-status .status-container .progress-bar-container .syncing .progress-bar .fill {
+  background-color: #47cf8d;
+}
+.theme-white .synchronization-status .status-container .progress-bar-container .syncing .progress-bar .fill {
+  background-color: #46c172;
+}
+.theme-dark .synchronization-status .status-container .progress-bar-container .syncing.downloading .progress-bar {
+  background-color: #343f4a;
+}
+.theme-gray .synchronization-status .status-container .progress-bar-container .syncing.downloading .progress-bar {
+  background-color: #363a3e;
+}
+.theme-white .synchronization-status .status-container .progress-bar-container .syncing.downloading .progress-bar {
+  background-color: #dcdcdc;
+}
+.theme-dark .synchronization-status .status-container .progress-bar-container .syncing.downloading .progress-bar .fill {
+  background-color: #4db1ff;
+}
+.theme-gray .synchronization-status .status-container .progress-bar-container .syncing.downloading .progress-bar .fill {
+  background-color: #42a5f5;
+}
+.theme-white .synchronization-status .status-container .progress-bar-container .syncing.downloading .progress-bar .fill {
+  background-color: #2c95f1;
+}
+.synchronization-status .status-container .progress-bar-container .syncing .progress-percent {
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  line-height: 0.7rem;
+  padding-left: 0.7rem;
+}
+.synchronization-status .status-container .progress-bar-container .loading {
+  animation: move 5s linear infinite;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.125, rgba(0, 0, 0, 0.15)), color-stop(0.125, transparent), color-stop(0.25, transparent), color-stop(0.25, rgba(0, 0, 0, 0.1)), color-stop(0.375, rgba(0, 0, 0, 0.1)), color-stop(0.375, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(0, 0, 0, 0.15)), color-stop(0.625, rgba(0, 0, 0, 0.15)), color-stop(0.625, transparent), color-stop(0.75, transparent), color-stop(0.75, rgba(0, 0, 0, 0.1)), color-stop(0.875, rgba(0, 0, 0, 0.1)), color-stop(0.875, transparent), to(transparent)), -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.125, rgba(0, 0, 0, 0.3)), color-stop(0.125, transparent), color-stop(0.25, transparent), color-stop(0.25, rgba(0, 0, 0, 0.25)), color-stop(0.375, rgba(0, 0, 0, 0.25)), color-stop(0.375, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(0, 0, 0, 0.3)), color-stop(0.625, rgba(0, 0, 0, 0.3)), color-stop(0.625, transparent), color-stop(0.75, transparent), color-stop(0.75, rgba(0, 0, 0, 0.25)), color-stop(0.875, rgba(0, 0, 0, 0.25)), color-stop(0.875, transparent), to(transparent));
+  background-size: 7rem 7rem;
+  height: 100%;
+}
+.theme-dark .synchronization-status .status-container .progress-bar-container .loading {
+  background-color: #5cda9d;
+}
+.theme-gray .synchronization-status .status-container .progress-bar-container .loading {
+  background-color: #47cf8d;
+}
+.theme-white .synchronization-status .status-container .progress-bar-container .loading {
+  background-color: #46c172;
+}
+.synchronization-status .update-container {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 1rem;
+  text-align: right;
+}
+.synchronization-status .update-container .update-text {
+  flex: 1 1 auto;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: left;
+}
+.synchronization-status .update-container .update-text.time {
+  font-size: 1.1rem;
+}
+.synchronization-status .update-container .icon {
+  flex: 1 0 auto;
+  margin: 0.3rem 0 0 0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.synchronization-status .update-container .icon.update {
+  mask: url(./assets/icons/update.svg) no-repeat center;
+}
+.synchronization-status .update-container .icon.time {
+  mask: url(./assets/icons/time.svg) no-repeat center;
+}
+.theme-dark .synchronization-status .update-container .standard {
+  color: #4db1ff;
+}
+.theme-gray .synchronization-status .update-container .standard {
+  color: #42a5f5;
+}
+.theme-white .synchronization-status .update-container .standard {
+  color: #2c95f1;
+}
+.theme-dark .synchronization-status .update-container .important {
+  color: #ff6f00;
+}
+.theme-gray .synchronization-status .update-container .important {
+  color: #ff6f00;
+}
+.theme-white .synchronization-status .update-container .important {
+  color: #ff6f00;
+}
+.theme-dark .synchronization-status .update-container .critical {
+  color: #ff5252;
+}
+.theme-gray .synchronization-status .update-container .critical {
+  color: #ff5252;
+}
+.theme-white .synchronization-status .update-container .critical {
+  color: #ff5252;
+}
+.theme-dark .synchronization-status .update-container .time {
+  color: #ff6f00;
+}
+.theme-gray .synchronization-status .update-container .time {
+  color: #ff6f00;
+}
+.theme-white .synchronization-status .update-container .time {
+  color: #ff6f00;
+}
+.theme-dark .synchronization-status .update-container .icon.standard {
+  background-color: #4db1ff;
+}
+.theme-gray .synchronization-status .update-container .icon.standard {
+  background-color: #42a5f5;
+}
+.theme-white .synchronization-status .update-container .icon.standard {
+  background-color: #2c95f1;
+}
+.theme-dark .synchronization-status .update-container .icon.important {
+  background-color: #ff6f00;
+}
+.theme-gray .synchronization-status .update-container .icon.important {
+  background-color: #ff6f00;
+}
+.theme-white .synchronization-status .update-container .icon.important {
+  background-color: #ff6f00;
+}
+.theme-dark .synchronization-status .update-container .icon.critical {
+  background-color: #ff5252;
+}
+.theme-gray .synchronization-status .update-container .icon.critical {
+  background-color: #ff5252;
+}
+.theme-white .synchronization-status .update-container .icon.critical {
+  background-color: #ff5252;
+}
+.theme-dark .synchronization-status .update-container .icon.time {
+  background-color: #ff6f00;
+}
+.theme-gray .synchronization-status .update-container .icon.time {
+  background-color: #ff6f00;
+}
+.theme-white .synchronization-status .update-container .icon.time {
+  background-color: #ff6f00;
+}
+
+@keyframes move {
+  0% {
+    background-position: 100% -7rem;
+  }
+  100% {
+    background-position: 100% 7rem;
+  }
+}
+.theme-dark app-wallet {
+  color: #e0e0e0;
+}
+.theme-gray app-wallet {
+  color: #e0e0e0;
+}
+.theme-white app-wallet {
+  color: #43454b;
+}
+.theme-dark app-wallet .header button {
+  color: #e0e0e0;
+}
+.theme-gray app-wallet .header button {
+  color: #e0e0e0;
+}
+.theme-white app-wallet .header button {
+  color: #43454b;
+}
+.theme-dark app-wallet .header button .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-wallet .header button .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-wallet .header button .icon {
+  background-color: #2c95f1;
+}
+app-wallet .header button:disabled {
+  background-color: transparent !important;
+}
+.theme-dark app-wallet .header button:disabled .icon {
+  background-color: #556576;
+}
+.theme-gray app-wallet .header button:disabled .icon {
+  background-color: #565c62;
+}
+.theme-white app-wallet .header button:disabled .icon {
+  background-color: #91baf1;
+}
+.theme-dark app-wallet .header .alias .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-wallet .header .alias .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-wallet .header .alias .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-wallet .address {
+  color: #4db1ff;
+}
+.theme-gray app-wallet .address {
+  color: #42a5f5;
+}
+.theme-white app-wallet .address {
+  color: #2c95f1;
+}
+.theme-dark app-wallet .address .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-wallet .address .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-wallet .address .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-wallet .tabs .tabs-header .tab {
+  background-color: rgba(23, 31, 39, 0.5);
+}
+.theme-gray app-wallet .tabs .tabs-header .tab {
+  background-color: rgba(28, 30, 33, 0.5);
+}
+.theme-white app-wallet .tabs .tabs-header .tab {
+  background-color: rgba(224, 224, 224, 0.5);
+}
+.theme-dark app-wallet .tabs .tabs-header .tab .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-wallet .tabs .tabs-header .tab .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-wallet .tabs .tabs-header .tab .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-wallet .tabs .tabs-header .tab .indicator {
+  background-color: #4db1ff;
+  color: #111921;
+}
+.theme-gray app-wallet .tabs .tabs-header .tab .indicator {
+  background-color: #42a5f5;
+  color: #1a1a1a;
+}
+.theme-white app-wallet .tabs .tabs-header .tab .indicator {
+  background-color: #ffffff;
+  color: #43454b;
+}
+.theme-dark app-wallet .tabs .tabs-header .tab.active {
+  background-color: rgba(43, 54, 68, 0.5);
+}
+.theme-gray app-wallet .tabs .tabs-header .tab.active {
+  background-color: rgba(37, 40, 43, 0.5);
+}
+.theme-white app-wallet .tabs .tabs-header .tab.active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.theme-dark app-wallet .tabs .tabs-header .tab:hover:not(.active):not(.disabled) {
+  background-color: rgba(58, 69, 85, 0.5);
+}
+.theme-gray app-wallet .tabs .tabs-header .tab:hover:not(.active):not(.disabled) {
+  background-color: rgba(58, 62, 66, 0.5);
+}
+.theme-white app-wallet .tabs .tabs-header .tab:hover:not(.active):not(.disabled) {
+  background-color: #ffffff;
+}
+.theme-dark app-wallet .tabs .tabs-content {
+  background-color: rgba(43, 54, 68, 0.5);
+}
+.theme-gray app-wallet .tabs .tabs-content {
+  background-color: rgba(37, 40, 43, 0.5);
+}
+.theme-white app-wallet .tabs .tabs-content {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.theme-dark app-wallet .tabs .pagination-wrapper {
+  background-color: rgba(43, 54, 68, 0.5);
+}
+.theme-gray app-wallet .tabs .pagination-wrapper {
+  background-color: rgba(37, 40, 43, 0.5);
+}
+.theme-white app-wallet .tabs .pagination-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.theme-dark app-wallet .tabs .pagination-wrapper .pagination {
+  border-top: 0.2rem solid #2b3644;
+}
+.theme-gray app-wallet .tabs .pagination-wrapper .pagination {
+  border-top: 0.2rem solid #2f3438;
+}
+.theme-white app-wallet .tabs .pagination-wrapper .pagination {
+  border-top: 0.2rem solid #ebebeb;
+}
+.theme-dark app-wallet .tabs .pagination-wrapper .pagination button {
+  background-color: #2b3644;
+  color: #e0e0e0;
+}
+.theme-gray app-wallet .tabs .pagination-wrapper .pagination button {
+  background-color: #2f3438;
+  color: #e0e0e0;
+}
+.theme-white app-wallet .tabs .pagination-wrapper .pagination button {
+  background-color: #ebebeb;
+  color: #43454b;
+}
+.theme-dark app-wallet .tabs .pagination-wrapper .pagination button.active {
+  background-color: #18202a;
+  color: #e0e0e0;
+}
+.theme-gray app-wallet .tabs .pagination-wrapper .pagination button.active {
+  background-color: #25292d;
+  color: #e0e0e0;
+}
+.theme-white app-wallet .tabs .pagination-wrapper .pagination button.active {
+  background-color: #ffffff;
+  color: #43454b;
+}
+.theme-dark app-wallet .tabs .pagination-wrapper .pagination button:hover {
+  background-color: #3a485a;
+  color: #e0e0e0;
+}
+.theme-gray app-wallet .tabs .pagination-wrapper .pagination button:hover {
+  background-color: #383e43;
+  color: #e0e0e0;
+}
+.theme-white app-wallet .tabs .pagination-wrapper .pagination button:hover {
+  background-color: #ffffff;
+  color: #43454b;
+}
+
+.theme-dark app-send .form-send .send-select {
+  color: #e0e0e0;
+}
+.theme-gray app-send .form-send .send-select {
+  color: #e0e0e0;
+}
+.theme-white app-send .form-send .send-select {
+  color: #43454b;
+}
+.theme-dark app-send .form-send .send-select .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-send .form-send .send-select .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-send .form-send .send-select .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-send .form-send .additional-details {
+  border: 0.2rem solid #2b3644;
+}
+.theme-gray app-send .form-send .additional-details {
+  border: 0.2rem solid #2f3438;
+}
+.theme-white app-send .form-send .additional-details {
+  border: 0.2rem solid #ebebeb;
+}
+
+.theme-dark app-receive .btn-copy-address {
+  background-color: #4db1ff;
+}
+.theme-gray app-receive .btn-copy-address {
+  background-color: #42a5f5;
+}
+.theme-white app-receive .btn-copy-address {
+  background-color: #2c95f1;
+}
+
+.theme-dark app-history table tbody tr.locked-transaction {
+  color: #556576;
+}
+.theme-gray app-history table tbody tr.locked-transaction {
+  color: #565c62;
+}
+.theme-white app-history table tbody tr.locked-transaction {
+  color: #a0a5ab;
+}
+.theme-dark app-history table tbody tr:nth-child(4n+1) {
+  background-color: #18202a;
+}
+.theme-gray app-history table tbody tr:nth-child(4n+1) {
+  background-color: #25292d;
+}
+.theme-white app-history table tbody tr:nth-child(4n+1) {
+  background-color: #ffffff;
+}
+.theme-dark app-history table tbody tr:nth-child(4n+2) {
+  background-color: #18202a;
+}
+.theme-gray app-history table tbody tr:nth-child(4n+2) {
+  background-color: #25292d;
+}
+.theme-white app-history table tbody tr:nth-child(4n+2) {
+  background-color: #ffffff;
+}
+.theme-dark app-history table tbody tr:nth-child(4n+3) {
+  background-color: transparent;
+}
+.theme-gray app-history table tbody tr:nth-child(4n+3) {
+  background-color: transparent;
+}
+.theme-white app-history table tbody tr:nth-child(4n+3) {
+  background-color: transparent;
+}
+.theme-dark app-history table tbody tr:nth-child(4n+4) {
+  background-color: transparent;
+}
+.theme-gray app-history table tbody tr:nth-child(4n+4) {
+  background-color: transparent;
+}
+.theme-white app-history table tbody tr:nth-child(4n+4) {
+  background-color: transparent;
+}
+.theme-dark app-history table tbody tr .status .confirmation {
+  background-color: #343f4a;
+}
+.theme-gray app-history table tbody tr .status .confirmation {
+  background-color: #363a3e;
+}
+.theme-white app-history table tbody tr .status .confirmation {
+  background-color: #dcdcdc;
+}
+.theme-dark app-history table tbody tr .status .confirmation .fill {
+  background-color: #5cda9d;
+}
+.theme-gray app-history table tbody tr .status .confirmation .fill {
+  background-color: #47cf8d;
+}
+.theme-white app-history table tbody tr .status .confirmation .fill {
+  background-color: #46c172;
+}
+.theme-dark app-history table tbody tr .lock-transaction {
+  background-color: #ff6f00;
+}
+.theme-gray app-history table tbody tr .lock-transaction {
+  background-color: #ff6f00;
+}
+.theme-white app-history table tbody tr .lock-transaction {
+  background-color: #ff6f00;
+}
+.theme-dark app-history table tbody tr .unlock-transaction {
+  background-color: #4db1ff;
+}
+.theme-gray app-history table tbody tr .unlock-transaction {
+  background-color: #42a5f5;
+}
+.theme-white app-history table tbody tr .unlock-transaction {
+  background-color: #2c95f1;
+}
+.theme-dark app-history table tbody tr .status.send .status-transaction {
+  background-color: #ff5252;
+}
+.theme-gray app-history table tbody tr .status.send .status-transaction {
+  background-color: #ff5252;
+}
+.theme-white app-history table tbody tr .status.send .status-transaction {
+  background-color: #ff5252;
+}
+.theme-dark app-history table tbody tr .status.received .status-transaction {
+  background-color: #5cda9d;
+}
+.theme-gray app-history table tbody tr .status.received .status-transaction {
+  background-color: #47cf8d;
+}
+.theme-white app-history table tbody tr .status.received .status-transaction {
+  background-color: #46c172;
+}
+
+.theme-dark app-contracts .wrap-table .contract .icon.new, .theme-dark app-contracts .wrap-table .contract .icon.alert {
+  background-color: #ff5252;
+}
+.theme-gray app-contracts .wrap-table .contract .icon.new, .theme-gray app-contracts .wrap-table .contract .icon.alert {
+  background-color: #ff5252;
+}
+.theme-white app-contracts .wrap-table .contract .icon.new, .theme-white app-contracts .wrap-table .contract .icon.alert {
+  background-color: #ff5252;
+}
+.theme-dark app-contracts .wrap-table .contract .icon.purchase, .theme-dark app-contracts .wrap-table .contract .icon.sell {
+  background-color: #4db1ff;
+}
+.theme-gray app-contracts .wrap-table .contract .icon.purchase, .theme-gray app-contracts .wrap-table .contract .icon.sell {
+  background-color: #42a5f5;
+}
+.theme-white app-contracts .wrap-table .contract .icon.purchase, .theme-white app-contracts .wrap-table .contract .icon.sell {
+  background-color: #2c95f1;
+}
+
+.theme-dark app-purchase .form-purchase .purchase-select {
+  color: #e0e0e0;
+}
+.theme-gray app-purchase .form-purchase .purchase-select {
+  color: #e0e0e0;
+}
+.theme-white app-purchase .form-purchase .purchase-select {
+  color: #43454b;
+}
+.theme-dark app-purchase .form-purchase .purchase-select .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-purchase .form-purchase .purchase-select .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-purchase .form-purchase .purchase-select .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-purchase .form-purchase .purchase-states {
+  color: #4db1ff;
+}
+.theme-gray app-purchase .form-purchase .purchase-states {
+  color: #42a5f5;
+}
+.theme-white app-purchase .form-purchase .purchase-states {
+  color: #2c95f1;
+}
+.theme-dark app-purchase .form-purchase .additional-details {
+  border: 0.2rem solid #2b3644;
+}
+.theme-gray app-purchase .form-purchase .additional-details {
+  border: 0.2rem solid #2f3438;
+}
+.theme-white app-purchase .form-purchase .additional-details {
+  border: 0.2rem solid #ebebeb;
+}
+.theme-dark app-purchase .progress-bar-container .progress-bar {
+  background-color: #343f4a;
+}
+.theme-gray app-purchase .progress-bar-container .progress-bar {
+  background-color: #363a3e;
+}
+.theme-white app-purchase .progress-bar-container .progress-bar {
+  background-color: #dcdcdc;
+}
+.theme-dark app-purchase .progress-bar-container .progress-bar .progress-bar-full {
+  background-color: #5cda9d;
+}
+.theme-gray app-purchase .progress-bar-container .progress-bar .progress-bar-full {
+  background-color: #47cf8d;
+}
+.theme-white app-purchase .progress-bar-container .progress-bar .progress-bar-full {
+  background-color: #46c172;
+}
+
+app-messages table tbody tr td:first-child span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.theme-dark app-messages table tbody tr td:first-child .icon {
+  background-color: #ff5252;
+}
+.theme-gray app-messages table tbody tr td:first-child .icon {
+  background-color: #ff5252;
+}
+.theme-white app-messages table tbody tr td:first-child .icon {
+  background-color: #ff5252;
+}
+
+.theme-dark app-typing-message .head .interlocutor {
+  color: #4db1ff;
+}
+.theme-gray app-typing-message .head .interlocutor {
+  color: #42a5f5;
+}
+.theme-white app-typing-message .head .interlocutor {
+  color: #2c95f1;
+}
+.theme-dark app-typing-message .messages-content .messages-list div.date {
+  color: #556576;
+}
+.theme-gray app-typing-message .messages-content .messages-list div.date {
+  color: #565c62;
+}
+.theme-white app-typing-message .messages-content .messages-list div.date {
+  color: #a0a5ab;
+}
+.theme-dark app-typing-message .messages-content .messages-list div.my {
+  background-color: #2a3544;
+}
+.theme-gray app-typing-message .messages-content .messages-list div.my {
+  background-color: #30363c;
+}
+.theme-white app-typing-message .messages-content .messages-list div.my {
+  background-color: #fff;
+}
+app-typing-message .messages-content .messages-list div.my:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -1.1rem;
+  border: 1.2rem solid transparent;
+}
+.theme-dark app-typing-message .messages-content .messages-list div.my:before {
+  border-top-color: #2a3544;
+}
+.theme-gray app-typing-message .messages-content .messages-list div.my:before {
+  border-top-color: #30363c;
+}
+.theme-white app-typing-message .messages-content .messages-list div.my:before {
+  border-top-color: #fff;
+}
+.theme-dark app-typing-message .messages-content .messages-list div.buddy {
+  background-color: #18202a;
+}
+.theme-gray app-typing-message .messages-content .messages-list div.buddy {
+  background-color: #25292d;
+}
+.theme-white app-typing-message .messages-content .messages-list div.buddy {
+  background-color: #ededed;
+}
+app-typing-message .messages-content .messages-list div.buddy:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -1.1rem;
+  top: 0;
+  border: 1.2rem solid transparent;
+}
+.theme-dark app-typing-message .messages-content .messages-list div.buddy:after {
+  border-top-color: #18202a;
+}
+.theme-gray app-typing-message .messages-content .messages-list div.buddy:after {
+  border-top-color: #25292d;
+}
+.theme-white app-typing-message .messages-content .messages-list div.buddy:after {
+  border-top-color: #ededed;
+}
+
+.theme-dark app-staking .chart-header .general .label {
+  color: #556576;
+}
+.theme-gray app-staking .chart-header .general .label {
+  color: #565c62;
+}
+.theme-white app-staking .chart-header .general .label {
+  color: #a0a5ab;
+}
+.theme-dark app-staking .chart-header .general .options {
+  color: #e0e0e0;
+}
+.theme-gray app-staking .chart-header .general .options {
+  color: #e0e0e0;
+}
+.theme-white app-staking .chart-header .general .options {
+  color: #43454b;
+}
+app-staking .chart-header .selected {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  font-size: 1.6rem;
+}
+.theme-dark app-staking .chart-options .title {
+  color: #556576;
+}
+.theme-gray app-staking .chart-options .title {
+  color: #565c62;
+}
+.theme-white app-staking .chart-options .title {
+  color: #a0a5ab;
+}
+.theme-dark app-staking .chart-options .options button {
+  color: #e0e0e0;
+  background-color: #2b3644;
+}
+.theme-gray app-staking .chart-options .options button {
+  color: #e0e0e0;
+  background-color: #292d31;
+}
+.theme-white app-staking .chart-options .options button {
+  color: #43454b;
+  background-color: #e0e0e0;
+}
+.theme-dark app-staking .chart-options .options button.active {
+  background-color: #556576;
+}
+.theme-gray app-staking .chart-options .options button.active {
+  background-color: #515960;
+}
+.theme-white app-staking .chart-options .options button.active {
+  background-color: #ffffff;
+}
+
+.input-block-alias {
+  position: relative;
+}
+.input-block-alias .alias-dropdown {
+  position: absolute;
+  top: 6.5rem;
+  max-height: 10rem;
+  overflow: auto;
+  width: 100%;
+}
+.theme-dark .input-block-alias .alias-dropdown {
+  background-color: #171e27;
+  color: #e0e0e0;
+}
+.theme-gray .input-block-alias .alias-dropdown {
+  background-color: #292d31;
+  color: #e0e0e0;
+}
+.theme-white .input-block-alias .alias-dropdown {
+  background-color: #e6e6e6;
+  color: #43454b;
+}
+.input-block-alias .alias-dropdown div {
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+.theme-dark .input-block-alias .alias-dropdown div:hover {
+  background-color: rgba(58, 69, 85, 0.5);
+}
+.theme-gray .input-block-alias .alias-dropdown div:hover {
+  background-color: rgba(58, 62, 66, 0.5);
+}
+.theme-white .input-block-alias .alias-dropdown div:hover {
+  background-color: rgba(240, 240, 240, 0.5);
+}
+
+app-contacts, app-add-contacts,
+app-contact-send, app-export-import {
+  flex: 1 1 auto;
+  padding: 3rem;
+  min-width: 85rem;
+}
+app-contacts .content, app-add-contacts .content,
+app-contact-send .content, app-export-import .content {
+  position: relative;
+  padding: 3rem;
+  min-height: 100%;
+}
+.theme-dark app-contacts .content, .theme-dark app-add-contacts .content,
+.theme-dark app-contact-send .content, .theme-dark app-export-import .content {
+  background-color: rgba(43, 54, 68, 0.5);
+  color: #e0e0e0;
+}
+.theme-gray app-contacts .content, .theme-gray app-add-contacts .content,
+.theme-gray app-contact-send .content, .theme-gray app-export-import .content {
+  background-color: rgba(37, 40, 43, 0.5);
+  color: #e0e0e0;
+}
+.theme-white app-contacts .content, .theme-white app-add-contacts .content,
+.theme-white app-contact-send .content, .theme-white app-export-import .content {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #43454b;
+}
+app-contacts .content .head, app-add-contacts .content .head,
+app-contact-send .content .head, app-export-import .content .head {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.theme-dark app-contacts table .alias {
+  color: #4db1ff;
+}
+.theme-gray app-contacts table .alias {
+  color: #42a5f5;
+}
+.theme-white app-contacts table .alias {
+  color: #2c95f1;
+}
+.theme-dark app-contacts table button .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-contacts table button .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-contacts table button .icon {
+  background-color: #2c95f1;
+}
+.theme-dark app-contacts table button span {
+  color: #e0e0e0;
+}
+.theme-gray app-contacts table button span {
+  color: #e0e0e0;
+}
+.theme-white app-contacts table button span {
+  color: #43454b;
+}
+.theme-dark app-contacts .footer {
+  color: #4db1ff;
+}
+.theme-gray app-contacts .footer {
+  color: #42a5f5;
+}
+.theme-white app-contacts .footer {
+  color: #2c95f1;
+}
+.theme-dark app-contacts .footer .import-btn {
+  color: #4db1ff;
+}
+.theme-gray app-contacts .footer .import-btn {
+  color: #42a5f5;
+}
+.theme-white app-contacts .footer .import-btn {
+  color: #2c95f1;
+}
+.theme-dark app-contacts .footer .import-btn .icon {
+  background-color: #4db1ff;
+}
+.theme-gray app-contacts .footer .import-btn .icon {
+  background-color: #42a5f5;
+}
+.theme-white app-contacts .footer .import-btn .icon {
+  background-color: #2c95f1;
+}
+
+.theme-dark app-contact-send .wallets-selection button {
+  color: #4db1ff;
+}
+.theme-gray app-contact-send .wallets-selection button {
+  color: #42a5f5;
+}
+.theme-white app-contact-send .wallets-selection button {
+  color: #2c95f1;
+}
+
+.form-details {
+  margin-top: 1.8rem;
+}
+.form-details .input-block:first-child {
+  width: 50%;
+}
+.form-details .wallet-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-details .wallet-buttons button {
+  margin: 2.9rem 0;
+  width: 100%;
+  max-width: 15rem;
+}
+
+.form-seed label {
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+}
+.theme-dark .form-seed label {
+  color: #556576;
+}
+.theme-gray .form-seed label {
+  color: #565c62;
+}
+.theme-white .form-seed label {
+  color: #a0a5ab;
+}
+.form-seed .form-content {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  width: 100%;
+}
+.theme-dark .form-seed .form-content {
+  border: 2px solid #2b3644;
+}
+.theme-gray .form-seed .form-content {
+  border: 2px solid #2f3438;
+}
+.theme-white .form-seed .form-content {
+  border: 2px solid #ebebeb;
+}
+.form-seed .text-coral {
+  text-decoration: none;
+}
+.theme-dark .form-seed .text-coral {
+  color: #4db1ff;
+}
+.theme-gray .form-seed .text-coral {
+  color: #42a5f5;
+}
+.theme-white .form-seed .text-coral {
+  color: #2c95f1;
+}
+.form-seed .seed-phrase-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 38rem;
+  width: 100%;
+}
+.form-seed .seed-phrase-form .input-block,
+.form-seed .seed-phrase-form button {
+  width: 100%;
+}
+.form-seed .seed-phrase-form .error-message {
+  margin-top: 1rem;
+}
+.theme-dark .form-seed .seed-phrase-form .error-message {
+  color: #ff6f00;
+}
+.theme-gray .form-seed .seed-phrase-form .error-message {
+  color: #ff6f00;
+}
+.theme-white .form-seed .seed-phrase-form .error-message {
+  color: #ff6f00;
+}
+.form-seed .seed-phrase-form .secured-seed {
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.theme-dark .form-seed .seed-phrase-form .secured-seed {
+  color: #e0e0e0;
+}
+.theme-gray .form-seed .seed-phrase-form .secured-seed {
+  color: #e0e0e0;
+}
+.theme-white .form-seed .seed-phrase-form .secured-seed {
+  color: #a0a5ab;
+}
+.form-seed .seed-phrase-form .secured-seed .icon {
+  margin-right: 1.2rem;
+}
+.form-seed .seed-phrase-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.form-seed .seed-phrase-form button .icon {
+  margin-right: 1.2rem;
+}
+
+.seed-phrase {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: transparent !important;
+}
+.seed-phrase-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.theme-dark .seed-phrase-title {
+  color: #556576;
+}
+.theme-gray .seed-phrase-title {
+  color: #565c62;
+}
+.theme-white .seed-phrase-title {
+  color: #a0a5ab;
+}
+.seed-phrase-title .right-part {
+  display: inline-flex;
+  align-items: center;
+}
+.seed-phrase-title .right-part .icon {
+  cursor: pointer;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.seed-phrase-title .right-part .icon.copy {
+  margin-right: 1.2rem;
+  mask: url(~src/assets/icons/copy.svg) no-repeat center;
+}
+.theme-dark .seed-phrase-title .right-part .icon.copy {
+  background-color: #4db1ff;
+}
+.theme-gray .seed-phrase-title .right-part .icon.copy {
+  background-color: #42a5f5;
+}
+.theme-white .seed-phrase-title .right-part .icon.copy {
+  background-color: #2c95f1;
+}
+.seed-phrase-title .right-part .icon.copy:hover {
+  opacity: 0.75;
+}
+.seed-phrase-title .right-part .icon.copied {
+  margin-right: 1.2rem;
+  mask: url(~src/assets/icons/complete-testwallet.svg) no-repeat center;
+}
+.theme-dark .seed-phrase-title .right-part .icon.copied {
+  background-color: #4db1ff;
+}
+.theme-gray .seed-phrase-title .right-part .icon.copied {
+  background-color: #42a5f5;
+}
+.theme-white .seed-phrase-title .right-part .icon.copied {
+  background-color: #2c95f1;
+}
+.seed-phrase-title .right-part .icon.secured, .seed-phrase-title .right-part .icon.unsecured {
+  margin-left: 1.2rem;
+}
+.seed-phrase-title .right-part span {
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+}
+.seed-phrase-title .right-part span .icon {
+  margin-left: 1.2rem;
+}
+.seed-phrase-content {
+  padding: 1rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.theme-dark .seed-phrase-content {
+  border-top: 2px solid #2b3644;
+  border-bottom: 2px solid #2b3644;
+}
+.theme-gray .seed-phrase-content {
+  border-top: 2px solid #2f3438;
+  border-bottom: 2px solid #2f3438;
+}
+.theme-white .seed-phrase-content {
+  border-top: 2px solid #ebebeb;
+  border-bottom: 2px solid #ebebeb;
+}
+.seed-phrase-content .item {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  width: calc(100% / 7);
+  min-height: 35px;
+  font-size: 1.3rem;
+}
+.theme-dark .seed-phrase-content .item {
+  color: #e0e0e0;
+}
+.theme-gray .seed-phrase-content .item {
+  color: #e0e0e0;
+}
+.theme-white .seed-phrase-content .item {
+  color: #43454b;
+}
+.theme-dark .seed-phrase-content .item.dark {
+  background-color: #18202a;
+}
+.theme-gray .seed-phrase-content .item.dark {
+  background-color: #292d31;
+}
+.theme-white .seed-phrase-content .item.dark {
+  background-color: #e6e6e6;
+}
+.seed-phrase-footer {
+  text-align: center;
+}
+.seed-phrase-footer .title {
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+}
+.theme-dark .seed-phrase-footer .title {
+  color: #e0e0e0;
+}
+.theme-gray .seed-phrase-footer .title {
+  color: #e0e0e0;
+}
+.theme-white .seed-phrase-footer .title {
+  color: #43454b;
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.icon.secured {
+  mask: url(~src/assets/icons/secured.svg) no-repeat center;
+}
+.theme-dark .icon.secured {
+  background-color: #5cda9d;
+}
+.theme-gray .icon.secured {
+  background-color: #47cf8d;
+}
+.theme-white .icon.secured {
+  background-color: #46c172;
+}
+.icon.info {
+  mask: url(~src/assets/icons/info.svg) no-repeat center;
+}
+.theme-dark .icon.info {
+  background-color: #4db1ff;
+}
+.theme-gray .icon.info {
+  background-color: #42a5f5;
+}
+.theme-white .icon.info {
+  background-color: #2c95f1;
+}
+.icon.unsecured {
+  mask: url(~src/assets/icons/unsecured.svg) no-repeat center;
+}
+.theme-dark .icon.unsecured {
+  background-color: #ff6f00;
+}
+.theme-gray .icon.unsecured {
+  background-color: #ff6f00;
+}
+.theme-white .icon.unsecured {
+  background-color: #ff6f00;
+}
+.icon.safety {
+  mask: url(~src/assets/icons/safety.svg) no-repeat center;
+}
+.theme-dark .icon.safety {
+  background-color: #111921;
+}
+.theme-gray .icon.safety {
+  background-color: #1a1a1a;
+}
+.theme-white .icon.safety {
+  background-color: #fefefe;
+}
+
+.wrap-buttons {
+  display: flex;
+}
+.wrap-buttons .seed-phrase-button {
+  margin: 2.8rem 0;
+  width: 25%;
+  min-width: 1.5rem;
+}
+.wrap-buttons .copy-button {
+  margin: 2.8rem 1rem;
+  width: 25%;
+  min-width: 1.5rem;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  padding: 0 3rem;
+  width: 100%;
+  height: 3rem;
+}
+.theme-dark .head {
+  color: #4db1ff;
+}
+.theme-gray .head {
+  color: #42a5f5;
+}
+.theme-white .head {
+  color: #2c95f1;
+}
+.head .breadcrumbs > span:not(:last-child), .head .breadcrumbs a:not(:last-child) {
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+  outline-style: none;
+}
+.head .breadcrumbs > span:not(:last-child):after, .head .breadcrumbs a:not(:last-child):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.5rem;
+  right: -1.5rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  mask: url(~src/assets/icons/arrow-right.svg) no-repeat center;
+  mask-size: cover;
+}
+.theme-dark .head .breadcrumbs > span:not(:last-child):after, .theme-dark .head .breadcrumbs a:not(:last-child):after {
+  background-color: #4db1ff;
+}
+.theme-gray .head .breadcrumbs > span:not(:last-child):after, .theme-gray .head .breadcrumbs a:not(:last-child):after {
+  background-color: #42a5f5;
+}
+.theme-white .head .breadcrumbs > span:not(:last-child):after, .theme-white .head .breadcrumbs a:not(:last-child):after {
+  background-color: #2c95f1;
+}
+.head .back-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: #4db1ff;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.3rem;
+  padding: 0;
+  height: auto;
+}
+.head .back-btn .icon {
+  margin-right: 0.7rem;
+  mask: url(~src/assets/icons/back.svg) no-repeat center;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.theme-dark .head .back-btn .icon {
+  background-color: #4db1ff;
+}
+.theme-gray .head .back-btn .icon {
+  background-color: #42a5f5;
+}
+.theme-white .head .back-btn .icon {
+  background-color: #2c95f1;
+}
+
+.scrolled-content::-webkit-scrollbar {
+  background-color: transparent;
+  cursor: default;
+  width: 1rem;
+  height: 1rem;
+}
+.scrolled-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrolled-content::-webkit-scrollbar-thumb {
+  background-color: #556576;
+  background-clip: padding-box;
+  border: 0.25rem solid transparent;
+  border-radius: 0.5rem;
+}
+.scrolled-content::-webkit-scrollbar-thumb:hover {
+  background-color: #556576;
+}
+
+table {
+  font-size: 1.3rem;
+  width: 100%;
+}
+table thead {
+  text-align: left;
+}
+.theme-dark table thead {
+  color: #556576;
+}
+.theme-gray table thead {
+  color: #565c62;
+}
+.theme-white table thead {
+  color: #a0a5ab;
+}
+table thead tr {
+  height: 4rem;
+}
+table thead tr th {
+  padding: 1rem;
+  vertical-align: bottom;
+}
+table thead tr th:first-child {
+  padding-left: 3rem;
+}
+table thead tr th:last-child {
+  padding-right: 3rem;
+}
+table tbody {
+  text-align: left;
+}
+.theme-dark table tbody {
+  color: #e0e0e0;
+}
+.theme-gray table tbody {
+  color: #e0e0e0;
+}
+.theme-white table tbody {
+  color: #43454b;
+}
+table tbody tr {
+  height: 3.5rem;
+}
+.theme-dark table tbody tr:nth-child(odd) {
+  background-color: #18202a;
+}
+.theme-gray table tbody tr:nth-child(odd) {
+  background-color: #25292d;
+}
+.theme-white table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+table tbody tr td {
+  line-height: 1.7rem;
+  padding: 0 1rem;
+  vertical-align: middle;
+  white-space: nowrap;
+  max-width: 20rem;
+}
+table tbody tr td:first-child {
+  padding-left: 3rem;
+}
+table tbody tr td:last-child {
+  padding-right: 3rem;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(~src/assets/fonts/OpenSans-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(~src/assets/fonts/OpenSans-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(~src/assets/fonts/OpenSans-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(~src/assets/fonts/OpenSans-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(~src/assets/fonts/OpenSans-ExtraBold.ttf);
+  font-weight: 800;
+}
+html {
+  font-family: OpenSans, sans-serif;
+  font-size: 10px;
+}
+
+body {
+  font-family: OpenSans, sans-serif;
+  font-size: 1.6rem;
+  width: 100vw;
+  height: 100vh;
+}
+body.theme-dark {
+  background: #131921 url("assets/images/background-dark.png") no-repeat center;
+  background-size: cover;
+}
+body.theme-gray {
+  background: #101417 url("assets/images/background-gray.png") no-repeat center;
+  background-size: cover;
+}
+body.theme-white {
+  background: #eeeeee url("assets/images/background-white.png") no-repeat center;
+  background-size: cover;
+}
+body app-root {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.update-tooltip .tooltip-inner .icon {
+  mask: url(assets/icons/update-alert.svg) no-repeat center;
+}
+
+/*# sourceMappingURL=styles.css.map */
