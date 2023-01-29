@@ -8,7 +8,7 @@ Be sure to clone the repository properly:\
 
 
 ### Dependencies
-| component / version | minimum <br>(not recommended but may work) | recommended | most recent of what we have ever tested |
+| Component | Minimum | Recommended | Tested |
 |--|--|--|--|
 | gcc (Linux) | 5.4.0 | 7.4.0 | 8.3.0 |
 | llvm/clang (Linux) | UNKNOWN | 7.0.1 | 8.0.0 |
