@@ -2418,7 +2418,7 @@ var BackendService = /** @class */ (function () {
         this.asyncCall('transfer', params, callback);
     };
     BackendService.prototype.validateAddress = function (address, callback) {
-        this.runCommand('validate_address', address, callback);
+        //this.runCommand('validate_address', address, callback);
     };
     BackendService.prototype.setClipboard = function (str, callback) {
         return this.runCommand('set_clipboard', str, callback);
@@ -3123,8 +3123,8 @@ var VariablesService = /** @class */ (function () {
         this.router = router;
         this.ngZone = ngZone;
         this.contextMenuService = contextMenuService;
-        this.disable_price_fetch$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](false);
-        this.use_debug_mode$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](false);
+        this.disable_price_fetch$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
+        this.use_debug_mode$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
         this.request_on_in = {};
         this.stop_paginate = {};
         this.sync_started = false;
@@ -4557,15 +4557,15 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.getMoneyEquivalent = function () {
         var _this = this;
-        this.http.get('https://api.coingecko.com/api/v3/ping').subscribe(function () {
-            _this.http.get('https://api.coingecko.com/api/v3/simple/price?ids=chinet&vs_currencies=usd&include_24hr_change=true').subscribe(function (data) {
-                _this.variablesService.moneyEquivalent = data['chinet']['usd'];
-                _this.variablesService.moneyEquivalentPercent = data['chinet']['usd_24h_change'];
+        this.http.get('https://xeggex.com/api/v2/info').subscribe(function () {
+            _this.http.get('https://xeggex.com/api/v2/market/getbysymbol/CHN_USDT').subscribe(function (data) {
+                _this.variablesService.moneyEquivalent = data['lastPrice'];
+                _this.variablesService.moneyEquivalentPercent = data['changePercent'];
             }, function (error) {
-                console.warn('api.coingecko.com price error: ', error);
+                console.warn('xeggex.com price error: ', error);
             });
         }, function (error) {
-            console.warn('api.coingecko.com error: ', error);
+            console.warn('xeggex.com error: ', error);
             setTimeout(function () {
                 _this.getMoneyEquivalent();
             }, 30000);
@@ -8944,7 +8944,7 @@ var SendComponent = /** @class */ (function () {
     };
     SendComponent.prototype.getWrapInfo = function () {
         var _this = this;
-        this.http.get('https://wrapped.chinet.io/api2/get_wrap_info')
+        this.http.get('https://explorer.chinet.io/get_wrap_info.json')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["finalize"])(function () {
             _this.isLoading = false;
         }))
@@ -10900,4 +10900,3 @@ module.exports = __webpack_require__(/*! D:\Work\chinet_ui\html_source\src\main.
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.js.map
