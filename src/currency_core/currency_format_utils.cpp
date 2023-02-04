@@ -41,29 +41,6 @@ namespace currency
     tx.extra.push_back(alinfo);
     return true;
   }
-
-  //---------------------------------------------------------------
-  /*
-  bool construct_miner_tx(size_t height, size_t median_size, const boost::multiprecision::uint128_t& already_generated_coins,
-  size_t current_block_size,
-  uint64_t fee,
-  const account_public_address &miner_address,
-  transaction& tx,
-  const blobdata& extra_nonce,
-  size_t max_outs)
-  {
-
-  alias_info alias = AUTO_VAL_INIT(alias);
-  return construct_miner_tx(height, median_size, already_generated_coins, current_block_size,
-  fee,
-  miner_address,
-  tx,
-  extra_nonce,
-  max_outs,
-  alias,
-  false,
-  pos_entry());
-  }*/
   //---------------------------------------------------------------
   wide_difficulty_type correct_difficulty_with_sequence_factor(size_t sequence_factor, wide_difficulty_type diff)
   {
@@ -577,15 +554,6 @@ namespace currency
     dh.msg.assign((const char*)&hint, sizeof(hint));
     return dh;
   }
-  //---------------------------------------------------------------
-//   bool get_uint16_from_tx_derivation_hint(const tx_derivation_hint& dh, uint16_t& hint)
-//   {
-//     tx_derivation_hint dh;
-//     if (dh.msg.size() != sizeof(hint))
-//       return false;
-//     hint = *((uint16_t*)dh.msg.data());
-//     return true;
-//   }  
   //---------------------------------------------------------------
   std::string generate_origin_for_htlc(const txout_htlc& htlc, const account_keys& acc_keys)
   {
@@ -1724,31 +1692,6 @@ namespace currency
     return true;
   }
   //------------------------------------------------------------------
-  /*
-  bool add_padding_to_tx(transaction& tx, size_t count)
-  {
-    
-    WARNING: potantially unsafe implementation!
-    1) requires extra_padding being previously added to tx's extra;
-    2) transaction size may increase by more than 'count' bytes due to varint encoding (thus, if 'count' is 128 it will add 129 bytes)
-    See also check_add_padding_to_tx test (uncomment and update it, if necessary).
-
-    if (!count)
-      return true;
-
-    for (auto& ex : tx.extra)
-    {
-      if (ex.type() == typeid(extra_padding))
-      {
-        boost::get<extra_padding>(ex).buff.insert(boost::get<extra_padding>(ex).buff.end(), count, 0);
-        return true;
-      }
-    }
-    CHECK_AND_ASSERT_THROW_MES(false, "extra_padding entry not found in template mining transaction");
-    return false;
-  }
-  */
-  //------------------------------------------------------------------
   bool remove_padding_from_tx(transaction& tx, size_t count)
   {
     if (!count)
@@ -2046,13 +1989,6 @@ namespace currency
       r.insert(0, CURRENCY_DISPLAY_DECIMAL_POINT - r.size(), '0');
     return std::to_string(amount) + '.' + r.substr(0, r.find_last_not_of('0') + 1);
   }
-  //---------------------------------------------------------------
-  /*bool get_transaction_hash(const transaction& t, crypto::hash& res, size_t& blob_size)
-  {
-
-
-  return get_object_hash(t, res, blob_size);
-  }*/
   //------------------------------------------------------------------
   template<typename pod_operand_a, typename pod_operand_b>
   crypto::hash hash_together(const pod_operand_a& a, const pod_operand_b& b)
@@ -2243,34 +2179,6 @@ namespace currency
   }
   void print_reward_change_short()
   {
-//     std::cout << std::endl << "Reward change for 20 days:" << std::endl;
-//     std::cout << std::setw(10) << std::left << "day" << std::setw(19) << "block reward" << std::setw(19) << "generated coins" << std::endl;
-// 
-//     const boost::multiprecision::uint128_t& already_generated_coins = PREMINE_AMOUNT;
-//     //uint64_t total_money_supply = TOTAL_MONEY_SUPPLY;
-//     uint64_t h = 0;
-//     for (uint64_t day = 0; day != 20; ++day)
-//     {
-//       uint64_t emission_reward = 0;
-//       get_block_reward(h % 2, 0, 0, already_generated_coins, emission_reward, h, (already_generated_coins - PREMINE_AMOUNT) * 140);
-// 
-//       std::cout << std::left
-//         << std::setw(10) << day
-//         << std::setw(19) << print_money(emission_reward)
-//         << std::setw(4) << print_money(already_generated_coins)//std::string(std::to_string(GET_PERECENTS_BIG_NUMBERS((already_generated_coins), total_money_supply)) + "%")
-//         << std::endl;
-// 
-// 
-// 
-//       for (size_t i = 0; i != 720; i++)
-//       {
-//         h++;
-//         get_block_reward(h % 2, 0, 0, already_generated_coins, emission_reward, h, (already_generated_coins - PREMINE_AMOUNT) * 140);
-//         already_generated_coins += emission_reward;
-//         if (h < POS_START_HEIGHT && i > 360)
-//           break;
-//       }
-//     }
   }
   
   std::string print_reward_change_first_blocks(size_t n_of_first_blocks)
@@ -2339,20 +2247,12 @@ namespace currency
     bl = boost::value_initialized<block>();
 
 #ifndef TESTNET
-    //std::string genesis_coinbase_tx_hex((const char*)&ggenesis_tx_raw, sizeof(ggenesis_tx_raw));
     std::string genesis_coinbase_tx_hex = "01010000010003bc7c894b88e79a5fdc524eb56922baf9e2834624ca38944c03e52e01941868e50005164aa722912742229a62eeb57a392d5f009c11cba9441be74299408184c9f2d0ea13283245433646393632464333443436303839374332434546453531443330393741413636433030304215000b023fb60e0a0000";
 #else 
     std::string genesis_coinbase_tx_hex = "01010000010003bc7c894b88e79a5fdc524eb56922baf9e2834624ca38944c03e52e01941868e50005164aa722912742229a62eeb57a392d5f009c11cba9441be74299408184c9f2d0ea13283245433646393632464333443436303839374332434546453531443330393741413636433030304215000b023fb60e0a0000";
-    //std::string genesis_coinbase_tx_hex((const char*)&ggenesis_tx_raw, sizeof(ggenesis_tx_raw));
 #endif
 
-    //genesis proof phrase: "Liverpool beat Barcelona: Greatest Champions League comebacks of all time"
-    //taken from: https://www.bbc.com/sport/football/48163330
-    //sha3-256 from proof phrase:  a074236b1354901d5dbc029c0ac4c05c948182c34f3030f32b0c93aee7ba275c (included in genesis block)
-
-
     blobdata tx_bl((const char*)&ggenesis_tx_raw, sizeof(ggenesis_tx_raw));
-    //string_tools::parse_hexstr_to_binbuff(genesis_coinbase_tx_hex, tx_bl);
     bool r = parse_and_validate_tx_from_blob(tx_bl, bl.miner_tx);
     CHECK_AND_ASSERT_MES(r, false, "failed to parse coinbase tx from hard coded blob");
     bl.major_version = BLOCK_MAJOR_VERSION_GENESIS;
@@ -3255,19 +3155,7 @@ namespace currency
     boost::multiprecision::uint1024_t res =
       (basic_sum * a_pow_cumulative_difficulty * a_pos_cumulative_difficulty) / (boost::multiprecision::uint1024_t(b_pow_cumulative_difficulty)*b_pos_cumulative_difficulty);
 
-//     if (res > boost::math::tools::max_value<wide_difficulty_type>())
-//     {
-//       ASSERT_MES_AND_THROW("[INTERNAL ERROR]: Failed to get_a_to_b_relative_cumulative_difficulty, res = " << res << ENDL
-//         << ", difficulty_pos_at_split_point: " << difficulty_pos_at_split_point << ENDL
-//         << ", difficulty_pow_at_split_point:" << difficulty_pow_at_split_point << ENDL
-//         << ", a_pos_cumulative_difficulty:" << a_pos_cumulative_difficulty << ENDL
-//         << ", b_pos_cumulative_difficulty:" << b_pos_cumulative_difficulty << ENDL
-//         << ", a_pow_cumulative_difficulty:" << a_pow_cumulative_difficulty << ENDL
-//         << ", b_pow_cumulative_difficulty:" << b_pow_cumulative_difficulty << ENDL       
-//       );
-//     }
     TRY_ENTRY();
-//    wide_difficulty_type short_res = res.convert_to<wide_difficulty_type>();
     return res;
     CATCH_ENTRY_WITH_FORWARDING_EXCEPTION();
   }
