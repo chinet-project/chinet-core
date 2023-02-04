@@ -863,7 +863,7 @@ namespace tools
     uint64_t get_wallet_file_size()const;
     void set_use_deffered_global_outputs(bool use);
     construct_tx_param get_default_construct_tx_param_inital();
-    void set_disable_tor_relay(bool disable);
+    void set_disable_tor_relay(bool enable);
 
     void export_transaction_history(std::ostream& ss, const std::string& format, bool include_pos_transactions = true);
     
