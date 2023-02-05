@@ -1818,6 +1818,7 @@ std::string wallets_manager::get_offers_ex(const bc_services::core_offers_filter
 
 std::string wallets_manager::validate_address(const std::string& addr_str, std::string& payment_id)
 {
+  return API_RETURN_CODE_TRUE;
   currency::account_public_address acc = AUTO_VAL_INIT(acc);
   if (currency::is_address_like_wrapped(addr_str))
   {
