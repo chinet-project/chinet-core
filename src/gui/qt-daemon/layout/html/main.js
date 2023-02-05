@@ -2418,7 +2418,7 @@ var BackendService = /** @class */ (function () {
         this.asyncCall('transfer', params, callback);
     };
     BackendService.prototype.validateAddress = function (address, callback) {
-        //this.runCommand('validate_address', address, callback);
+        this.runCommand('validate_address', address, callback);
     };
     BackendService.prototype.setClipboard = function (str, callback) {
         return this.runCommand('set_clipboard', str, callback);
