@@ -3160,7 +3160,7 @@ var VariablesService = /** @class */ (function () {
             appLockTime: 15,
             appLog: 0,
             scale: 8,
-            appUseTor: true,
+            appUseTor: false,
             language: 'en',
             default_path: '/',
             viewedContracts: [],
