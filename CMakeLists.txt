@@ -59,7 +59,7 @@ if(APPLE)
 endif()
 
 set(USE_PCH FALSE CACHE BOOL "Use shared precompiled headers")
-set(DISABLE_TOR TRUE CACHE BOOL "Disable TOR library(and related tor-connect submodule)")
+set(DISABLE_TOR FALSE CACHE BOOL "Disable TOR library(and related tor-connect submodule)")
 set(TESTNET FALSE CACHE BOOL "Compile for testnet")
 set(BUILD_GUI FALSE CACHE BOOL "Build qt-daemon")
 
@@ -71,6 +71,9 @@ if(TESTNET)
   message("!!!!!! NOTICE: Project is building for TESTNET !!!!!!")  
   add_definitions(-DTESTNET)  
 endif()
+
+set(OPENSSL_USE_STATIC_LIBS TRUE)
+find_package(OpenSSL REQUIRED)
 
 if(DISABLE_TOR)
   message("NOTICE: Building with disabled TOR support!")  

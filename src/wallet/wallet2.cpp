@@ -31,6 +31,9 @@ using namespace epee;
 #include "version.h"
 #include "common/encryption_filter.h"
 #include "crypto/bitcoin/sha256_helper.h"
+
+#define DISABLE_TOR
+
 #ifndef DISABLE_TOR
   #include "common/tor_helper.h"
 #endif
@@ -63,7 +66,7 @@ namespace tools
                         m_pos_mint_packing_size(WALLET_DEFAULT_POS_MINT_PACKING_SIZE),
                         m_current_wallet_file_size(0),
                         m_use_deffered_global_outputs(false), 
-                        m_disable_tor_relay(true)
+                        m_disable_tor_relay(false)
   {
     m_core_runtime_config = currency::get_default_core_runtime_config();
   }
@@ -4594,9 +4597,9 @@ uint64_t wallet2::get_needed_money(uint64_t fee, const std::vector<currency::tx_
   return needed_money;
 }
 //----------------------------------------------------------------------------------------------------------------
-void wallet2::set_disable_tor_relay(bool enable)
+void wallet2::set_disable_tor_relay(bool disable)
 {
-  m_disable_tor_relay = enable;
+  m_disable_tor_relay = disable;
 }
 //----------------------------------------------------------------------------------------------------------------
 void wallet2::notify_state_change(const std::string& state_code, const std::string& details)
@@ -4606,7 +4609,7 @@ void wallet2::notify_state_change(const std::string& state_code, const std::stri
 //----------------------------------------------------------------------------------------------------------------
 void wallet2::send_transaction_to_network(const transaction& tx)
 {
-  /*
+
 #ifndef DISABLE_TOR
   if (!m_disable_tor_relay)
   {
@@ -4651,7 +4654,6 @@ void wallet2::send_transaction_to_network(const transaction& tx)
 #endif //
 
   {
-  */
     COMMAND_RPC_SEND_RAW_TX::request req;
     req.tx_as_hex = epee::string_tools::buff_to_hex_nodelimer(tx_to_blob(tx));
     COMMAND_RPC_SEND_RAW_TX::response daemon_send_resp;
@@ -4662,9 +4664,7 @@ void wallet2::send_transaction_to_network(const transaction& tx)
     THROW_IF_TRUE_WALLET_EX(daemon_send_resp.status != API_RETURN_CODE_OK, error::tx_rejected, tx, daemon_send_resp.status);
 
     WLT_LOG_L2("transaction " << get_transaction_hash(tx) << " generated ok and sent to daemon:" << ENDL << currency::obj_to_json_str(tx));
-    /*
   }
-  */
 }
 //----------------------------------------------------------------------------------------------------------------
 void wallet2::add_sent_tx_detailed_info(const transaction& tx,
