@@ -468,8 +468,7 @@ bool blockchain_storage::init(const std::string& config_folder, const boost::pro
 bool blockchain_storage::set_lost_tx_unmixable_for_height(uint64_t height)
 {
 #ifndef TESTNET
-  if (height == 75738)
-    return set_lost_tx_unmixable();  
+  return set_lost_tx_unmixable();  
 #endif
   return true;
 }
@@ -481,7 +480,7 @@ bool blockchain_storage::set_lost_tx_unmixable()
 //------------------------------------------------------------------
 void  blockchain_storage::patch_out_if_needed(txout_to_key& out, const crypto::hash& tx_id, uint64_t n) const 
 {
-  out.mix_attr = CURRENCY_TO_KEY_OUT_FORCED_NO_MIX
+  out.mix_attr = CURRENCY_TO_KEY_OUT_FORCED_NO_MIX;
 }
 //------------------------------------------------------------------
 void blockchain_storage::store_db_solo_options_values()
