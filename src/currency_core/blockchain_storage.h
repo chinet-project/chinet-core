@@ -781,7 +781,7 @@ namespace currency
       {
         CHECKED_GET_SPECIFIC_VARIANT(tx_ptr->tx.vout[n].target, const txout_to_key, outtk, false);
         //fix for burned money
-        patch_out_if_needed(const_cast<txout_to_key&>(outtk), tx_id, n);
+        //patch_out_if_needed(const_cast<txout_to_key&>(outtk), tx_id, n);
 
         bool mixattr_ok = is_mixattr_applicable_for_fake_outs_counter(outtk.mix_attr, key_offsets.size() - 1);
         CHECK_AND_ASSERT_MES(mixattr_ok, false, "tx output #" << output_index << " violates mixin restrictions: mix_attr = " << static_cast<uint32_t>(outtk.mix_attr) << ", key_offsets.size = " << key_offsets.size());
