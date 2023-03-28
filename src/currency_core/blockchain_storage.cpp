@@ -6840,5 +6840,3 @@ bool blockchain_storage::validate_alt_block_txs(const block& b, const crypto::ha
 
   return true;
 }
-
-
